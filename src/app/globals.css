@@ -1,0 +1,263 @@
+/* ====================================
+   FUN BOOKS PUBLISHER - Design System
+   Colors inspired by logo
+   ==================================== */
+
+@import "tailwindcss";
+
+:root {
+  /* Primary Colors from Logo */
+  --color-purple: #8B5CF6;
+  --color-purple-dark: #7C3AED;
+  --color-orange: #F97316;
+  --color-orange-light: #FB923C;
+  --color-blue: #3B82F6;
+  --color-pink: #EC4899;
+  
+  /* Gradient combinations */
+  --gradient-primary: linear-gradient(135deg, var(--color-purple) 0%, var(--color-pink) 50%, var(--color-orange) 100%);
+  --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f97316 100%);
+  --gradient-card: linear-gradient(145deg, rgba(139, 92, 246, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
+  
+  /* Neutrals */
+  --color-bg: #FAFAFA;
+  --color-bg-dark: #1a1a2e;
+  --color-text: #1F2937;
+  --color-text-light: #6B7280;
+  --color-white: #FFFFFF;
+  
+  /* Shadows */
+  --shadow-soft: 0 4px 20px rgba(139, 92, 246, 0.15);
+  --shadow-hover: 0 8px 30px rgba(139, 92, 246, 0.25);
+}
+
+/* Dark mode */
+.dark {
+  --color-bg: #0f0f1a;
+  --color-bg-dark: #1a1a2e;
+  --color-text: #F9FAFB;
+  --color-text-light: #9CA3AF;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated gradient background */
+.animated-gradient {
+  background: linear-gradient(-45deg, #667eea, #764ba2, #f97316, #ec4899);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Card Styles */
+.book-card {
+  background: var(--color-white);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+.book-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Button Styles */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+}
+
+/* Input Styles */
+.input-email {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  background: var(--color-white);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input-email:focus {
+  border-color: var(--color-purple);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+}
+
+/* Category Pills */
+.category-pill {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.category-pill.monochrome {
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  color: white;
+}
+
+.category-pill.coloring {
+  background: linear-gradient(135deg, var(--color-purple), var(--color-pink));
+  color: white;
+}
+
+.category-pill.activity {
+  background: linear-gradient(135deg, var(--color-orange), #fbbf24);
+  color: white;
+}
+
+.category-pill.kids {
+  background: linear-gradient(135deg, var(--color-blue), #06b6d4);
+  color: white;
+}
+
+.category-pill.puzzles {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-hero);
+  opacity: 0.05;
+  z-index: 0;
+}
+
+/* Floating animation for books */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Section spacing */
+.section {
+  padding: 5rem 0;
+}
+
+/* Grid for books */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Social links */
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--gradient-card);
+  color: var(--color-purple);
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  transform: scale(1.1);
+  background: var(--gradient-primary);
+  color: white;
+}
+
+/* Landing Page Specific */
+.landing-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+}
+
+.landing-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  max-width: 500px;
+  width: 100%;
+}
