@@ -1,0 +1,158 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "books": "Libros",
+    "about": "Nosotros",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "faq": "FAQ",
+    "shopAmazon": "Comprar en Amazon",
+    "categories": {
+      "inkBliss": "Serie Ink Bliss",
+      "coloring": "Colorear Clásico",
+      "puzzles": "Puzzles y Actividades",
+      "spanish": "En Español",
+      "kids": "Niños y Educación"
+    }
+  },
+  "hero": {
+    "label": "Editorial Premium",
+    "titleLine1": "Donde la Creatividad",
+    "titleLine2": "Encuentra su Propósito",
+    "subtitle": "Libros de colorear, puzzles mentales y guías educativas — creados para adultos, niños y mentes curiosas.",
+    "ctaPrimary": "Explorar Nuestros Libros",
+    "ctaSecondary": "Comprar en Amazon"
+  },
+  "stats": {
+    "books": "Libros Publicados",
+    "readers": "Lectores Felices",
+    "bestsellers": "Bestsellers",
+    "rating": "Valoración Media"
+  },
+  "featured": {
+    "title": "Libros Destacados",
+    "subtitle": "Seleccionados de nuestra colección — desde arte terapia monocromo hasta puzzles para estimular el cerebro.",
+    "viewAll": "Ver Todos los Libros",
+    "buyOnAmazon": "Comprar en Amazon",
+    "learnMore": "Saber Más"
+  },
+  "categories": {
+    "title": "Explorar por Categoría",
+    "subtitle": "Encuentra exactamente lo que buscas — publicamos en cinco categorías únicas.",
+    "viewCategory": "Ver Colección",
+    "booksCount": "{count, plural, one {# libro} other {# libros}}"
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen los Lectores",
+    "subtitle": "Reseñas reales de clientes reales en Amazon."
+  },
+  "newsletter": {
+    "title": "No Te Pierdas Ningún Lanzamiento",
+    "subtitle": "Únete a nuestra comunidad y sé el primero en conocer nuevos libros, descargas gratuitas y contenido exclusivo.",
+    "placeholder": "Tu email",
+    "button": "Suscribirse",
+    "privacy": "Respetamos tu privacidad. Cancela cuando quieras.",
+    "success": "¡Bienvenido! Revisa tu email para una sorpresa.",
+    "error": "Algo salió mal. Inténtalo de nuevo.",
+    "socialProof": "Únete a más de 100K lectores satisfechos"
+  },
+  "social": {
+    "title": "Únete a la Comunidad",
+    "subtitle": "Síguenos para consejos de colorear, nuevos lanzamientos e inspiración creativa.",
+    "ctaAmazon": "Explorar Todos los Libros en Amazon"
+  },
+  "footer": {
+    "brand": "Fun Books Publisher",
+    "tagline": "Creando libros que inspiran creatividad, estimulan la mente y nutren el bienestar.",
+    "quickLinks": "Enlaces Rápidos",
+    "collections": "Colecciones",
+    "stayConnected": "Mantente Conectado",
+    "copyright": "© 2026 Fun Books Publisher. Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "refunds": "Devoluciones",
+    "amazonAuthor": "Página de Autor en Amazon"
+  },
+  "bookDetail": {
+    "buyOnAmazon": "Comprar en Amazon",
+    "specifications": "Especificaciones",
+    "pages": "Páginas",
+    "language": "Idioma",
+    "format": "Formato",
+    "paperback": "Tapa blanda",
+    "dimensions": "Dimensiones",
+    "category": "Categoría",
+    "author": "Autor",
+    "relatedBooks": "También Te Puede Gustar",
+    "backToCatalog": "Volver a Todos los Libros",
+    "rating": "Valoración en Amazon",
+    "english": "Inglés",
+    "spanish": "Español"
+  },
+  "catalog": {
+    "title": "Nuestros Libros",
+    "subtitle": "Explora nuestra colección completa — {count} títulos entre colorear, puzzles y educación.",
+    "filterAll": "Todos",
+    "noResults": "No se encontraron libros en esta categoría."
+  },
+  "about": {
+    "title": "Sobre Fun Books Publisher",
+    "subtitle": "Un equipo pequeño con una gran misión: crear libros que marquen una diferencia real en la vida diaria de las personas.",
+    "mission": "Nuestra Misión",
+    "missionText": "Creemos que los mejores libros son aquellos a los que vuelves — los que te ayudan a ir más despacio, pensar con claridad o simplemente disfrutar de un momento tranquilo. Eso es lo que creamos.",
+    "story": "Nuestra Historia",
+    "storyText": "Fun Books Publisher comenzó con una idea simple: crear libros de colorear que los adultos realmente quieran usar. No infantiles, no abrumadores — solo páginas bellamente diseñadas que te invitan a coger un bolígrafo y respirar. Hoy publicamos en cinco categorías — desde arte terapia monocromo hasta puzzles para el cerebro, desde guías educativas para niños hasta libros en español. Cada libro está hecho con cuidado, probado por usuarios reales y disponible en todo el mundo en Amazon.",
+    "values": "Lo Que Defendemos",
+    "quality": "Calidad Sobre Cantidad",
+    "qualityText": "Cada diseño está hecho a mano. Cada página está probada. Preferimos publicar un gran libro que diez mediocres.",
+    "accessibility": "Accesible para Todos",
+    "accessibilityText": "Libros en inglés y español, disponibles en todo el mundo a través de Amazon, a precios justos.",
+    "purpose": "Libros Con Propósito",
+    "purposeText": "Ya sea alivio del estrés, entrenamiento cerebral o pura diversión — cada título que publicamos tiene un propósito claro."
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "¿Tienes una pregunta, comentario o idea de colaboración? Nos encantaría saber de ti.",
+    "name": "Tu Nombre",
+    "email": "Tu Email",
+    "message": "Tu Mensaje",
+    "send": "Enviar Mensaje",
+    "success": "¡Mensaje enviado! Te responderemos pronto.",
+    "error": "Algo salió mal. Inténtalo de nuevo."
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Todo lo que necesitas saber sobre nuestros libros, envíos y más.",
+    "questions": {
+      "q1": "¿Dónde puedo comprar vuestros libros?",
+      "a1": "Todos nuestros libros están disponibles exclusivamente en Amazon. Enviamos a todo el mundo a través de la red de distribución de Amazon.",
+      "q2": "¿Están disponibles como eBooks o PDFs?",
+      "a2": "Nuestros libros de colorear y actividades son solo en papel — están diseñados para usar con bolígrafos y lápices reales.",
+      "q3": "¿Qué calidad de papel usan los libros de colorear?",
+      "a3": "Usamos papel de calidad premium que evita que la tinta traspase con la mayoría de rotuladores y lápices de colores. Cada página está impresa por un solo lado para la mejor experiencia.",
+      "q4": "¿Ofrecen bonus digitales gratuitos?",
+      "a4": "¡Sí! Muchos de nuestros libros incluyen páginas bonus descargables gratis. Busca la sección de bonus en la página de detalle de cada libro.",
+      "q5": "¿Puedo devolver un libro si no estoy satisfecho?",
+      "a5": "Por supuesto. Todas las compras están cubiertas por la política de devoluciones estándar de Amazon. Si no estás contento, puedes devolver el libro en 30 días.",
+      "q6": "¿Publican en idiomas distintos al inglés?",
+      "a6": "¡Sí! Tenemos una colección creciente de libros en español, incluyendo libros de puzzles y ejercicios cognitivos para personas mayores.",
+      "q7": "¿Cómo puedo contactaros para consultas comerciales?",
+      "a7": "Por favor usa nuestra página de Contacto o envíanos un email directamente. Estamos abiertos a colaboraciones, pedidos al por mayor y solicitudes de medios."
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Consejos, ideas e historias del mundo de la publicación creativa.",
+    "readMore": "Leer Más",
+    "backToBlog": "Volver al Blog",
+    "noPosts": "Aún no hay artículos. ¡Vuelve pronto!",
+    "enjoyedPost": "¿Te gustó este artículo? Explora nuestra colección.",
+    "exploreBooks": "Explorar Nuestros Libros"
+  },
+  "common": {
+    "readMore": "Leer Más",
+    "viewAll": "Ver Todo",
+    "loading": "Cargando...",
+    "backToHome": "Volver al Inicio"
+  }
+}

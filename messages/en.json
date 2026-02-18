@@ -1,0 +1,158 @@
+{
+  "nav": {
+    "home": "Home",
+    "books": "Books",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "shopAmazon": "Shop on Amazon",
+    "categories": {
+      "inkBliss": "Ink Bliss Series",
+      "coloring": "Classic Coloring",
+      "puzzles": "Puzzles & Activity",
+      "spanish": "En Español",
+      "kids": "Kids & Education"
+    }
+  },
+  "hero": {
+    "label": "Premium Publishing House",
+    "titleLine1": "Where Creativity",
+    "titleLine2": "Meets Purpose",
+    "subtitle": "Coloring books, brain puzzles, and educational guides — crafted for adults, kids, and curious minds everywhere.",
+    "ctaPrimary": "Explore Our Books",
+    "ctaSecondary": "Shop on Amazon"
+  },
+  "stats": {
+    "books": "Published Books",
+    "readers": "Happy Readers",
+    "bestsellers": "Bestsellers",
+    "rating": "Average Rating"
+  },
+  "featured": {
+    "title": "Featured Books",
+    "subtitle": "Handpicked from our collection — from monochrome art therapy to brain-boosting puzzles.",
+    "viewAll": "View All Books",
+    "buyOnAmazon": "Buy on Amazon",
+    "learnMore": "Learn More"
+  },
+  "categories": {
+    "title": "Browse by Category",
+    "subtitle": "Find exactly what you're looking for — we publish across five unique categories.",
+    "viewCategory": "View Collection",
+    "booksCount": "{count, plural, one {# book} other {# books}}"
+  },
+  "testimonials": {
+    "title": "What Readers Say",
+    "subtitle": "Real reviews from real customers on Amazon."
+  },
+  "newsletter": {
+    "title": "Never Miss a Release",
+    "subtitle": "Join our community and be the first to know about new books, free downloads, and exclusive content.",
+    "placeholder": "Enter your email",
+    "button": "Subscribe",
+    "privacy": "We respect your privacy. Unsubscribe anytime.",
+    "success": "Welcome aboard! Check your email for a surprise.",
+    "error": "Something went wrong. Please try again.",
+    "socialProof": "Join 100K+ satisfied readers"
+  },
+  "social": {
+    "title": "Join the Community",
+    "subtitle": "Follow us for coloring tips, new releases, and creative inspiration.",
+    "ctaAmazon": "Explore All Books on Amazon"
+  },
+  "footer": {
+    "brand": "Fun Books Publisher",
+    "tagline": "Crafting books that inspire creativity, sharpen minds, and nurture wellbeing.",
+    "quickLinks": "Quick Links",
+    "collections": "Collections",
+    "stayConnected": "Stay Connected",
+    "copyright": "© 2026 Fun Books Publisher. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "refunds": "Refunds",
+    "amazonAuthor": "Amazon Author Page"
+  },
+  "bookDetail": {
+    "buyOnAmazon": "Buy on Amazon",
+    "specifications": "Specifications",
+    "pages": "Pages",
+    "language": "Language",
+    "format": "Format",
+    "paperback": "Paperback",
+    "dimensions": "Dimensions",
+    "category": "Category",
+    "author": "Author",
+    "relatedBooks": "You May Also Like",
+    "backToCatalog": "Back to All Books",
+    "rating": "Amazon Rating",
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "catalog": {
+    "title": "Our Books",
+    "subtitle": "Explore our full collection — {count} titles across coloring, puzzles, and education.",
+    "filterAll": "All",
+    "noResults": "No books found in this category."
+  },
+  "about": {
+    "title": "About Fun Books Publisher",
+    "subtitle": "A small team with a big mission: creating books that make a real difference in people's daily lives.",
+    "mission": "Our Mission",
+    "missionText": "We believe that the best books are the ones you come back to — the ones that help you slow down, think clearly, or simply enjoy a quiet moment. That's what we create.",
+    "story": "Our Story",
+    "storyText": "Fun Books Publisher started with a simple idea: create coloring books that adults actually want to use. Not childish, not overwhelming — just beautifully designed pages that invite you to pick up a pen and breathe. Today, we publish across five categories — from monochrome art therapy to brain-boosting puzzles, from kids' educational guides to books in Spanish. Every book is crafted with care, tested by real users, and available worldwide on Amazon.",
+    "values": "What We Stand For",
+    "quality": "Quality Over Quantity",
+    "qualityText": "Every design is hand-crafted. Every page is tested. We'd rather publish one great book than ten mediocre ones.",
+    "accessibility": "Accessible to Everyone",
+    "accessibilityText": "Books in English and Spanish, available worldwide through Amazon, at prices that feel fair.",
+    "purpose": "Books With Purpose",
+    "purposeText": "Whether it's stress relief, brain training, or pure fun — every title we publish serves a clear purpose."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have a question, feedback, or a collaboration idea? We'd love to hear from you.",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "send": "Send Message",
+    "success": "Message sent! We'll get back to you soon.",
+    "error": "Something went wrong. Please try again."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our books, shipping, and more.",
+    "questions": {
+      "q1": "Where can I buy your books?",
+      "a1": "All our books are available exclusively on Amazon. We ship worldwide through Amazon's fulfillment network.",
+      "q2": "Are your books available as eBooks or PDFs?",
+      "a2": "Our coloring and activity books are paperback only — they're designed to be used with real pens and pencils.",
+      "q3": "What paper quality do your coloring books use?",
+      "a3": "We use premium quality paper that prevents bleed-through with most markers and colored pencils. Each page is printed on one side only for the best coloring experience.",
+      "q4": "Do you offer free digital bonuses?",
+      "a4": "Yes! Many of our books include free downloadable bonus pages. Look for the bonus section on each book's detail page.",
+      "q5": "Can I return a book if I'm not satisfied?",
+      "a5": "Absolutely. All purchases are covered by Amazon's standard return policy. If you're not happy, you can return the book within 30 days.",
+      "q6": "Do you publish in languages other than English?",
+      "a6": "Yes! We have a growing collection of books in Spanish, including puzzle books and cognitive exercise books for seniors.",
+      "q7": "How can I contact you for business inquiries?",
+      "a7": "Please use our Contact page or email us directly. We're open to collaborations, bulk orders, and media requests."
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Tips, insights, and stories from the world of creative publishing.",
+    "readMore": "Read More",
+    "backToBlog": "Back to Blog",
+    "noPosts": "No posts yet. Check back soon!",
+    "enjoyedPost": "Enjoyed this article? Explore our book collection.",
+    "exploreBooks": "Explore Our Books"
+  },
+  "common": {
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "loading": "Loading...",
+    "backToHome": "Back to Home"
+  }
+}
