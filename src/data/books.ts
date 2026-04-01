@@ -538,4 +538,33 @@ export const BOOKS: Book[] = [
     keywords: ["peptides", "anti-aging", "biohacking", "health", "optimization"],
     sortOrder: 17,
   },
+
+  // ============ NEW — SPOOKY KAWAII ============
+  {
+    id: "spooky-kawaii",
+    title: "Monochrome Coloring Book: Spooky Kawaii – Black & White Cute Halloween",
+    titleEs: "Libro de Colorear Monocromo: Spooky Kawaii – Edición Halloween en Blanco y Negro",
+    subtitle: "Ink Bliss Series",
+    description:
+      "50 adorable yet creepy kawaii designs — cute ghosts, witches, pumpkins, and spooky creatures in one-color monochrome style. The perfect Halloween coloring book for adults and teens who love kawaii art.",
+    descriptionEs:
+      "50 diseños kawaii adorables y espeluznantes — fantasmas, brujas, calabazas y criaturas misteriosas en estilo monocromo de un solo color. El libro de colorear Halloween perfecto para adultos y jóvenes que aman el arte kawaii.",
+    asin: "",
+    amazonUrl: "",
+    price: 8.99,
+    category: "ink-bliss",
+    categoryLabel: "Ink Bliss Series",
+    author: "Fun Books Publisher",
+    language: "en",
+    coverImage: "/covers/spooky-kawaii.png",
+    pages: 108,
+    isBestseller: false,
+    isActive: false,
+    isSeasonal: true,
+    rating: null,
+    reviewCount: 0,
+    keywords: ["spooky kawaii", "halloween coloring book", "kawaii coloring", "cute halloween", "monochrome", "black and white", "one color", "adults teens"],
+    sortOrder: 18,
+    bonusPdf: "/downloads/spooky-kawaii-bonus.pdf",
+  },
 ];
