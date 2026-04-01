@@ -1,37 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { BOOKS, BOOK_ALIASES } from "@/data/books";
 
-// Base URL for PDFs (served from /public/downloads/ via Vercel)
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fun-books-publisher.vercel.app";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://funbookspublisher.com";
 
-// Book data with relative PDF paths
-const booksData: Record<string, {
-  title: string;
-  pdfPath: string;
-}> = {
-  "monochrome-vol-4": {
-    title: "The Power of Black & White",
-    pdfPath: "/downloads/power-of-black-and-white.pdf",
-  },
-  "monochrome-ink-bliss": {
-    title: "Ink Bliss Monochrome",
-    pdfPath: "/downloads/ink-bliss.pdf",
-  },
-  "monochrome-tattoo": {
-    title: "Tattoo Monochrome",
-    pdfPath: "/downloads/ink-bliss.pdf", // Uses ink-bliss PDF (tattoo PDF not yet created)
-  },
-  "monochrome-vol-3": {
-    title: "Animal Collection",
-    pdfPath: "/downloads/animal-collection.pdf",
-  },
-  "monochrome-mandala": {
-    title: "Mandala Monochrome",
-    pdfPath: "/downloads/monochrome-mandala.pdf",
-  },
-};
+// Resolve any slug/alias/ASIN to a book
+function resolveBook(bookId: string) {
+  // Direct match
+  let book = BOOKS.find((b) => b.id === bookId);
+  if (book) return book;
 
-// Lazy Supabase init - only connect if env vars exist
+  // Alias match (old IDs printed in books)
+  const canonical = BOOK_ALIASES[bookId];
+  if (canonical) book = BOOKS.find((b) => b.id === canonical);
+  if (book) return book;
+
+  // ASIN match
+  book = BOOKS.find((b) => b.asin === bookId);
+  return book || null;
+}
+
 function getSupabase() {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -54,39 +42,39 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const book = booksData[bookId];
-    if (!book) {
+    const book = resolveBook(bookId);
+    if (!book || !book.bonusPdf) {
       return NextResponse.json(
-        { error: "Book not found" },
+        { error: "Book not found or no bonus available" },
         { status: 404 }
       );
     }
 
-    const pdfUrl = `${BASE_URL}${book.pdfPath}`;
+    const pdfUrl = `${BASE_URL}${book.bonusPdf}`;
 
-    // Try to save to Supabase (non-blocking - NEVER fails the request)
+    // Save to Supabase (non-blocking)
     let dbSaved = false;
     try {
       const supabase = getSupabase();
       if (supabase) {
         const { error: dbError } = await supabase
           .from("fbp_subscribers")
-          .upsert({
-            email,
-            book_id: bookId,
-            source: "bonus_landing",
-            subscribed_at: new Date().toISOString(),
-          }, {
-            onConflict: "email,book_id",
-          });
+          .upsert(
+            {
+              email,
+              book_id: book.id,
+              source: "bonus_landing",
+              subscribed_at: new Date().toISOString(),
+            },
+            { onConflict: "email,book_id" }
+          );
         if (!dbError) dbSaved = true;
-        else console.error("Supabase error (non-fatal):", dbError.message);
       }
-    } catch (e) {
-      console.error("Supabase connection failed (non-fatal):", e);
+    } catch {
+      // Non-fatal
     }
 
-    // Try to send email via Resend (non-blocking - NEVER fails the request)
+    // Send email via Resend (non-blocking)
     let emailSent = false;
     try {
       const { Resend } = await import("resend");
@@ -104,26 +92,17 @@ export async function POST(request: NextRequest) {
             <body style="font-family: 'Segoe UI', Tahoma, sans-serif; background: #f5f5f5; margin: 0; padding: 20px;">
               <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
                 <div style="background: linear-gradient(135deg, #8B5CF6, #F97316); padding: 30px;">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td width="60" style="vertical-align: middle;">
-                        <img src="${BASE_URL}/logo.png" alt="FBP" width="55" height="55" style="display: block;">
-                      </td>
-                      <td style="vertical-align: middle; padding-left: 15px;">
-                        <h1 style="color: white; margin: 0; font-size: 24px; font-weight: 800;">YOUR FREE DOWNLOAD</h1>
-                        <p style="color: rgba(255,255,255,0.9); margin: 5px 0 0; font-size: 14px;">From Fun Books Publisher LLC</p>
-                      </td>
-                    </tr>
-                  </table>
+                  <h1 style="color: white; margin: 0; font-size: 24px; font-weight: 800;">YOUR FREE DOWNLOAD</h1>
+                  <p style="color: rgba(255,255,255,0.9); margin: 5px 0 0; font-size: 14px;">From Fun Books Publisher LLC</p>
                 </div>
                 <div style="padding: 40px 30px;">
-                  <h2 style="color: #1F2937; margin: 0 0 20px;">Hello Colorist!</h2>
+                  <h2 style="color: #1F2937; margin: 0 0 20px;">Hello!</h2>
                   <p style="color: #4B5563; line-height: 1.6;">
                     Thank you for choosing <strong>Fun Books Publisher</strong>!<br>
-                    Here is your secure digital copy of <strong>${book.title}</strong>.
+                    Here is your free bonus content for <strong>${book.title}</strong>.
                   </p>
                   <div style="text-align: center; margin: 35px 0;">
-                    <a href="${pdfUrl}" style="display: inline-block; background: linear-gradient(135deg, #8B5CF6, #F97316); color: white; text-decoration: none; padding: 18px 45px; border-radius: 50px; font-weight: bold; font-size: 18px; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);">
+                    <a href="${pdfUrl}" style="display: inline-block; background: linear-gradient(135deg, #8B5CF6, #F97316); color: white; text-decoration: none; padding: 18px 45px; border-radius: 50px; font-weight: bold; font-size: 18px;">
                       Download Your PDF
                     </a>
                   </div>
@@ -138,7 +117,7 @@ export async function POST(request: NextRequest) {
                 </div>
                 <div style="background: #1F2937; padding: 20px; text-align: center;">
                   <p style="color: #9CA3AF; margin: 0; font-size: 12px;">
-                    © ${new Date().getFullYear()} Fun Books Publisher LLC • Wyoming, USA
+                    &copy; ${new Date().getFullYear()} Fun Books Publisher LLC &bull; Wyoming, USA
                   </p>
                 </div>
               </div>
@@ -147,21 +126,17 @@ export async function POST(request: NextRequest) {
           `,
         });
         if (!emailError) emailSent = true;
-        else console.error("Resend error (non-fatal):", emailError);
       }
-    } catch (e) {
-      console.error("Resend failed (non-fatal):", e);
+    } catch {
+      // Non-fatal
     }
 
-    // ALWAYS return success with the download URL
-    // Customer gets their PDF regardless of Supabase/Resend status
     return NextResponse.json({
       success: true,
       downloadUrl: pdfUrl,
       emailSent,
       dbSaved,
     });
-
   } catch (error) {
     console.error("API error:", error);
     return NextResponse.json(

@@ -41,3 +41,15 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# Python scripts (utility/NDS scripts, not part of this web project)
+*.py
+__pycache__/
+
+# Audit/report files
+*_report.json
+*_results.json
+*_results.txt
+vds_check.txt
+sample_metadata.json
+.agents/

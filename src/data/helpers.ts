@@ -1,4 +1,4 @@
-import { BOOKS, type Book, type BookCategory } from "./books";
+import { BOOKS, BOOK_ALIASES, type Book, type BookCategory } from "./books";
 
 export function getActiveBooks(): Book[] {
   return BOOKS.filter((b) => b.isActive).sort((a, b) => a.sortOrder - b.sortOrder);
@@ -10,6 +10,20 @@ export function getBooksByCategory(category: BookCategory): Book[] {
 
 export function getBookBySlug(slug: string): Book | undefined {
   return BOOKS.find((b) => b.id === slug);
+}
+
+// Resolves a slug OR old alias to a book. Used by bonus landing pages.
+export function getBookBySlugOrAlias(slug: string): Book | undefined {
+  const direct = BOOKS.find((b) => b.id === slug);
+  if (direct) return direct;
+  const canonicalId = BOOK_ALIASES[slug];
+  if (canonicalId) return BOOKS.find((b) => b.id === canonicalId);
+  // Also try matching by ASIN
+  return BOOKS.find((b) => b.asin === slug);
+}
+
+export function getBooksWithBonus(): Book[] {
+  return BOOKS.filter((b) => b.isActive && b.bonusPdf);
 }
 
 export function getFeaturedBooks(count = 6): Book[] {

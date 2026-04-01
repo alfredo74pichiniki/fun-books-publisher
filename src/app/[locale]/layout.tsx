@@ -5,10 +5,6 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { ScrollProgress } from "@/components/effects/ScrollProgress";
-import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { OrganizationJsonLd } from "@/components/JsonLd";
 import { MetaPixel } from "@/components/MetaPixel";
 import "../globals.css";
@@ -71,12 +67,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="antialiased bg-navy-950 text-white">
         <MetaPixel />
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <SmoothScrollProvider>
-            <ScrollProgress />
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </SmoothScrollProvider>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

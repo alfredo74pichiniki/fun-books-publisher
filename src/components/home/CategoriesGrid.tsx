@@ -23,7 +23,6 @@ export function CategoriesGrid() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Header reveal
             gsap.from('.cat-header', {
                 scrollTrigger: {
                     trigger: sectionRef.current,
@@ -36,7 +35,6 @@ export function CategoriesGrid() {
                 ease: "power3.out",
             });
 
-            // Cards stagger
             if (cardsRef.current) {
                 gsap.from(cardsRef.current.children, {
                     scrollTrigger: {
@@ -57,13 +55,19 @@ export function CategoriesGrid() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="py-20 sm:py-28 bg-navy-900">
-            <div className="max-w-7xl mx-auto px-6">
+        <section ref={sectionRef} className="py-20 sm:py-32 bg-navy-900 relative overflow-hidden">
+            {/* Subtle background accents */}
+            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-text-from/5 rounded-full blur-[200px]" />
+            <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[200px]" />
+
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header */}
-                <div className="cat-header text-center mb-14">
+                <div className="cat-header text-center mb-16">
+                    <p className="section-label mb-4">Categories</p>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
                         {t('title')}
                     </h2>
+                    <div className="section-divider mb-6" />
                     <p className="text-white/50 text-base sm:text-lg max-w-2xl mx-auto">
                         {t('subtitle')}
                     </p>
@@ -78,15 +82,20 @@ export function CategoriesGrid() {
                             <Link
                                 key={cat.id}
                                 href={`/books?category=${cat.id}`}
-                                className="glass-card group p-6 sm:p-8 flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20"
+                                className="glass-card group p-7 sm:p-8 flex flex-col gap-4 relative overflow-hidden"
+                                style={{ perspective: '1000px' }}
                             >
-                                {/* Icon */}
-                                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center shadow-lg`}>
-                                    <Icon className="w-6 h-6 text-white" />
+                                {/* Subtle gradient overlay unique per category */}
+                                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br ${cat.gradient} rounded-[1.25rem]`}
+                                    style={{ opacity: 0.05 }} />
+
+                                {/* Icon — larger with gradient bg */}
+                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center shadow-lg shadow-black/20 group-hover:scale-110 transition-transform duration-300`}>
+                                    <Icon className="w-7 h-7 text-white" />
                                 </div>
 
                                 {/* Name */}
-                                <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors">
+                                <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors duration-300">
                                     {locale === 'es' ? cat.nameEs : cat.name}
                                 </h3>
 
@@ -97,10 +106,10 @@ export function CategoriesGrid() {
 
                                 {/* Book count + arrow */}
                                 <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
-                                    <span className="text-white/30 text-xs uppercase tracking-wider">
+                                    <span className="text-white/30 text-xs uppercase tracking-wider font-medium">
                                         {t('booksCount', { count })}
                                     </span>
-                                    <span className="text-accent text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span className="text-accent text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
                                         {t('viewCategory')} &rarr;
                                     </span>
                                 </div>

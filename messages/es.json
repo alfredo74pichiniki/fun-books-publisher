@@ -87,7 +87,9 @@
     "backToCatalog": "Volver a Todos los Libros",
     "rating": "Valoración en Amazon",
     "english": "Inglés",
-    "spanish": "Español"
+    "spanish": "Español",
+    "getBonusPages": "Obtener Páginas Bonus Gratis",
+    "bonusSubtitle": "Descarga páginas interiores exclusivas incluidas con tu compra"
   },
   "catalog": {
     "title": "Nuestros Libros",
@@ -148,6 +150,32 @@
     "noPosts": "Aún no hay artículos. ¡Vuelve pronto!",
     "enjoyedPost": "¿Te gustó este artículo? Explora nuestra colección.",
     "exploreBooks": "Explorar Nuestros Libros"
+  },
+  "bonus": {
+    "freeBonus": "BONUS GRATIS INCLUIDO",
+    "title": "Tus Páginas Bonus Gratis",
+    "subtitle": "Descarga páginas interiores exclusivas como agradecimiento por tu compra.",
+    "thankYou": "¡Gracias por comprar este libro! Aquí tienes tus páginas bonus gratis — listas para imprimir y disfrutar.",
+    "emailLabel": "Recíbelo en tu email (recomendado)",
+    "emailPlaceholder": "tu@email.com",
+    "getBonus": "Enviar y Descargar",
+    "sending": "Enviando...",
+    "emailNote": "Te enviaremos el PDF y ocasionalmente nuevos lanzamientos. Cancela cuando quieras.",
+    "or": "o",
+    "downloadWithoutEmail": "Descargar directamente sin email",
+    "ready": "¡Tu Bonus Está Listo!",
+    "readySubtitle": "Haz clic en el botón para descargar tus páginas gratis.",
+    "downloadNow": "Descargar PDF Ahora",
+    "proTips": "Consejos para Mejores Resultados",
+    "tip1": "Imprime en cartulina (160gsm+) para evitar que la tinta traspase.",
+    "tip2": "Imprime al 100% de escala para resolución original.",
+    "tip3": "¡Etiquétanos con #FunBooksPublisher en redes sociales para ser destacado!",
+    "leaveReview": "Dejar Reseña en Amazon",
+    "exploreMore": "Explorar Más Libros",
+    "backToBook": "Volver al Libro",
+    "getBonusPages": "Obtener Páginas Bonus Gratis",
+    "notFound": "Bonus No Disponible",
+    "notFoundText": "Lo sentimos, las páginas bonus aún no están disponibles para este libro. ¡Vuelve pronto!"
   },
   "common": {
     "readMore": "Leer Más",

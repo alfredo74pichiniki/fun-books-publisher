@@ -36,7 +36,18 @@ export interface Book {
   reviewCount: number;
   keywords: string[];
   sortOrder: number;
+  bonusPdf?: string; // Path to bonus PDF in /public/downloads/
+  coverRatio?: string; // CSS aspect-ratio override (default '3/4'). Use '1/1' for square books.
 }
+
+// Alias map: old IDs (possibly printed in books) → canonical book IDs
+export const BOOK_ALIASES: Record<string, string> = {
+  "monochrome-vol-4": "cozy-escapes",
+  "power-black-white": "cozy-escapes",
+  "monochrome-ink-bliss": "ink-bliss-imagination",
+  "monochrome-tattoo": "tattoo-flash",
+  "monochrome-vol-3": "negative-space-animals",
+};
 
 export const BOOKS: Book[] = [
   // ============ INK BLISS SERIES (5) ============
@@ -65,6 +76,8 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["mandala", "monochrome", "coloring book", "stress relief", "adult coloring"],
     sortOrder: 1,
+    bonusPdf: "/downloads/monochrome-mandala.pdf",
+    coverRatio: "1/1",
   },
   {
     id: "ink-bliss-imagination",
@@ -91,6 +104,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["monochrome", "coloring book", "art therapy", "creative"],
     sortOrder: 2,
+    bonusPdf: "/downloads/ink-bliss.pdf",
   },
   {
     id: "negative-space-animals",
@@ -117,16 +131,17 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["negative space", "animals", "coloring book", "one color"],
     sortOrder: 3,
+    bonusPdf: "/downloads/animal-collection.pdf",
   },
   {
-    id: "power-black-white",
-    title: "Power of Black & White — Art Therapy Edition",
-    titleEs: "El Poder del Blanco y Negro — Edición Arte Terapia",
+    id: "cozy-escapes",
+    title: "Monochrome Coloring Book — Black & White Cozy Escapes",
+    titleEs: "Libro de Colorear Monocromo — Escapadas Acogedoras en Blanco y Negro",
     subtitle: "Ink Bliss Series",
     description:
-      "One-color masterpieces for adults and teens. Discover the therapeutic power of monochrome art with 50 carefully crafted designs.",
+      "50 cozy cottage scenes, fireplaces, rainy windows, and warm interiors designed for stress relief. One color, pure comfort. The ultimate relaxation coloring book for adults.",
     descriptionEs:
-      "Obras maestras a un solo color para adultos y adolescentes. Descubre el poder terapéutico del arte monocromo con 50 diseños cuidadosamente creados.",
+      "50 escenas acogedoras de cabañas, chimeneas, ventanas lluviosas e interiores cálidos diseñados para aliviar el estrés. Un color, pura comodidad.",
     asin: "B0FSZ9V9MS",
     amazonUrl: "https://www.amazon.com/dp/B0FSZ9V9MS",
     price: 8.99,
@@ -134,15 +149,16 @@ export const BOOKS: Book[] = [
     categoryLabel: "Ink Bliss Series",
     author: "Fun Books Publisher",
     language: "en",
-    coverImage: "/covers/power-black-white.png",
+    coverImage: "/covers/cozy-escapes.png",
     pages: 108,
     isBestseller: false,
     isActive: true,
     isSeasonal: false,
-    rating: null,
-    reviewCount: 0,
-    keywords: ["black and white", "art therapy", "monochrome", "coloring"],
+    rating: 4.8,
+    reviewCount: 40,
+    keywords: ["cozy escapes", "cottage", "hygge", "monochrome", "coloring book", "black and white", "stress relief", "one color"],
     sortOrder: 4,
+    bonusPdf: "/downloads/cozy-escapes.pdf",
   },
   {
     id: "tattoo-flash",
@@ -169,6 +185,35 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["tattoo", "flash", "blackwork", "old school", "neo traditional"],
     sortOrder: 5,
+    bonusPdf: "/downloads/tattoo-flash.pdf",
+  },
+
+  {
+    id: "botanicals",
+    title: "One-Color Botanicals & Nature Escapes — Ink Bliss Series",
+    titleEs: "Botánicos y Escenas Naturales a Un Color — Serie Ink Bliss",
+    subtitle: "Ink Bliss Series",
+    description:
+      "50 stunning botanical and nature designs for mindful coloring. Flowers, leaves, and serene landscapes brought to life with a single color.",
+    descriptionEs:
+      "50 impresionantes diseños botánicos y de naturaleza para colorear con atención plena. Flores, hojas y paisajes serenos que cobran vida con un solo color.",
+    asin: "B0D8FG7NDJ",
+    amazonUrl: "https://www.amazon.com/dp/B0D8FG7NDJ",
+    price: 8.99,
+    category: "ink-bliss",
+    categoryLabel: "Ink Bliss Series",
+    author: "Fun Books Publisher",
+    language: "en",
+    coverImage: "/covers/botanicals.png",
+    pages: 108,
+    isBestseller: false,
+    isActive: true,
+    isSeasonal: false,
+    rating: null,
+    reviewCount: 0,
+    keywords: ["botanicals", "nature", "flowers", "coloring book", "one color", "monochrome"],
+    sortOrder: 6,
+    bonusPdf: "/downloads/botanicals.pdf",
   },
 
   // ============ OTHER COLORING (3) ============
@@ -191,7 +236,7 @@ export const BOOKS: Book[] = [
     coverImage: "/covers/stress-relief-inspiration.png",
     pages: 100,
     isBestseller: false,
-    isActive: true,
+    isActive: false,
     isSeasonal: false,
     rating: null,
     reviewCount: 0,

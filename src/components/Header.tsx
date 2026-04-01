@@ -55,8 +55,8 @@ export function Header() {
     return (
         <>
             <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? 'bg-navy-950/90 backdrop-blur-xl shadow-lg shadow-black/20 py-3'
-                    : 'bg-transparent py-5'
+                ? 'bg-navy-950/90 backdrop-blur-xl shadow-lg shadow-black/20 py-3'
+                : 'bg-transparent py-5'
                 }`}>
                 <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
@@ -68,12 +68,17 @@ export function Header() {
                                 alt="Fun Books Publisher"
                                 width={48}
                                 height={48}
-                                className="w-full h-full object-contain rounded-full"
+                                className="w-full h-full object-contain rounded-xl"
                             />
                         </div>
-                        <span className="font-bold text-white tracking-tight hidden sm:inline-block text-lg group-hover:text-accent transition-colors">
-                            Fun Books
-                        </span>
+                        <div className="hidden sm:flex flex-col leading-tight">
+                            <span className="font-bold text-white tracking-tight text-base group-hover:text-accent transition-colors">
+                                Fun Books
+                            </span>
+                            <span className="text-white/40 text-[10px] uppercase tracking-[0.15em] font-medium">
+                                Publisher
+                            </span>
+                        </div>
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -137,7 +142,7 @@ export function Header() {
 
                         {/* Amazon CTA — hidden on mobile */}
                         <a
-                            href="https://www.amazon.com/stores/Fun-Books-Publisher/author/B0D6C6WQBV"
+                            href="https://www.amazon.com/author/funbookspublisher"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hidden sm:inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white py-2 px-5 text-sm font-semibold rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/30"
@@ -203,7 +208,7 @@ export function Header() {
                             {/* Mobile Amazon CTA */}
                             <div className="mt-6 px-4">
                                 <a
-                                    href="https://www.amazon.com/stores/Fun-Books-Publisher/author/B0D6C6WQBV"
+                                    href="https://www.amazon.com/author/funbookspublisher"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn-primary w-full justify-center !text-base"

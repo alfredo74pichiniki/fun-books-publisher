@@ -101,7 +101,7 @@ export function Footer() {
                             <FooterLink href="/faq" label={tNav("faq")} />
                             <li>
                                 <a
-                                    href="https://www.amazon.com/stores/Fun-Books-Publisher/author/B0D6C6WQBV"
+                                    href="https://www.amazon.com/author/funbookspublisher"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-white/50 hover:text-accent text-sm transition-colors"

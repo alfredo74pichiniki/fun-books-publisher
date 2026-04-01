@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Mail, Sparkles } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -57,53 +58,67 @@ export function NewsletterSection() {
     };
 
     return (
-        <section ref={sectionRef} className="py-20 sm:py-28 bg-navy-700 relative overflow-hidden">
-            {/* Warm accent glow */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(249,115,22,0.08),transparent_70%)]" />
+        <section ref={sectionRef} className="py-20 sm:py-32 bg-navy-800 relative overflow-hidden">
+            {/* Background decorations */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(249,115,22,0.06),transparent_60%)]" />
 
-            <div className="max-w-2xl mx-auto px-6 text-center relative z-10">
-                <h2 className="reveal text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-                    {t('title')}
-                </h2>
-                <p className="reveal text-white/55 text-base sm:text-lg mb-4 max-w-xl mx-auto">
-                    {t('subtitle')}
-                </p>
-                <p className="reveal text-accent/80 text-sm font-medium mb-10 flex items-center justify-center gap-2">
-                    <span className="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    {t('socialProof')}
-                </p>
+            {/* Floating decorative icons */}
+            <div className="absolute top-20 left-[10%] text-accent/10 animate-[float_8s_ease-in-out_infinite]">
+                <Mail className="w-16 h-16" />
+            </div>
+            <div className="absolute bottom-20 right-[12%] text-blue-text-from/10 animate-[float-slow_10s_ease-in-out_infinite]">
+                <Sparkles className="w-12 h-12" />
+            </div>
 
-                {status === 'success' ? (
-                    <div className="reveal glass-card p-8 text-center">
-                        <p className="text-2xl font-bold text-white mb-2">{t('success')}</p>
+            <div className="max-w-2xl mx-auto px-6 relative z-10">
+                {/* Glowing border container */}
+                <div className="glow-border">
+                    <div className="glow-border-inner text-center">
+                        <h2 className="reveal text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                            {t('title')}
+                        </h2>
+                        <p className="reveal text-white/55 text-base sm:text-lg mb-4 max-w-xl mx-auto">
+                            {t('subtitle')}
+                        </p>
+                        <p className="reveal text-accent/80 text-sm font-medium mb-10 flex items-center justify-center gap-2">
+                            <span className="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                            {t('socialProof')}
+                        </p>
+
+                        {status === 'success' ? (
+                            <div className="reveal glass-card p-8 text-center">
+                                <Sparkles className="w-8 h-8 text-accent mx-auto mb-3" />
+                                <p className="text-2xl font-bold text-white mb-2">{t('success')}</p>
+                            </div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="reveal flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder={t('placeholder')}
+                                    required
+                                    className="input-email flex-1"
+                                />
+                                <button
+                                    type="submit"
+                                    disabled={status === 'loading'}
+                                    className="btn-primary justify-center whitespace-nowrap disabled:opacity-50"
+                                >
+                                    {status === 'loading' ? '...' : t('button')}
+                                </button>
+                            </form>
+                        )}
+
+                        {status === 'error' && (
+                            <p className="text-red-400 text-sm mt-4">{t('error')}</p>
+                        )}
+
+                        <p className="reveal text-white/25 text-xs mt-6">
+                            {t('privacy')}
+                        </p>
                     </div>
-                ) : (
-                    <form onSubmit={handleSubmit} className="reveal flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder={t('placeholder')}
-                            required
-                            className="input-email flex-1"
-                        />
-                        <button
-                            type="submit"
-                            disabled={status === 'loading'}
-                            className="btn-primary justify-center whitespace-nowrap disabled:opacity-50"
-                        >
-                            {status === 'loading' ? '...' : t('button')}
-                        </button>
-                    </form>
-                )}
-
-                {status === 'error' && (
-                    <p className="text-red-400 text-sm mt-4">{t('error')}</p>
-                )}
-
-                <p className="reveal text-white/25 text-xs mt-6">
-                    {t('privacy')}
-                </p>
+                </div>
             </div>
         </section>
     );

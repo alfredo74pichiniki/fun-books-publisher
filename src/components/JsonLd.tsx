@@ -11,7 +11,7 @@ export function OrganizationJsonLd() {
             'https://www.facebook.com/funbookspublisher1/',
             'https://instagram.com/funbooks_publisher',
             'https://www.pinterest.com/funbooks_publisher/',
-            'https://www.amazon.com/stores/Fun-Books-Publisher/author/B0D6C6WQBV',
+            'https://www.amazon.com/author/funbookspublisher',
         ],
         description:
             'Publisher of premium coloring books, puzzle books, and educational guides. Available worldwide on Amazon.',

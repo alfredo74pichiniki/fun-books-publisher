@@ -87,7 +87,9 @@
     "backToCatalog": "Back to All Books",
     "rating": "Amazon Rating",
     "english": "English",
-    "spanish": "Spanish"
+    "spanish": "Spanish",
+    "getBonusPages": "Get Free Bonus Pages",
+    "bonusSubtitle": "Download exclusive interior pages included with your purchase"
   },
   "catalog": {
     "title": "Our Books",
@@ -148,6 +150,32 @@
     "noPosts": "No posts yet. Check back soon!",
     "enjoyedPost": "Enjoyed this article? Explore our book collection.",
     "exploreBooks": "Explore Our Books"
+  },
+  "bonus": {
+    "freeBonus": "FREE BONUS INCLUDED",
+    "title": "Your Free Bonus Pages",
+    "subtitle": "Download exclusive interior pages as a thank-you for your purchase.",
+    "thankYou": "Thank you for purchasing this book! Here are your free bonus interior pages — ready to print and enjoy.",
+    "emailLabel": "Get it sent to your email (recommended)",
+    "emailPlaceholder": "your@email.com",
+    "getBonus": "Send & Download",
+    "sending": "Sending...",
+    "emailNote": "We'll send you the PDF and occasionally share new releases. Unsubscribe anytime.",
+    "or": "or",
+    "downloadWithoutEmail": "Download directly without email",
+    "ready": "Your Bonus is Ready!",
+    "readySubtitle": "Click the button below to download your free pages.",
+    "downloadNow": "Download PDF Now",
+    "proTips": "Pro Tips for Best Results",
+    "tip1": "Print on cardstock (160gsm+) to prevent bleed-through.",
+    "tip2": "Print at 100% scale for original resolution.",
+    "tip3": "Tag us #FunBooksPublisher on social media to be featured!",
+    "leaveReview": "Leave a Review on Amazon",
+    "exploreMore": "Explore More Books",
+    "backToBook": "Back to Book",
+    "getBonusPages": "Get Free Bonus Pages",
+    "notFound": "Bonus Not Available",
+    "notFoundText": "Sorry, bonus pages are not yet available for this book. Check back soon!"
   },
   "common": {
     "readMore": "Read More",
