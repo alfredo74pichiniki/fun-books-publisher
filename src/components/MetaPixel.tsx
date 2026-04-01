@@ -2,8 +2,7 @@
 
 import Script from 'next/script';
 
-// Meta Pixel placeholder — replace PIXEL_ID with actual ID from Meta Ads Manager
-const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '';
+const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '1243671167851218';
 
 export function MetaPixel() {
     if (!PIXEL_ID) return null;
