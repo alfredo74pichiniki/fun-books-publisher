@@ -42,8 +42,8 @@ export interface Book {
 
 // Alias map: old IDs (possibly printed in books) → canonical book IDs
 export const BOOK_ALIASES: Record<string, string> = {
-  "monochrome-vol-4": "cozy-escapes",
-  "power-black-white": "cozy-escapes",
+  "monochrome-vol-4": "black-white-art-therapy",
+  "power-black-white": "black-white-art-therapy",
   "monochrome-ink-bliss": "ink-bliss-imagination",
   "monochrome-tattoo": "tattoo-flash",
   "monochrome-vol-3": "negative-space-animals",
@@ -186,6 +186,33 @@ export const BOOKS: Book[] = [
     keywords: ["tattoo", "flash", "blackwork", "old school", "neo traditional"],
     sortOrder: 5,
     bonusPdf: "/downloads/tattoo-flash.pdf",
+  },
+  {
+    id: "black-white-art-therapy",
+    title: "Monochrome Coloring Book for Adults: Black & White Art Therapy",
+    titleEs: "Libro de Colorear Monocromo para Adultos: Arte Terapia en Blanco y Negro",
+    subtitle: "Ink Bliss Series",
+    description:
+      "50 mixed monochrome illustrations — abstract art, figurative scenes, nature studies, and surreal compositions. A curated variety of artistic styles designed for stress relief and mindful focus.",
+    descriptionEs:
+      "50 ilustraciones monocromas variadas — arte abstracto, escenas figurativas, estudios de naturaleza y composiciones surrealistas. Una variedad curada de estilos artísticos diseñada para aliviar el estrés.",
+    asin: "",
+    amazonUrl: "",
+    price: 8.99,
+    category: "ink-bliss",
+    categoryLabel: "Ink Bliss Series",
+    author: "Fun Books Publisher",
+    language: "en",
+    coverImage: "/covers/power-of-black-and-white.png",
+    pages: 108,
+    isBestseller: false,
+    isActive: false,
+    isSeasonal: false,
+    rating: null,
+    reviewCount: 0,
+    keywords: ["monochrome", "art therapy", "mixed illustrations", "abstract", "figurative", "stress relief", "one color", "black and white"],
+    sortOrder: 19,
+    bonusPdf: "/downloads/power-of-black-and-white.pdf",
   },
 
   {
