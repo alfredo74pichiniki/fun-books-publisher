@@ -76,7 +76,7 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
                     "Every purchase includes a free high-resolution digital PDF so you can print your favorite pages again and re-color them unlimited times.",
             },
         ],
-        social: { rating: 4.7, reviews: 127 },
+        social: { rating: 4.8, reviews: 46 },
         pageColorTheme: "warm-cream",
     },
 };
