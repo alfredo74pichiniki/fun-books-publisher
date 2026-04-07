@@ -1,0 +1,262 @@
+/* ============================================
+   FBP LANDING PAGE — EDITORIAL CRAFT system
+   For high-conversion bridge pages from Meta Ads
+   Aesthetic: Kinfolk × Cereal × New Yorker
+   ============================================ */
+
+.lp-root {
+    --paper: #f5efe1;
+    --paper-warm: #ebe1cc;
+    --ink: #1a120a;
+    --ink-soft: #3d2c1e;
+    --ink-mute: #8a755e;
+    --rule: #d6c9ad;
+    --amber: #b8742a;
+    --amber-deep: #8c5417;
+
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-feature-settings: "ss01", "kern";
+    line-height: 1.6;
+    font-weight: 400;
+    position: relative;
+}
+
+/* Paper grain texture overlay */
+.lp-root::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.07 0 0 0 0 0.04 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+    opacity: 0.55;
+}
+
+.lp-root > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Typography */
+.lp-display {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 0.95;
+    color: var(--ink);
+}
+
+.lp-serif {
+    font-family: var(--font-playfair), Georgia, serif;
+}
+
+.lp-eyebrow {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--amber-deep);
+}
+
+.lp-eyebrow::before {
+    content: "—— ";
+    color: var(--amber);
+}
+
+.lp-rule {
+    height: 1px;
+    background: var(--rule);
+    border: 0;
+}
+
+/* Editorial number marker */
+.lp-numeral {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-size: 4.5rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 0.8;
+    color: var(--amber);
+    letter-spacing: -0.04em;
+}
+
+/* Pull-quote */
+.lp-pullquote {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.75rem, 4.5vw, 3rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+}
+
+.lp-pullquote::before {
+    content: "“";
+    font-size: 1.4em;
+    color: var(--amber);
+    line-height: 0;
+    vertical-align: -0.3em;
+    margin-right: 0.05em;
+}
+
+.lp-pullquote::after {
+    content: "”";
+    font-size: 1.4em;
+    color: var(--amber);
+    line-height: 0;
+    vertical-align: -0.3em;
+    margin-left: 0.05em;
+}
+
+/* Editorial CTA button */
+.lp-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-family: var(--font-inter), sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--ink);
+    padding: 1.15rem 2rem 1.1rem;
+    border: 1px solid var(--ink);
+    border-radius: 0;
+    text-decoration: none;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s, background 0.4s;
+    position: relative;
+    cursor: pointer;
+}
+
+.lp-cta:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 0 var(--amber);
+    background: var(--ink-soft);
+}
+
+.lp-cta:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 4px;
+}
+
+.lp-cta-secondary {
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--ink);
+}
+
+.lp-cta-secondary:hover {
+    background: var(--paper-warm);
+    box-shadow: 6px 6px 0 0 var(--ink);
+}
+
+.lp-cta-light {
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--paper);
+}
+
+.lp-cta-light:hover {
+    background: var(--paper-warm);
+    box-shadow: 6px 6px 0 0 var(--amber);
+}
+
+/* Stars (using unicode + amber color) */
+.lp-stars {
+    color: var(--amber);
+    letter-spacing: 0.05em;
+    font-size: 0.95rem;
+}
+
+/* Faux deckle edge for sections */
+.lp-deckle-top {
+    position: relative;
+}
+
+.lp-deckle-top::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: inherit;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 60%);
+}
+
+/* Animations: subtle entrance only */
+@keyframes lp-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lp-anim {
+    animation: lp-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.lp-anim-1 { animation-delay: 0.05s; }
+.lp-anim-2 { animation-delay: 0.18s; }
+.lp-anim-3 { animation-delay: 0.32s; }
+.lp-anim-4 { animation-delay: 0.46s; }
+.lp-anim-5 { animation-delay: 0.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .lp-anim {
+        animation: none;
+    }
+    .lp-cta {
+        transition: none;
+    }
+}
+
+/* Decorative ornament */
+.lp-ornament {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--amber);
+    font-size: 0.9rem;
+}
+
+.lp-ornament::before,
+.lp-ornament::after {
+    content: "";
+    width: 32px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.6;
+}
+
+/* Section dark warm */
+.lp-section-dark {
+    background: #1a120a;
+    color: #f5efe1;
+}
+
+.lp-section-dark .lp-display,
+.lp-section-dark .lp-pullquote {
+    color: #f5efe1;
+}
+
+.lp-section-dark .lp-eyebrow {
+    color: #d4a559;
+}
+.lp-section-dark .lp-eyebrow::before {
+    color: #b8742a;
+}
+
+.lp-section-warm {
+    background: var(--paper-warm);
+}

@@ -4,7 +4,7 @@ type Props = {
     amazonUrl: string;
     asin: string;
     bookTitle: string;
-    variant?: "primary" | "secondary";
+    variant?: "primary" | "secondary" | "light";
     children: React.ReactNode;
 };
 
@@ -21,9 +21,9 @@ export function BuyOnAmazonButton({
     variant = "primary",
     children,
 }: Props) {
-    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        // Fire Meta Pixel standard event BEFORE navigation.
-        // AddToCart is a standard event Meta optimizes for well in Sales campaigns.
+    const handleClick = () => {
+        // Fire Meta Pixel events BEFORE navigation.
+        // AddToCart is a standard event Meta optimizes well in Sales campaigns.
         if (typeof window !== "undefined" && window.fbq) {
             try {
                 window.fbq("track", "AddToCart", {
@@ -33,7 +33,6 @@ export function BuyOnAmazonButton({
                     value: 9.99,
                     currency: "USD",
                 });
-                // Also fire a custom event so we can target it distinctly if needed
                 window.fbq("trackCustom", "ClickToAmazon", {
                     asin,
                     book: bookTitle,
@@ -42,17 +41,14 @@ export function BuyOnAmazonButton({
                 // never block navigation because of tracking
             }
         }
-        // Let the default anchor navigation happen (opens Amazon)
-        // We do NOT preventDefault — the href handles the redirect
     };
 
-    const baseClasses =
-        "inline-flex items-center justify-center gap-3 rounded-full font-semibold tracking-tight transition-all duration-200 active:scale-[0.98] focus:outline-none focus-visible:ring-4";
-
-    const variantClasses =
-        variant === "primary"
-            ? "bg-black text-white hover:bg-neutral-800 px-8 py-4 text-lg shadow-xl shadow-black/20 hover:shadow-2xl focus-visible:ring-amber-300"
-            : "bg-white text-black border-2 border-black hover:bg-neutral-100 px-6 py-3 text-base focus-visible:ring-neutral-300";
+    const variantClass =
+        variant === "light"
+            ? "lp-cta lp-cta-light"
+            : variant === "secondary"
+                ? "lp-cta lp-cta-secondary"
+                : "lp-cta";
 
     return (
         <a
@@ -60,12 +56,12 @@ export function BuyOnAmazonButton({
             onClick={handleClick}
             target="_blank"
             rel="noopener nofollow"
-            className={`${baseClasses} ${variantClasses}`}
+            className={variantClass}
         >
             {children}
             <svg
-                width="18"
-                height="18"
+                width="16"
+                height="16"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
