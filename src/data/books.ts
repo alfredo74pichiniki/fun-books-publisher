@@ -47,6 +47,7 @@ export const BOOK_ALIASES: Record<string, string> = {
   "monochrome-ink-bliss": "ink-bliss-imagination",
   "monochrome-tattoo": "tattoo-flash",
   "monochrome-vol-3": "negative-space-animals",
+  "cottagecore": "cottagecore-homestead",
 };
 
 export const BOOKS: Book[] = [
@@ -159,6 +160,33 @@ export const BOOKS: Book[] = [
     keywords: ["cozy escapes", "cottage", "hygge", "monochrome", "coloring book", "black and white", "stress relief", "one color"],
     sortOrder: 4,
     bonusPdf: "/downloads/cozy-escapes.pdf",
+  },
+  {
+    id: "cottagecore-homestead",
+    title: "Monochrome Coloring Book — Cottagecore Homestead: One Color Edition",
+    titleEs: "Libro de Colorear Monocromo — Cottagecore Homestead: Edición Un Color",
+    subtitle: "Ink Bliss Series",
+    description:
+      "50 rustic homestead scenes — country kitchens, herb gardens, village lanes, and farmhouse porches. One pen, zero stress. Art therapy for adults who dream of simpler times.",
+    descriptionEs:
+      "50 escenas rústicas de campo — cocinas rurales, jardines de hierbas, senderos de pueblo y porches de granja. Un bolígrafo, cero estrés. Arteterapia para adultos.",
+    asin: "PENDIENTE",
+    amazonUrl: "https://www.amazon.com/dp/PENDIENTE",
+    price: 8.99,
+    category: "ink-bliss",
+    categoryLabel: "Ink Bliss Series",
+    author: "Fun Books Publisher",
+    language: "en",
+    coverImage: "/covers/cottagecore-homestead.png",
+    pages: 113,
+    isBestseller: false,
+    isActive: false,
+    isSeasonal: false,
+    rating: null,
+    reviewCount: 0,
+    keywords: ["cottagecore", "homestead", "monochrome", "coloring book", "rustic", "country living", "one color", "art therapy"],
+    sortOrder: 5,
+    bonusPdf: "/downloads/cottagecore-homestead.pdf",
   },
   {
     id: "tattoo-flash",
