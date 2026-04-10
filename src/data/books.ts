@@ -180,7 +180,7 @@ export const BOOKS: Book[] = [
     coverImage: "/covers/cottagecore-homestead.png",
     pages: 113,
     isBestseller: false,
-    isActive: false,
+    isActive: true,
     isSeasonal: false,
     rating: null,
     reviewCount: 0,
