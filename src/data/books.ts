@@ -622,4 +622,33 @@ export const BOOKS: Book[] = [
     sortOrder: 18,
     bonusPdf: "/downloads/spooky-kawaii-bonus.pdf",
   },
+
+  // ============ NEW — WITCHY CELESTIAL ============
+  {
+    id: "witchy-celestial",
+    title: "Monochrome Coloring Book - Witchy Celestial: Black And White Edition",
+    titleEs: "Libro de Colorear Monocromo: Witchy Celestial – Edición Blanco y Negro",
+    subtitle: "Ink Bliss Series",
+    description:
+      "50 mystical monochrome illustrations — moon phases, tarot symbols, celestial cats, crystal balls, zodiac wheels, ravens, and enchanted creatures. A dark and enchanting one-color art experience for adults who love witchy aesthetics.",
+    descriptionEs:
+      "50 ilustraciones monocromas místicas — fases lunares, símbolos de tarot, gatos celestiales, bolas de cristal, ruedas del zodiaco, cuervos y criaturas encantadas. Una experiencia artística oscura y encantadora de un solo color.",
+    asin: "",
+    amazonUrl: "",
+    price: 8.99,
+    category: "ink-bliss",
+    categoryLabel: "Ink Bliss Series",
+    author: "Fun Books Publisher",
+    language: "en",
+    coverImage: "/covers/witchy-celestial.png",
+    pages: 108,
+    isBestseller: false,
+    isActive: false,
+    isSeasonal: false,
+    rating: null,
+    reviewCount: 0,
+    keywords: ["witchy coloring book", "celestial coloring", "monochrome", "tarot coloring", "moon phases", "black and white", "one color", "gothic art therapy"],
+    sortOrder: 19,
+    bonusPdf: "/downloads/witchy-celestial-bonus.pdf",
+  },
 ];
