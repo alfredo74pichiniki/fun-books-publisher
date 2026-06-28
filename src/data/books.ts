@@ -123,7 +123,7 @@ export const BOOKS: Book[] = [
     categoryLabel: "Ink Bliss Series",
     author: "Fun Books Publisher",
     language: "en",
-    coverImage: "/covers/negative-space-animals.png?v=2",
+    coverImage: "/covers/negative-space-animals-v2.png",
     pages: 108,
     isBestseller: false,
     isActive: true,
