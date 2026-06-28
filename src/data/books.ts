@@ -231,7 +231,7 @@ export const BOOKS: Book[] = [
     categoryLabel: "Ink Bliss Series",
     author: "Fun Books Publisher",
     language: "en",
-    coverImage: "/covers/power-of-black-and-white.png",
+    coverImage: "/covers/power-black-white.png",
     pages: 108,
     isBestseller: false,
     isActive: false,
