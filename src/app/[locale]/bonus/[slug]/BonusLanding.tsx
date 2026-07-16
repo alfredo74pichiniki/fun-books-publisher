@@ -75,6 +75,13 @@ export function BonusLanding({ bookId }: { bookId: string }) {
                         padding: '60px 48px',
                     }}
                 >
+                    {/* Brand */}
+                    <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+                        <div style={{ display: 'inline-flex', background: 'white', borderRadius: '20px', padding: '16px 20px', boxShadow: '0 12px 30px rgba(0,0,0,0.35)' }}>
+                            <Image src="/logo.png" alt="Fun Books Publisher" width={110} height={110} style={{ display: 'block', width: '110px', height: '110px' }} priority />
+                        </div>
+                    </div>
+
                     {/* Header */}
                     <div style={{ textAlign: 'center', marginBottom: '48px' }}>
                         <div
@@ -229,6 +236,13 @@ export function BonusLanding({ bookId }: { bookId: string }) {
                             </form>
                         </div>
                     )}
+
+                    {/* Brand footer */}
+                    <div style={{ textAlign: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                        <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '13px' }}>
+                            © {new Date().getFullYear()} Fun Books Publisher LLC · Wyoming, USA
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

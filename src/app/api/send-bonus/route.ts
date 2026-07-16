@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { BOOKS, BOOK_ALIASES } from "@/data/books";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://funbookspublisher.com";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://funbookpublisher.com";
 
 // Resolve any slug/alias/ASIN to a book
 function resolveBook(bookId: string) {
@@ -111,7 +111,6 @@ export async function POST(request: NextRequest) {
                     <ul style="color: #4B5563; margin: 0; padding-left: 20px; line-height: 1.8;">
                       <li>Print on <strong>cardstock (160gsm+)</strong> to prevent bleed-through.</li>
                       <li>Print at <strong>100% scale</strong> for original resolution.</li>
-                      <li>Tag us <strong>#FunBooksPublisher</strong> to be featured!</li>
                     </ul>
                   </div>
                 </div>
