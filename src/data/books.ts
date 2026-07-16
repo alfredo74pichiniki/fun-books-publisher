@@ -651,4 +651,33 @@ export const BOOKS: Book[] = [
     sortOrder: 19,
     bonusPdf: "/downloads/witchy-celestial-bonus.pdf",
   },
+
+  // ============ NEW — OCEAN ANIMALS (kids activity book) ============
+  {
+    id: "ocean",
+    title: "Ocean Animals: The No-Screen Activity Book for Kids 8-12",
+    titleEs: "Animales del Océano: El Libro de Actividades Sin Pantallas para Niños 8-12",
+    subtitle: "No-Screen Activity Series",
+    description:
+      "Ocean-themed puzzles, coloring pages, mazes, word searches, and brain games for kids ages 8-12 — packed with real facts about sea animals, coral reefs and the deep sea. Screen-free fun that sneaks in real learning.",
+    descriptionEs:
+      "Pasatiempos con temática oceánica, páginas para colorear, laberintos, sopas de letras y juegos de ingenio para niños de 8 a 12 años — llenos de datos reales sobre animales marinos, arrecifes de coral y el mar profundo. Diversión sin pantallas que enseña de verdad.",
+    asin: "",
+    amazonUrl: "",
+    price: 9.99,
+    category: "puzzles-activity",
+    categoryLabel: "Kids Activity Book",
+    author: "Fun Books Publisher",
+    language: "en",
+    coverImage: "/covers/ocean.png",
+    pages: 114,
+    isBestseller: false,
+    isActive: true,
+    isSeasonal: false,
+    rating: null,
+    reviewCount: 0,
+    keywords: ["ocean animals", "activity book for kids", "no screen", "puzzles", "coloring", "mazes", "word search", "ages 8-12", "sea creatures"],
+    sortOrder: 20,
+    bonusPdf: "/downloads/ocean-fantasy-bonus.pdf",
+  },
 ];
