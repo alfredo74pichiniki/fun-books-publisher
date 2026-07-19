@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Download, CheckCircle, Gift, ExternalLink, Sparkles } from 'lucide-react';
@@ -11,16 +11,15 @@ export function BonusLanding({ bookId }: { bookId: string }) {
     const t = useTranslations('bonus');
     const book = getBookBySlug(bookId)!;
 
-    const [email, setEmail] = useState('');
-    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-    const [downloadUrl, setDownloadUrl] = useState('');
-
     const pageRef = useRef<HTMLDivElement>(null);
     const cardRef = useRef<HTMLDivElement>(null);
 
     // Bonus pages always in English — physical books are in English
     const bookTitle = book.title;
     const siteUrl = typeof window !== 'undefined' ? window.location.origin : '';
+
+    // Direct download, no email capture. The bonus PDF is served publicly.
+    const downloadUrl = `${siteUrl}${book.bonusPdf}`;
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -35,32 +34,6 @@ export function BonusLanding({ bookId }: { bookId: string }) {
         }, pageRef);
         return () => ctx.revert();
     }, []);
-
-    async function handleSubmit(e: React.FormEvent) {
-        e.preventDefault();
-        setStatus('loading');
-
-        try {
-            const res = await fetch('/api/send-bonus', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, bookId }),
-            });
-
-            const data = await res.json();
-
-            if (data.success && data.downloadUrl) {
-                setDownloadUrl(data.downloadUrl);
-                setStatus('success');
-            } else {
-                setDownloadUrl(`${siteUrl}${book.bonusPdf}`);
-                setStatus('success');
-            }
-        } catch {
-            setDownloadUrl(`${siteUrl}${book.bonusPdf}`);
-            setStatus('success');
-        }
-    }
 
     return (
         <div ref={pageRef} className="min-h-screen bg-navy-950" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 24px' }}>
@@ -148,94 +121,57 @@ export function BonusLanding({ bookId }: { bookId: string }) {
                         </div>
                     </div>
 
-                    {/* Download Section */}
-                    {status === 'success' ? (
-                        <div style={{ textAlign: 'center' }}>
-                            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '72px', height: '72px', borderRadius: '50%', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.2)', marginBottom: '20px' }}>
-                                <CheckCircle style={{ width: '36px', height: '36px', color: 'rgb(74,222,128)' }} />
-                            </div>
-                            <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'white', marginBottom: '8px' }}>
-                                {t('ready')}
-                            </h3>
-                            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', marginBottom: '24px' }}>
-                                {t('readySubtitle')}
-                            </p>
-
-                            <a
-                                href={downloadUrl || `${siteUrl}${book.bonusPdf}`}
-                                download
-                                className="btn-primary"
-                                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '18px', padding: '16px 48px' }}
-                            >
-                                <Download style={{ width: '20px', height: '20px' }} />
-                                {t('downloadNow')}
-                            </a>
-
-                            {/* Pro Tips */}
-                            <div style={{ marginTop: '40px', padding: '24px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '16px', textAlign: 'left', maxWidth: '600px', margin: '40px auto 0' }}>
-                                <h4 style={{ color: 'white', fontWeight: 600, fontSize: '16px', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                    <Sparkles style={{ width: '16px', height: '16px', color: 'rgb(249,115,22)' }} />
-                                    {t('proTips')}
-                                </h4>
-                                <ul style={{ color: 'rgba(255,255,255,0.5)', fontSize: '15px', listStyle: 'none', padding: 0 }}>
-                                    <li style={{ marginBottom: '8px' }}>{t('tip1')}</li>
-                                    <li style={{ marginBottom: '8px' }}>{t('tip2')}</li>
-                                    <li>{t('tip3')}</li>
-                                </ul>
-                            </div>
-
-                            {/* Leave Review — only show if ASIN exists */}
-                            {book.asin && (
-                                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '24px' }}>
-                                    <a
-                                        href={`https://www.amazon.com/review/create-review?ie=UTF8&channel=glance-detail&asin=${book.asin}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="btn-secondary"
-                                        style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                                    >
-                                        {t('leaveReview')}
-                                        <ExternalLink style={{ width: '16px', height: '16px' }} />
-                                    </a>
-                                </div>
-                            )}
+                    {/* Download Section — direct download, no email required */}
+                    <div style={{ textAlign: 'center' }}>
+                        <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '72px', height: '72px', borderRadius: '50%', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.2)', marginBottom: '20px' }}>
+                            <CheckCircle style={{ width: '36px', height: '36px', color: 'rgb(74,222,128)' }} />
                         </div>
-                    ) : (
-                        <div style={{ maxWidth: '560px', margin: '0 auto' }}>
-                            <form onSubmit={handleSubmit}>
-                                <label style={{ color: 'rgba(255,255,255,0.6)', fontSize: '16px', fontWeight: 500, display: 'block', textAlign: 'center', marginBottom: '16px' }}>
-                                    {t('emailLabel')}
-                                </label>
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder={t('emailPlaceholder')}
-                                    className="input-email"
-                                    style={{ width: '100%', fontSize: '16px', padding: '16px 20px', marginBottom: '16px' }}
-                                    required
-                                />
-                                <button
-                                    type="submit"
-                                    disabled={status === 'loading'}
-                                    className="btn-primary"
-                                    style={{ width: '100%', justifyContent: 'center', fontSize: '18px', padding: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}
+                        <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'white', marginBottom: '8px' }}>
+                            {t('ready')}
+                        </h3>
+                        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', marginBottom: '24px' }}>
+                            {t('readySubtitle')}
+                        </p>
+
+                        <a
+                            href={downloadUrl}
+                            download
+                            className="btn-primary"
+                            style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '18px', padding: '16px 48px' }}
+                        >
+                            <Download style={{ width: '20px', height: '20px' }} />
+                            {t('downloadNow')}
+                        </a>
+
+                        {/* Pro Tips */}
+                        <div style={{ marginTop: '40px', padding: '24px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '16px', textAlign: 'left', maxWidth: '600px', margin: '40px auto 0' }}>
+                            <h4 style={{ color: 'white', fontWeight: 600, fontSize: '16px', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <Sparkles style={{ width: '16px', height: '16px', color: 'rgb(249,115,22)' }} />
+                                {t('proTips')}
+                            </h4>
+                            <ul style={{ color: 'rgba(255,255,255,0.5)', fontSize: '15px', listStyle: 'none', padding: 0 }}>
+                                <li style={{ marginBottom: '8px' }}>{t('tip1')}</li>
+                                <li style={{ marginBottom: '8px' }}>{t('tip2')}</li>
+                                <li>{t('tip3')}</li>
+                            </ul>
+                        </div>
+
+                        {/* Leave Review — only show if ASIN exists */}
+                        {book.asin && (
+                            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '24px' }}>
+                                <a
+                                    href={`https://www.amazon.com/review/create-review?ie=UTF8&channel=glance-detail&asin=${book.asin}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn-secondary"
+                                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                                 >
-                                    {status === 'loading' ? (
-                                        <span className="animate-pulse">{t('sending')}</span>
-                                    ) : (
-                                        <>
-                                            <Download style={{ width: '20px', height: '20px' }} />
-                                            {t('getBonus')}
-                                        </>
-                                    )}
-                                </button>
-                                <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '12px', textAlign: 'center', marginTop: '12px' }}>
-                                    {t('emailNote')}
-                                </p>
-                            </form>
-                        </div>
-                    )}
+                                    {t('leaveReview')}
+                                    <ExternalLink style={{ width: '16px', height: '16px' }} />
+                                </a>
+                            </div>
+                        )}
+                    </div>
 
                     {/* Brand footer */}
                     <div style={{ textAlign: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
