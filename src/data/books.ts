@@ -594,6 +594,35 @@ export const BOOKS: Book[] = [
     sortOrder: 17,
   },
 
+  // ============ HEALTH - FUN BOOKS PUBLISHER (large-print log books) ============
+  {
+    id: "blood-pressure-log-book",
+    title: "Blood Pressure Log Book: Large Print for Seniors",
+    titleEs: "Registro de Presion Arterial: Letra Grande para Mayores",
+    subtitle: "Large Print Daily AM/PM Tracker",
+    description:
+      "A large-print daily blood pressure and pulse log book for seniors. Record morning and evening readings, medication and notes on easy-to-read pages, with a doctor-visit summary.",
+    descriptionEs:
+      "Un registro diario de presion arterial y pulso en letra grande para personas mayores. Anota las lecturas de manana y noche, la medicacion y notas en paginas faciles de leer.",
+    asin: "",
+    amazonUrl: "",
+    price: 7.99,
+    category: "health",
+    categoryLabel: "Health & Wellness",
+    author: "Fun Books Publisher",
+    language: "en",
+    coverImage: "/covers/blood-pressure-log-book.png",
+    pages: 114,
+    isBestseller: false,
+    isActive: false,
+    isSeasonal: false,
+    rating: null,
+    reviewCount: 0,
+    keywords: ["blood pressure", "log book", "large print", "seniors", "health tracker"],
+    sortOrder: 18,
+    bonusPdf: "/downloads/blood-pressure-log-book.pdf",
+  },
+
   // ============ NEW — SPOOKY KAWAII ============
   {
     id: "spooky-kawaii",
