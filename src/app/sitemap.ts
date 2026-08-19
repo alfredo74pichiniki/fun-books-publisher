@@ -2,7 +2,10 @@ import type { MetadataRoute } from 'next';
 import { BOOKS } from '@/data/books';
 import { getAllBlogSlugs } from '@/lib/blog';
 
-const BASE_URL = 'https://funbookspublisher.com';
+// SIN "s" tras "book". funbookspublisher.com (con "s") esta aparcado y no es
+// nuestro: hasta el 19 ago 2026 el sitemap listaba todas las URLs bajo ese
+// dominio ajeno, de modo que no se enviaba a Google ni una pagina real.
+const BASE_URL = 'https://funbookpublisher.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const now = new Date().toISOString();

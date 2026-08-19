@@ -5,8 +5,8 @@ export function OrganizationJsonLd() {
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'Fun Books Publisher',
-        url: 'https://funbookspublisher.com',
-        logo: 'https://funbookspublisher.com/images/logo.png',
+        url: 'https://funbookpublisher.com',
+        logo: 'https://funbookpublisher.com/images/logo.png',
         sameAs: [
             'https://www.facebook.com/funbookspublisher1/',
             'https://instagram.com/funbooks_publisher',
@@ -43,7 +43,7 @@ export function BookJsonLd({ bookId }: { bookId: string }) {
             name: 'Fun Books Publisher',
         },
         bookFormat: 'https://schema.org/Paperback',
-        url: `https://funbookspublisher.com/en/books/${book.id}`,
+        url: `https://funbookpublisher.com/en/books/${book.id}`,
         image: book.coverImage,
         offers: {
             '@type': 'Offer',
@@ -94,7 +94,7 @@ export function BlogPostJsonLd({
             '@type': 'Organization',
             name: 'Fun Books Publisher',
         },
-        url: `https://funbookspublisher.com/en/blog/${slug}`,
+        url: `https://funbookpublisher.com/en/blog/${slug}`,
     };
 
     return (

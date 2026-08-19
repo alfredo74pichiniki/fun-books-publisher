@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
+import { track } from '@vercel/analytics';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Download, CheckCircle, Gift, ExternalLink, Sparkles } from 'lucide-react';
@@ -136,6 +137,10 @@ export function BonusLanding({ bookId }: { bookId: string }) {
                         <a
                             href={downloadUrl}
                             download
+                            // Sin esto solo se sabe cuanta gente LLEGA a la pagina del
+                            // regalo, no cuanta se lo lleva. La diferencia entre las dos
+                            // cifras es lo que decide si merece la pena pedir el correo.
+                            onClick={() => track('bonus_download', { book: book.id })}
                             className="btn-primary"
                             style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '18px', padding: '16px 48px' }}
                         >

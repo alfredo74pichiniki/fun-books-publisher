@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { OrganizationJsonLd } from "@/components/JsonLd";
 import { MetaPixel } from "@/components/MetaPixel";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 
 const playfair = Playfair_Display({
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     title: "Fun Books Publisher | Premium Books for Creative Minds",
     description:
       "Coloring books, brain puzzles, and educational guides — crafted for adults, kids, and curious minds.",
-    url: "https://funbookspublisher.com",
+    url: "https://funbookpublisher.com",
     siteName: "Fun Books Publisher",
     locale: "en_US",
     type: "website",
@@ -69,6 +70,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );
