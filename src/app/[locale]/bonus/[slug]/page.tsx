@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { BOOK_ALIASES } from '@/data/books';
 import { getBookBySlugOrAlias, getBooksWithBonus } from '@/data/helpers';
 import { BonusLanding } from './BonusLanding';
+import { COMPASS_GIFTS, COMPASS_SLUGS } from './compass-gifts';
+import { CompassLanding } from './CompassLanding';
 
 type Props = {
     params: Promise<{ locale: string; slug: string }>;
@@ -24,11 +26,32 @@ export function generateStaticParams() {
         params.push({ slug: alias });
     }
 
+    // CRITICAL: printed in the back of "How to Use a Compass for Kids", already on sale
+    for (const slug of COMPASS_SLUGS) {
+        params.push({ slug });
+    }
+
     return params;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
+
+    const gift = COMPASS_GIFTS[slug];
+    if (gift) {
+        return {
+            title: `${gift.name} | Fun Books Publisher`,
+            description: gift.lede,
+            openGraph: {
+                title: gift.name,
+                description: gift.lede,
+                images: [gift.cover],
+                type: 'website',
+            },
+            robots: { index: false, follow: false },
+        };
+    }
+
     const book = getBookBySlugOrAlias(slug);
 
     if (!book || !book.bonusPdf) {
@@ -50,6 +73,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BonusPage({ params }: Props) {
     const { slug } = await params;
+
+    // The three compass gifts have their own landing and do not depend on books.ts
+    const gift = COMPASS_GIFTS[slug];
+    if (gift) {
+        return <CompassLanding gift={gift} />;
+    }
 
     // Resolve slug directly — works with canonical IDs AND old aliases
     // NO redirects. The exact URL printed in the book stays as-is.
