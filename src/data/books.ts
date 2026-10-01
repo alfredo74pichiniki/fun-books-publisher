@@ -124,7 +124,7 @@ export const BOOKS: Book[] = [
     author: "Fun Books Publisher",
     language: "en",
     coverImage: "/covers/negative-space-animals-v2.png",
-    pages: 108,
+    pages: 113,
     isBestseller: false,
     isActive: true,
     isSeasonal: false,
