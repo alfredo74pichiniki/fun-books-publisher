@@ -1,33 +1,17 @@
 'use client';
 
-// The bonus case printed (as a QR) on the last page of the three "Cross Out the Killer" books.
-// The URL /bonus/cross-out-the-killer is printed in the books, so THE SLUG IS PERMANENT.
+// The bonus cases printed (as a QR) on the last page of the three "Cross Out the Killer" books: one
+// different case per book (data and permanent slugs in cross-out-bonuses.ts).
 // Direct download, no email capture (KDP bonus content rules, G202018960).
 
 import Image from 'next/image';
 import { track } from '@vercel/analytics';
 import { Bebas_Neue, Special_Elite, Atkinson_Hyperlegible } from 'next/font/google';
+import type { CrossOutBonus } from './cross-out-bonuses';
 
 const display = Bebas_Neue({ weight: '400', subsets: ['latin'], display: 'swap' });
 const typewriter = Special_Elite({ weight: '400', subsets: ['latin'], display: 'swap' });
 const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap' });
-
-const CROSS_OUT_SLUG = 'cross-out-the-killer';
-
-const BONUS = {
-    name: 'Death on the Magnolia Queen',
-    pdf: '/downloads/cross-out-the-killer-bonus-case.pdf',
-    cover: '/covers/cross-out/bonus-case.jpg',
-    pages: 49,
-    size: '0.3 MB',
-    lede: 'The captain of the last great paddle steamer on the Mississippi has been found dead in his cabin, and the old riverboat log in his safe is gone. Eight hundred passengers are on board. One of them did it.',
-};
-
-const INSIDE = [
-    'A register of 800 passengers in the same large, clear print as your book',
-    'Ten clues with a checkpoint after every one, then the purser\'s files, a map of the boat and three tests',
-    'Hints in three steps and a Verdict Code to check your answer, with no spoilers',
-];
 
 const SERIES = [
     { level: 1, name: 'Murder at the Antiques Fair', note: 'Easy · 3,000 suspects' },
@@ -60,7 +44,7 @@ function Evidence() {
     );
 }
 
-export function CrossOutLanding() {
+export function CrossOutLanding({ bonus: BONUS }: { bonus: CrossOutBonus }) {
     return (
         <main className={`xo ${body.className}`}>
             <style>{CSS}</style>
@@ -68,7 +52,7 @@ export function CrossOutLanding() {
                 <p className={`xo-brand ${typewriter.className}`}>Fun Books Publisher</p>
 
                 <header className="xo-hero">
-                    <p className={`xo-stamp ${display.className}`}>Bonus case file</p>
+                    <p className={`xo-stamp ${display.className}`}>Bonus case file · Book {BONUS.book}</p>
                     <p className={`xo-found ${typewriter.className}`}>You found it, detective.</p>
                     <h1 className={`xo-title ${display.className}`}>{BONUS.name}</h1>
                     <p className="xo-lede">{BONUS.lede}</p>
@@ -91,7 +75,7 @@ export function CrossOutLanding() {
                         className={`xo-cta ${display.className}`}
                         href={BONUS.pdf}
                         download
-                        onClick={() => track('bonus_download', { book: CROSS_OUT_SLUG })}
+                        onClick={() => track('bonus_download', { book: BONUS.slug })}
                     >
                         Download the bonus case
                     </a>
@@ -107,7 +91,7 @@ export function CrossOutLanding() {
                 <section className="xo-inside">
                     <h2 className={`xo-h2 ${display.className}`}>What is inside</h2>
                     <ul>
-                        {INSIDE.map((line, i) => (
+                        {BONUS.inside.map((line, i) => (
                             <li key={line}>
                                 <span className={`xo-num ${display.className}`}>{i + 1}</span>
                                 <span>{line}</span>
