@@ -18,7 +18,7 @@ const BONUS = {
     name: 'Death on the Magnolia Queen',
     pdf: '/downloads/cross-out-the-killer-bonus-case.pdf',
     cover: '/covers/cross-out/bonus-case.jpg',
-    pages: 50,
+    pages: 49,
     size: '0.3 MB',
     lede: 'The captain of the last great paddle steamer on the Mississippi has been found dead in his cabin, and the old riverboat log in his safe is gone. Eight hundred passengers are on board. One of them did it.',
 };
