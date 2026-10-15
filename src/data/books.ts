@@ -323,6 +323,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["zen", "mandala", "serenity", "meditation", "coloring"],
     sortOrder: 7,
+    bonusPdf: "/downloads/zen-mandalas.pdf",
   },
   {
     id: "christmas-santa",
