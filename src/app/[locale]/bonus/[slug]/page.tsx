@@ -5,6 +5,10 @@ import { getBookBySlugOrAlias, getBooksWithBonus } from '@/data/helpers';
 import { BonusLanding } from './BonusLanding';
 import { COMPASS_GIFTS, COMPASS_SLUGS } from './compass-gifts';
 import { CompassLanding } from './CompassLanding';
+import { CrossOutLanding } from './CrossOutLanding';
+
+// CRITICAL: printed as a QR in the last page of the three Cross Out the Killer books
+const CROSS_OUT_SLUG = 'cross-out-the-killer';
 
 type Props = {
     params: Promise<{ locale: string; slug: string }>;
@@ -31,6 +35,8 @@ export function generateStaticParams() {
         params.push({ slug });
     }
 
+    params.push({ slug: CROSS_OUT_SLUG });
+
     return params;
 }
 
@@ -46,6 +52,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                 title: gift.name,
                 description: gift.lede,
                 images: [gift.cover],
+                type: 'website',
+            },
+            robots: { index: false, follow: false },
+        };
+    }
+
+    if (slug === CROSS_OUT_SLUG) {
+        const lede = 'A free printable bonus mystery for readers of Cross Out the Killer: one killer among 800 passengers.';
+        return {
+            title: 'Bonus Case: Death on the Magnolia Queen | Fun Books Publisher',
+            description: lede,
+            openGraph: {
+                title: 'Bonus Case: Death on the Magnolia Queen',
+                description: lede,
+                images: ['/covers/cross-out/bonus-case.jpg'],
                 type: 'website',
             },
             robots: { index: false, follow: false },
@@ -78,6 +99,10 @@ export default async function BonusPage({ params }: Props) {
     const gift = COMPASS_GIFTS[slug];
     if (gift) {
         return <CompassLanding gift={gift} />;
+    }
+
+    if (slug === CROSS_OUT_SLUG) {
+        return <CrossOutLanding />;
     }
 
     // Resolve slug directly — works with canonical IDs AND old aliases
