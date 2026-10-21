@@ -8,7 +8,7 @@ import { CompassLanding } from './CompassLanding';
 import { CrossOutLanding } from './CrossOutLanding';
 // CRITICAL: printed as QR codes in the last page of the Cross Out the Killer books, one per book
 import { CROSS_OUT_BONUSES, CROSS_OUT_SLUGS } from './cross-out-bonuses';
-// CRITICAL: printed as a QR on page 109 of "Who Was Where?"
+// CRITICAL: printed as a QR on page 109 of "Murder in Every Room" (slug keeps the old name)
 import { WHO_WAS_WHERE_BONUSES, WHO_WAS_WHERE_SLUGS } from './who-was-where-bonus';
 import { WhoWasWhereLanding } from './WhoWasWhereLanding';
 
@@ -86,7 +86,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (ww) {
         return {
             title: `${ww.title} | Fun Books Publisher`,
-            description: `${ww.subtitle}. A printable PDF for readers of Who Was Where?`,
+            description: `${ww.subtitle}. A printable PDF for readers of Murder Mystery Word Search: Murder in Every Room.`,
             openGraph: {
                 title: ww.title,
                 description: ww.subtitle,

@@ -1,5 +1,5 @@
-// Bonus cases for the book "Who Was Where?" (murder mystery word search, approved by Alfredo on
-// 21 Oct 2026). The URL is printed as a QR on page 109 of the book, so THE SLUG IS PERMANENT.
+// Bonus cases for the book "Murder Mystery Word Search: Murder in Every Room" (approved by Alfredo on
+// 21 Oct 2026; the book was first called "Who Was Where?", the slug keeps that name). The URL is printed as a QR on page 109 of the book, so THE SLUG IS PERMANENT.
 // Direct download, no email capture (KDP bonus content rules, G202018960).
 
 export type WhoWasWhereCase = {
@@ -23,7 +23,7 @@ export type WhoWasWhereBonus = {
 export const WHO_WAS_WHERE_BONUSES: Record<string, WhoWasWhereBonus> = {
     'who-was-where': {
         slug: 'who-was-where',
-        title: 'Who Was Where? Bonus Cases',
+        title: 'Murder in Every Room: Bonus Cases',
         subtitle: '3 extra cases that are not in the book, one on each floor',
         pdf: '/downloads/who-was-where-bonus.pdf',
         cover: '/covers/who-was-where/bonus-cases.jpg',

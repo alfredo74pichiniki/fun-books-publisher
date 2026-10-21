@@ -1,6 +1,6 @@
 'use client';
 
-// The bonus cases printed (as a QR) on page 109 of "Who Was Where?". Same look as the Cross Out the
+// The bonus cases printed (as a QR) on page 109 of "Murder in Every Room". Same look as the Cross Out the
 // Killer bonus pages. Data and the permanent slug live in who-was-where-bonus.ts.
 // Direct download, no email capture (KDP bonus content rules, G202018960).
 
@@ -54,7 +54,7 @@ export function WhoWasWhereLanding({ bonus: BONUS }: { bonus: WhoWasWhereBonus }
                     <Image
                         className="ww-cover"
                         src={BONUS.cover}
-                        alt="A floor plan page from Who Was Where? Bonus Cases"
+                        alt="A floor plan page from Murder in Every Room: Bonus Cases"
                         width={1105}
                         height={1430}
                         priority
@@ -108,7 +108,7 @@ export function WhoWasWhereLanding({ bonus: BONUS }: { bonus: WhoWasWhereBonus }
                 <footer className="ww-foot">
                     <p className={typewriter.className}>Happy sleuthing.</p>
                     <p className="ww-legal">
-                        &copy; {new Date().getFullYear()} Fun Books Publisher LLC. For the readers of Who Was Where?
+                        &copy; {new Date().getFullYear()} Fun Books Publisher LLC. For the readers of Murder Mystery Word Search: Murder in Every Room.
                     </p>
                 </footer>
             </div>
