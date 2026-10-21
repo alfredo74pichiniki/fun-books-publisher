@@ -8,6 +8,9 @@ import { CompassLanding } from './CompassLanding';
 import { CrossOutLanding } from './CrossOutLanding';
 // CRITICAL: printed as QR codes in the last page of the Cross Out the Killer books, one per book
 import { CROSS_OUT_BONUSES, CROSS_OUT_SLUGS } from './cross-out-bonuses';
+// CRITICAL: printed as a QR on page 109 of "Who Was Where?"
+import { WHO_WAS_WHERE_BONUSES, WHO_WAS_WHERE_SLUGS } from './who-was-where-bonus';
+import { WhoWasWhereLanding } from './WhoWasWhereLanding';
 
 type Props = {
     params: Promise<{ locale: string; slug: string }>;
@@ -35,6 +38,10 @@ export function generateStaticParams() {
     }
 
     for (const slug of CROSS_OUT_SLUGS) {
+        params.push({ slug });
+    }
+
+    for (const slug of WHO_WAS_WHERE_SLUGS) {
         params.push({ slug });
     }
 
@@ -75,6 +82,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
+    const ww = WHO_WAS_WHERE_BONUSES[slug];
+    if (ww) {
+        return {
+            title: `${ww.title} | Fun Books Publisher`,
+            description: `${ww.subtitle}. A printable PDF for readers of Who Was Where?`,
+            openGraph: {
+                title: ww.title,
+                description: ww.subtitle,
+                images: [ww.cover],
+                type: 'website',
+            },
+            robots: { index: false, follow: false },
+        };
+    }
+
     const book = getBookBySlugOrAlias(slug);
 
     if (!book || !book.bonusPdf) {
@@ -106,6 +128,11 @@ export default async function BonusPage({ params }: Props) {
     const xoBonus = CROSS_OUT_BONUSES[slug];
     if (xoBonus) {
         return <CrossOutLanding bonus={xoBonus} />;
+    }
+
+    const wwBonus = WHO_WAS_WHERE_BONUSES[slug];
+    if (wwBonus) {
+        return <WhoWasWhereLanding bonus={wwBonus} />;
     }
 
     // Resolve slug directly — works with canonical IDs AND old aliases
