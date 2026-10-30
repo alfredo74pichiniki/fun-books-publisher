@@ -14,6 +14,9 @@ import { WhoWasWhereLanding } from './WhoWasWhereLanding';
 // CRITICAL: printed as a QR on page 128 of "Nostalgia Word Search for Seniors"
 import { NOSTALGIA_BONUSES, NOSTALGIA_SLUGS } from './nostalgia-bonus';
 import { NostalgiaLanding } from './NostalgiaLanding';
+// CRITICAL once on sale: printed as a QR near the end of the 50 States road trip workbook for kids
+import { STATES_BONUSES, STATES_SLUGS } from './states-bonus';
+import { StatesLanding } from './StatesLanding';
 
 type Props = {
     params: Promise<{ locale: string; slug: string }>;
@@ -49,6 +52,10 @@ export function generateStaticParams() {
     }
 
     for (const slug of NOSTALGIA_SLUGS) {
+        params.push({ slug });
+    }
+
+    for (const slug of STATES_SLUGS) {
         params.push({ slug });
     }
 
@@ -119,6 +126,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
+    const sb = STATES_BONUSES[slug];
+    if (sb) {
+        return {
+            title: `${sb.title} | Fun Books Publisher`,
+            description: `${sb.subtitle}. A free printable PDF for readers of our 50 States road trip workbook for kids.`,
+            openGraph: {
+                title: sb.title,
+                description: sb.subtitle,
+                images: [sb.cover],
+                type: 'website',
+            },
+            robots: { index: false, follow: false },
+        };
+    }
+
     const book = getBookBySlugOrAlias(slug);
 
     if (!book || !book.bonusPdf) {
@@ -160,6 +182,11 @@ export default async function BonusPage({ params }: Props) {
     const nwBonus = NOSTALGIA_BONUSES[slug];
     if (nwBonus) {
         return <NostalgiaLanding bonus={nwBonus} />;
+    }
+
+    const stBonus = STATES_BONUSES[slug];
+    if (stBonus) {
+        return <StatesLanding bonus={stBonus} />;
     }
 
     // Resolve slug directly — works with canonical IDs AND old aliases
