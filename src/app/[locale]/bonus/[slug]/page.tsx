@@ -17,6 +17,9 @@ import { NostalgiaLanding } from './NostalgiaLanding';
 // CRITICAL once on sale: printed as a QR near the end of the 50 States road trip workbook for kids
 import { STATES_BONUSES, STATES_SLUGS } from './states-bonus';
 import { StatesLanding } from './StatesLanding';
+// CRITICAL once the corrected interior is on sale: printed as a QR on the last page of "Cursive Workbook for Kids Ages 8-12"
+import { CURSIVE_BONUSES, CURSIVE_SLUGS } from './cursive-bonus';
+import { CursiveLanding } from './CursiveLanding';
 
 type Props = {
     params: Promise<{ locale: string; slug: string }>;
@@ -56,6 +59,10 @@ export function generateStaticParams() {
     }
 
     for (const slug of STATES_SLUGS) {
+        params.push({ slug });
+    }
+
+    for (const slug of CURSIVE_SLUGS) {
         params.push({ slug });
     }
 
@@ -141,6 +148,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
+    const cw = CURSIVE_BONUSES[slug];
+    if (cw) {
+        return {
+            title: `${cw.title} | Fun Books Publisher`,
+            description: `${cw.subtitle}. A free printable PDF for readers of Cursive Workbook for Kids Ages 8-12.`,
+            openGraph: {
+                title: cw.title,
+                description: cw.subtitle,
+                images: [cw.cover],
+                type: 'website',
+            },
+            robots: { index: false, follow: false },
+        };
+    }
+
     const book = getBookBySlugOrAlias(slug);
 
     if (!book || !book.bonusPdf) {
@@ -187,6 +209,11 @@ export default async function BonusPage({ params }: Props) {
     const stBonus = STATES_BONUSES[slug];
     if (stBonus) {
         return <StatesLanding bonus={stBonus} />;
+    }
+
+    const cwBonus = CURSIVE_BONUSES[slug];
+    if (cwBonus) {
+        return <CursiveLanding bonus={cwBonus} />;
     }
 
     // Resolve slug directly — works with canonical IDs AND old aliases
