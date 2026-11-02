@@ -32,12 +32,12 @@ export const STATES_BONUSES: Record<string, StatesBonus> = {
         games: [
             { name: 'Which State Am I?', how: 'Show the shape. The first player to name the state keeps the card.' },
             { name: 'Capital Challenge', how: 'Read out a state. Your partner names its capital to win the card.' },
-            { name: 'Road Trip Order', how: 'Put the cards in the order the states joined the United States.' },
+            { name: 'Road Trip Order', how: 'Put the cards in the order the states became states.' },
         ],
         inside: [
             '50 cards, one for every state, 6 to a page on letter paper',
             'Front: the outline of the state and the question "Which state am I?"',
-            'Back: capital, nickname, year it joined, state bird, state flower, biggest city and region',
+            'Back: capital, nickname, statehood year and order, state bird, state flower, largest city and region',
             'The backs are lined up for double-sided printing, with simple steps if your printer is single-sided',
         ],
     },
