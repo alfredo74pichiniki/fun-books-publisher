@@ -416,8 +416,8 @@ export const BOOKS: Book[] = [
       "Cognitive exercises designed to keep the mind sharp for seniors. A comprehensive memory training workbook in Spanish.",
     descriptionEs:
       "Ejercicios cognitivos diseñados para mantener la mente activa en personas mayores. Un completo cuaderno de entrenamiento de memoria en español.",
-    asin: "B0CW1BQWLH",
-    amazonUrl: "https://www.amazon.com/dp/B0CW1BQWLH",
+    asin: "B0DH3Q9XN6",
+    amazonUrl: "https://www.amazon.com/dp/B0DH3Q9XN6",
     price: 9.99,
     category: "spanish",
     categoryLabel: "En Español",
