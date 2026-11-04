@@ -20,6 +20,9 @@ import { StatesLanding } from './StatesLanding';
 // CRITICAL once the corrected interior is on sale: printed as a QR on the last page of "Cursive Workbook for Kids Ages 8-12"
 import { CURSIVE_BONUSES, CURSIVE_SLUGS } from './cursive-bonus';
 import { CursiveLanding } from './CursiveLanding';
+// CRITICAL once on sale: printed as a QR on page 111 of "Ejercicios de Memoria para Personas Mayores Volumen 2"
+import { MEMORIA_BONUSES, MEMORIA_SLUGS } from './memoria-bonus';
+import { MemoriaLanding } from './MemoriaLanding';
 
 type Props = {
     params: Promise<{ locale: string; slug: string }>;
@@ -63,6 +66,10 @@ export function generateStaticParams() {
     }
 
     for (const slug of CURSIVE_SLUGS) {
+        params.push({ slug });
+    }
+
+    for (const slug of MEMORIA_SLUGS) {
         params.push({ slug });
     }
 
@@ -163,6 +170,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
+    const mm = MEMORIA_BONUSES[slug];
+    if (mm) {
+        return {
+            title: `${mm.title} | Fun Books Publisher`,
+            description: `${mm.subtitle}. Regalo para imprimir para los lectores de Ejercicios de Memoria para Personas Mayores, Volumen 2.`,
+            openGraph: {
+                title: mm.title,
+                description: mm.subtitle,
+                images: [mm.cover],
+                type: 'website',
+            },
+            robots: { index: false, follow: false },
+        };
+    }
+
     const book = getBookBySlugOrAlias(slug);
 
     if (!book || !book.bonusPdf) {
@@ -214,6 +236,11 @@ export default async function BonusPage({ params }: Props) {
     const cwBonus = CURSIVE_BONUSES[slug];
     if (cwBonus) {
         return <CursiveLanding bonus={cwBonus} />;
+    }
+
+    const mmBonus = MEMORIA_BONUSES[slug];
+    if (mmBonus) {
+        return <MemoriaLanding bonus={mmBonus} />;
     }
 
     // Resolve slug directly — works with canonical IDs AND old aliases
