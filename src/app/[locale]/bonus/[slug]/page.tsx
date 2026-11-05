@@ -174,7 +174,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (mm) {
         return {
             title: `${mm.title} | Fun Books Publisher`,
-            description: `${mm.subtitle}. Regalo para imprimir para los lectores de Ejercicios de Memoria para Personas Mayores, Volumen 2.`,
+            description: `${mm.subtitle}. Regalo para imprimir para los lectores de ${mm.book}.`,
             openGraph: {
                 title: mm.title,
                 description: mm.subtitle,

@@ -1,6 +1,6 @@
 'use client';
 
-// Gift page printed (as a QR) on page 111 of "Ejercicios de Memoria para Personas Mayores Volumen 2". In Spanish.
+// Gift pages printed (as a QR) in the "Ejercicios de Memoria para Personas Mayores" books (volume 1 and 2). In Spanish.
 // Look of the book interior: black ribbon with stars, ink on warm paper, big readable type for older readers.
 // Data and the permanent slug live in memoria-bonus.ts. Direct download, no email capture (KDP, G202018960).
 
@@ -36,7 +36,7 @@ export function MemoriaLanding({ bonus: BONUS }: { bonus: MemoriaBonus }) {
                 </div>
 
                 <header className="mm-hero">
-                    <p className="mm-kicker">Un regalo para los lectores de Ejercicios de Memoria, Volumen 2</p>
+                    <p className="mm-kicker">Un regalo para los lectores de {BONUS.book}</p>
                     <h1 className={`mm-title ${display.className}`}>{BONUS.title}</h1>
                     <Filete />
                     <p className="mm-lede">{BONUS.subtitle}.</p>
@@ -46,7 +46,7 @@ export function MemoriaLanding({ bonus: BONUS }: { bonus: MemoriaBonus }) {
                     <Image
                         className="mm-cover"
                         src={BONUS.cover}
-                        alt="Tres hojas del regalo: Así soy yo, un ejercicio de una estrella y La casa de mi infancia"
+                        alt={BONUS.coverAlt}
                         width={1200}
                         height={780}
                         priority
@@ -90,16 +90,13 @@ export function MemoriaLanding({ bonus: BONUS }: { bonus: MemoriaBonus }) {
                     </ul>
                 </section>
 
-                <p className="mm-en">
-                    In English: a printable gift for readers of our Spanish memory workbook for seniors. &ldquo;My life
-                    story&rdquo; pages to fill in together, plus 20 easy exercises with answers.
-                </p>
+                <p className="mm-en">{BONUS.english}</p>
 
                 <footer className="mm-foot">
                     <p className={display.className}>Que disfruten este rato juntos.</p>
                     <p className="mm-legal">
-                        &copy; {new Date().getFullYear()} Fun Books Publisher LLC. Para los lectores de Ejercicios de
-                        Memoria para Personas Mayores, Volumen 2. Para uso en casa.
+                        &copy; {new Date().getFullYear()} Fun Books Publisher LLC. Para los lectores de {BONUS.book}.
+                        Para uso en casa.
                     </p>
                 </footer>
             </div>
