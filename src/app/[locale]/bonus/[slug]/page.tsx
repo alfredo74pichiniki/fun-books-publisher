@@ -23,6 +23,9 @@ import { CursiveLanding } from './CursiveLanding';
 // CRITICAL once on sale: printed as a QR on page 111 of "Ejercicios de Memoria para Personas Mayores Volumen 2"
 import { MEMORIA_BONUSES, MEMORIA_SLUGS } from './memoria-bonus';
 import { MemoriaLanding } from './MemoriaLanding';
+// CRITICAL once on sale: printed as a QR on page 112 of "Birthday Trivia for Seniors" (book 07, 1950s-1980s)
+import { BIRTHDAY_TRIVIA_BONUSES, BIRTHDAY_TRIVIA_SLUGS } from './birthday-trivia-bonus';
+import { BirthdayTriviaLanding } from './BirthdayTriviaLanding';
 
 type Props = {
     params: Promise<{ locale: string; slug: string }>;
@@ -70,6 +73,10 @@ export function generateStaticParams() {
     }
 
     for (const slug of MEMORIA_SLUGS) {
+        params.push({ slug });
+    }
+
+    for (const slug of BIRTHDAY_TRIVIA_SLUGS) {
         params.push({ slug });
     }
 
@@ -185,6 +192,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
+    const bt = BIRTHDAY_TRIVIA_BONUSES[slug];
+    if (bt) {
+        return {
+            title: `${bt.title} | Fun Books Publisher`,
+            description: `${bt.subtitle}. A free gift for readers of ${bt.book}.`,
+            openGraph: {
+                title: bt.title,
+                description: bt.subtitle,
+                type: 'website',
+            },
+            robots: { index: false, follow: false },
+        };
+    }
+
     const book = getBookBySlugOrAlias(slug);
 
     if (!book || !book.bonusPdf) {
@@ -241,6 +262,11 @@ export default async function BonusPage({ params }: Props) {
     const mmBonus = MEMORIA_BONUSES[slug];
     if (mmBonus) {
         return <MemoriaLanding bonus={mmBonus} />;
+    }
+
+    const btBonus = BIRTHDAY_TRIVIA_BONUSES[slug];
+    if (btBonus) {
+        return <BirthdayTriviaLanding bonus={btBonus} />;
     }
 
     // Resolve slug directly — works with canonical IDs AND old aliases
