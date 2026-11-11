@@ -8,8 +8,9 @@ import { usePathname } from 'next/navigation';
 const SIN_PIXEL = ['/bonus/secret-science-agency', '/bonus/cursive-workbook', '/bonus/50-states-road-trip'];
 
 export function MetaPixel() {
-    const path = usePathname() ?? '';
-    if (SIN_PIXEL.some((p) => path === p || path === `/es${p}` || path.startsWith(`${p}/`) || path.startsWith(`/es${p}/`))) {
+    // next-intl rewrites /bonus/x to /en/bonus/x on the server, so the locale prefix is removed before comparing.
+    const path = (usePathname() ?? '').replace(/^\/(en|es)(?=\/|$)/, '') || '/';
+    if (SIN_PIXEL.some((p) => path === p || path.startsWith(`${p}/`))) {
         return null;
     }
     return (
