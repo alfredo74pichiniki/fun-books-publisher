@@ -1,8 +1,17 @@
 'use client';
 
 import Script from 'next/script';
+import { usePathname } from 'next/navigation';
+
+// Pages for children (COPPA): the Meta Pixel sets advertising cookies, so it is NOT loaded on these paths.
+// Matched with or without the /es prefix.
+const SIN_PIXEL = ['/bonus/secret-science-agency', '/bonus/cursive-workbook', '/bonus/50-states-road-trip'];
 
 export function MetaPixel() {
+    const path = usePathname() ?? '';
+    if (SIN_PIXEL.some((p) => path === p || path === `/es${p}` || path.startsWith(`${p}/`) || path.startsWith(`/es${p}/`))) {
+        return null;
+    }
     return (
         <>
             <Script id="meta-pixel" strategy="afterInteractive">
