@@ -26,6 +26,9 @@ import { MemoriaLanding } from './MemoriaLanding';
 // CRITICAL once on sale: printed as a QR on page 112 of "Birthday Trivia for Seniors" (book 07, 1950s-1980s)
 import { BIRTHDAY_TRIVIA_BONUSES, BIRTHDAY_TRIVIA_SLUGS } from './birthday-trivia-bonus';
 import { BirthdayTriviaLanding } from './BirthdayTriviaLanding';
+// CRITICAL once on sale: printed as a QR on page 170 of "Secret Science Agency" (book 08, logic puzzles for ages 11-14)
+import { SECRET_SCIENCE_BONUSES, SECRET_SCIENCE_SLUGS } from './secret-science-agency-bonus';
+import { SecretScienceLanding } from './SecretScienceLanding';
 
 type Props = {
     params: Promise<{ locale: string; slug: string }>;
@@ -77,6 +80,10 @@ export function generateStaticParams() {
     }
 
     for (const slug of BIRTHDAY_TRIVIA_SLUGS) {
+        params.push({ slug });
+    }
+
+    for (const slug of SECRET_SCIENCE_SLUGS) {
         params.push({ slug });
     }
 
@@ -206,6 +213,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
+    const ss = SECRET_SCIENCE_BONUSES[slug];
+    if (ss) {
+        const lede = `${ss.subtitle}. A printable PDF for readers of ${ss.book}.`;
+        return {
+            title: `${ss.title} | Secret Science Agency | Fun Books Publisher`,
+            description: lede,
+            openGraph: {
+                title: `${ss.title} | Secret Science Agency`,
+                description: lede,
+                images: [ss.bookCover ?? ss.preview],
+                type: 'website',
+            },
+            robots: { index: false, follow: false },
+        };
+    }
+
     const book = getBookBySlugOrAlias(slug);
 
     if (!book || !book.bonusPdf) {
@@ -267,6 +290,11 @@ export default async function BonusPage({ params }: Props) {
     const btBonus = BIRTHDAY_TRIVIA_BONUSES[slug];
     if (btBonus) {
         return <BirthdayTriviaLanding bonus={btBonus} />;
+    }
+
+    const ssBonus = SECRET_SCIENCE_BONUSES[slug];
+    if (ssBonus) {
+        return <SecretScienceLanding bonus={ssBonus} />;
     }
 
     // Resolve slug directly — works with canonical IDs AND old aliases
