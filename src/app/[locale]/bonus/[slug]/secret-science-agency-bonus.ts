@@ -1,10 +1,10 @@
 // Bonus Mission Pack for book 08, "Secret Science Agency: Logic Puzzles for Teens and Middle Schoolers"
 // (Fun Books Publisher, brain teasers for ages 11-14, 80 missions). The URL /bonus/secret-science-agency is printed as a
-// QR on page 205 of the interior, so THE SLUG IS PERMANENT. Do not rename it.
+// QR on page 212 of the interior, so THE SLUG IS PERMANENT. Do not rename it.
 // Published 11 Nov 2026 with Alfredo's OK. Updated 13 Nov 2026 after the educator review (cryptogram replaces truth or lie).
 // Audience is 11-14 and their parents (COPPA): direct download, no form, no email, no sign-up, and the Meta Pixel is
 // switched off on this path (see components/MetaPixel.tsx). KDP bonus content rules, G202018960.
-// PDF: missions 81-90, 26 pages, md5 8e61277b6a58f7ebf9ed1990d56ad6a9 (14 nov 2026, full step-by-step chains in every solution, check codes paired by mission). If the PDF changes, update `pages` and `size`.
+// PDF: missions 81-90, 26 pages, md5 53c93f3c059d9bd1175b475cd0e013af (14 nov 2026, round 11-12 corrections: explanations, levels and titles; puzzles unchanged except titles M85 and M90). If the PDF changes, update `pages` and `size`.
 
 export type SecretScienceBonus = {
     slug: string;
@@ -41,15 +41,15 @@ export const SECRET_SCIENCE_BONUSES: Record<string, SecretScienceBonus> = {
         size: '0.6 MB',
         missions: [
             { n: 81, type: 'Logic Grid', name: 'Sector Atlas Sort-Out', level: 'Advanced' },
-            { n: 82, type: 'Keyword Cipher', name: 'Code Name: Broken Beacon', level: 'Elite' },
+            { n: 82, type: 'Keyword Cipher', name: 'Code Name: Broken Beacon', level: 'Advanced' },
             { n: 83, type: 'Lock Code', name: 'The Rusty Tumbler', level: 'Advanced' },
             { n: 84, type: 'Word Ladder', name: 'Signal Path: Beam to Scan', level: 'Advanced' },
-            { n: 85, type: 'Cryptogram', name: 'Radio Log: Cobalt Tide', level: 'Advanced' },
+            { n: 85, type: 'Cryptogram', name: 'Radio Log: Ocean Tide', level: 'Advanced' },
             { n: 86, type: 'Nonogram', name: 'The Scrambled Screen', level: 'Advanced' },
             { n: 87, type: 'Symbol Balance', name: 'The Spark Check', level: 'Advanced' },
-            { n: 88, type: 'Shape Count', name: 'Crossed Pattern', level: 'Advanced' },
+            { n: 88, type: 'Shape Count', name: 'Divided Pattern', level: 'Advanced' },
             { n: 89, type: 'Word Math', name: 'Locked Sum: TOKEN', level: 'Advanced' },
-            { n: 90, type: 'Calc Cages', name: 'The Cobalt Panel', level: 'Elite' },
+            { n: 90, type: 'Calc Cages', name: 'The Training Safe', level: 'Elite' },
         ],
         steps: [
             { name: 'Print', how: 'Print the pages you need. One mission fits on one page.' },
@@ -61,7 +61,7 @@ export const SECRET_SCIENCE_BONUSES: Record<string, SecretScienceBonus> = {
         inside: [
             'Ten new missions, numbered 81 to 90, that are not in the book',
             'Ten different puzzle types, from a logic grid and a keyword cipher to a cryptogram and Calc Cages',
-            'Eight Advanced missions and two Elite ones, for agents who want a real challenge',
+            'Nine Advanced missions and one Elite one, for agents who want a real challenge',
             'Check codes, so you can confirm an answer without seeing the solution',
             'Two levels of hints for every mission',
             'Full step-by-step solutions that name each technique',
