@@ -5,7 +5,8 @@ import { usePathname } from 'next/navigation';
 
 // Pages for children (COPPA): the Meta Pixel sets advertising cookies, so it is NOT loaded on these paths.
 // Matched with or without the /es prefix.
-const SIN_PIXEL = ['/bonus/secret-science-agency', '/bonus/cursive-workbook', '/bonus/50-states-road-trip'];
+// '/d' holds the redesign mockups (branch rediseno-fbp): no pixel on design previews.
+const SIN_PIXEL = ['/bonus/secret-science-agency', '/bonus/cursive-workbook', '/bonus/50-states-road-trip', '/d'];
 
 export function MetaPixel() {
     // next-intl rewrites /bonus/x to /en/bonus/x on the server, so the locale prefix is removed before comparing.
