@@ -1,6 +1,4 @@
-import { statSync } from 'node:fs';
 import Image from 'next/image';
-import { join } from 'node:path';
 import { Link } from '@/i18n/routing';
 import { cargarCatalogo, porFamilia } from '@/catalogo/cargar';
 import { getBookBySlug } from '@/data/helpers';
@@ -14,15 +12,7 @@ import '@/sitio/sitio.css';
 // The generic gift page (direction A), used by every book whose gift is a single PDF in books.ts.
 // The address, the PDF and the analytics event are the same as before: only the look changed.
 // Gift pages are always in English: the printed books are in English.
-
-function peso(pdf: string): string | null {
-    try {
-        const mb = statSync(join(process.cwd(), 'public', pdf)).size / 1_048_576;
-        return mb >= 1 ? `${Math.round(mb)} MB` : `${Math.max(1, Math.round(mb * 1024))} KB`;
-    } catch {
-        return null; // at runtime on Vercel the public folder is not on disk; the size is only a hint
-    }
-}
+// No file system access here: reading /public from a function would pack every PDF into it.
 
 const CONSEJOS = [
     'Print at 100% scale. Letter and A4 paper both work.',
@@ -36,7 +26,6 @@ export async function BonusLanding({ bookId }: { bookId: string }) {
     const libro = c.libros.find((l) => l.regalo === bookId || l.slug === bookId || l.asin === book.asin);
     const nombre = libro?.nombre ?? book.title.replace(/\s+[–—]\s+/g, ': ');
     const mas = libro ? porFamilia(c, libro.familia).filter((x) => x.asin !== libro.asin).slice(0, 4) : [];
-    const tam = book.bonusPdf ? peso(book.bonusPdf) : null;
 
     return (
         <div className={`dA ${claseFuentes}`} lang="en">
@@ -65,7 +54,7 @@ export async function BonusLanding({ bookId }: { bookId: string }) {
                             press the button and the file is yours.
                         </p>
                         <DescargarRegalo href={book.bonusPdf!} libro={book.id} texto="Download the PDF" />
-                        <p className="aNota">PDF{tam ? `, ${tam}` : ''}. Big files download best on Wi-Fi.</p>
+                        <p className="aNota">A PDF to print at home. Big files download best on Wi-Fi.</p>
                     </div>
                 </section>
 
