@@ -45,12 +45,12 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
             {
                 title: "Guided X-mark system",
                 description:
-                    "Subtle markers show exactly where to fill with black ink. The result: gallery-worthy negative-space art, every time.",
+                    "Small X marks show exactly where the black ink goes, so you always know where to fill.",
             },
             {
                 title: "Perfect for all skill levels",
                 description:
-                    "Beginners love the clear guidance. Advanced colorists appreciate the elegant compositions and the challenge of precision.",
+                    "The X marks guide first-timers step by step. If you have colored for years, the detailed scenes give you plenty to work on.",
             },
         ],
         features: [
@@ -69,7 +69,7 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
             {
                 question: "Is this book too hard for beginners?",
                 answer:
-                    "No. The X-mark system guides you exactly where to fill with black ink, so beginners get gallery-worthy results on their first page.",
+                    "No. The X marks show exactly where to fill with black ink, so you can start on the first page without any experience.",
             },
             {
                 question: "What's included besides the printed book?",
@@ -105,12 +105,12 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
             {
                 title: "Guided X-mark system",
                 description:
-                    "Subtle markers show exactly where to fill with black ink. The result: gallery-worthy negative-space art, every time.",
+                    "Small X marks show exactly where the black ink goes, so you always know where to fill.",
             },
             {
                 title: "Perfect for all skill levels",
                 description:
-                    "Beginners love the clear guidance. Advanced colorists appreciate the elegant compositions and the challenge of precision.",
+                    "The X marks guide first-timers step by step. If you have colored for years, the detailed scenes give you plenty to work on.",
             },
         ],
         features: [
@@ -129,7 +129,7 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
             {
                 question: "Is this book too hard for beginners?",
                 answer:
-                    "No. The X-mark system guides you exactly where to fill with black ink, so beginners get gallery-worthy results on their first page.",
+                    "No. The X marks show exactly where to fill with black ink, so you can start on the first page without any experience.",
             },
             {
                 question: "What's included besides the printed book?",

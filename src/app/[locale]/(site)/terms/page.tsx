@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
     return (
-        <div className="aTexto">
+        <div className="aTexto" lang="en">
             <div>
                 <h1>Terms of Service</h1>
                 <div>
-                    <p className="aFecha"><strong>Last updated:</strong> February 2026</p>
+                    <p className="aFecha"><strong>Last updated:</strong> November 2026</p>
 
                     <h2>Agreement</h2>
                     <p>By using this website, you agree to these terms of service. This website is operated by Fun Books Publisher and serves as an informational catalog for our published books.</p>

@@ -2,7 +2,7 @@ import copia from './catalogo-fbp.json';
 import { CatalogoInvalido, componer, validar } from './puro';
 import type { Catalogo, CatalogoFuente } from './tipos';
 
-export { buscar, ORDEN, porFamilia, recientes } from './puro';
+export { alDia, buscar, ORDEN, porFamilia, recientes } from './puro';
 
 // Where the catalog comes from, in this order:
 // 1. FBP_CATALOGO_URL: the public catalogo/fbp.json that the EMPIRE agent catalogo_fbp rewrites every day

@@ -80,6 +80,8 @@ export function componer(fuente: CatalogoFuente, origen: Catalogo['origen'], hoy
                 ...f,
                 slug,
                 slugFuente: f.slug,
+                // Alfredo's rule: no long dashes on his sites. Amazon's title is shown with colons instead.
+                titulo: f.titulo.replace(/\s*[–—]\s*/g, ': '),
                 familia: e.familia ?? f.familia,
                 idioma: e.idioma ?? f.idioma,
                 nombre: e.nombre ?? f.corto,
@@ -119,4 +121,9 @@ export function buscar(c: Catalogo, slug: string): { libro?: Libro; canonico: bo
 
 export function recientes(c: Catalogo, n: number): Libro[] {
     return [...c.libros].filter((l) => l.publicado).sort((a, b) => (b.publicado! > a.publicado! ? 1 : -1)).slice(0, n);
+}
+
+/** True while the catalog came from the live store less than 48 hours ago (the agent is running). */
+export function alDia(c: Catalogo, ahora: number = Date.now()): boolean {
+    return c.origen === 'en-linea' && ahora - Date.parse(c.generado) < 48 * 3_600_000;
 }

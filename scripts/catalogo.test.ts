@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
-import { buscar, CatalogoInvalido, componer, validar } from '../src/catalogo/puro';
+import { alDia, buscar, CatalogoInvalido, componer, validar } from '../src/catalogo/puro';
 import type { CatalogoFuente } from '../src/catalogo/tipos';
 
 const copia = (): CatalogoFuente => JSON.parse(readFileSync(new URL('../src/catalogo/catalogo-fbp.json', import.meta.url), 'utf8'));
@@ -65,4 +65,14 @@ test('old book addresses and ASINs find their book', () => {
     assert.equal(buscar(c, 'black-white-art-therapy').libro?.asin, 'B0GW33476D');
     assert.equal(buscar(c, 'cozy-escapes').canonico, true);
     assert.equal(buscar(c, 'nothing-here').libro, undefined);
+});
+
+test('"updates itself" only with a live catalog of less than 48 hours, and no long dashes in titles', () => {
+    const d = copia();
+    const c = componer(validar(d), 'en-linea');
+    const t = Date.parse(c.generado);
+    assert.equal(alDia(c, t + 47 * 3_600_000), true);
+    assert.equal(alDia(c, t + 49 * 3_600_000), false);
+    assert.equal(alDia({ ...c, origen: 'copia' }, t), false);
+    assert.ok(c.libros.every((l) => !/[–—]/.test(l.titulo)));
 });

@@ -24,7 +24,9 @@ export async function BonusLanding({ bookId }: { bookId: string }) {
     const book = getBookBySlug(bookId)!;
     const c = await cargarCatalogo();
     const libro = c.libros.find((l) => l.regalo === bookId || l.slug === bookId || l.asin === book.asin);
-    const nombre = libro?.nombre ?? book.title.replace(/\s+[–—]\s+/g, ': ');
+    // The book named on a gift page is the one the live site names today (books.ts): the QR codes are
+    // printed, so a page never changes which book it says it belongs to. Only the long dash becomes a colon.
+    const nombre = book.title.replace(/\s+[–—]\s+/g, ': ');
     const mas = libro ? porFamilia(c, libro.familia).filter((x) => x.asin !== libro.asin).slice(0, 4) : [];
 
     return (
@@ -81,10 +83,10 @@ export async function BonusLanding({ bookId }: { bookId: string }) {
                     </section>
                 )}
 
-                {libro && (
+                {/^[A-Z0-9]{10}$/.test(book.asin) && (
                     <section className="aResena" aria-label="Reviews">
                         <p>Enjoying the book? An honest review on Amazon helps other readers find it.</p>
-                        <a className="aLink" href={`https://www.amazon.com/review/create-review?asin=${libro.asin}`} rel="noopener">
+                        <a className="aLink" href={`https://www.amazon.com/review/create-review?asin=${book.asin}`} rel="noopener">
                             Write a review on Amazon
                         </a>
                     </section>

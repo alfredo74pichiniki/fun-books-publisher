@@ -68,7 +68,12 @@ export default function ContactPage() {
                     </button>
                     <p className="aNota" role="status" aria-live="polite">
                         {estado === 'ok' && (es ? 'Mensaje enviado. Le contestaremos a su correo.' : 'Message sent. We will reply to your email.')}
-                        {estado === 'error' && (es ? 'No se ha podido enviar. Inténtelo de nuevo en unos minutos.' : 'The message could not be sent. Please try again in a few minutes.')}
+                        {estado === 'error' && (
+                            <>
+                                {es ? 'No se ha podido enviar. Inténtelo de nuevo en unos minutos o escríbanos a ' : 'The message could not be sent. Please try again in a few minutes, or email us at '}
+                                <a href="mailto:customerservice@funbookpublisher.com">customerservice@funbookpublisher.com</a>.
+                            </>
+                        )}
                         {estado === 'muchos' && (es ? 'Ha enviado varios mensajes seguidos. Inténtelo de nuevo dentro de una hora.' : 'You have sent several messages in a row. Please try again in an hour.')}
                     </p>
                 </div>

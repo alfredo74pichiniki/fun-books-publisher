@@ -46,7 +46,7 @@ export default async function LandingPage(props: { params: Params }) {
     if (!lp) notFound();
 
     return (
-        <main className="lp-root min-h-screen">
+        <main className="lp-root min-h-screen" lang="en">
             <PixelConConsentimiento asin={lp.asin} titulo={lp.title} />
 
             {/* ========== TOP BRAND BAR ========== */}

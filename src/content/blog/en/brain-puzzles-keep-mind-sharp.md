@@ -12,7 +12,7 @@ tags: ["puzzles", "brain health", "cognitive", "memory"]
 
 We all know that physical exercise keeps our bodies healthy. But your brain needs a workout too, and puzzle books are one of the most enjoyable ways to give it one.
 
-Whether you're 25 or 75, regularly challenging your brain with puzzles can have real, measurable benefits for your cognitive health.
+Whether you're 25 or 75, regularly challenging your brain with puzzles is an easy, enjoyable way to stay mentally active.
 
 ## What the Research Says
 
@@ -27,22 +27,22 @@ The common thread: it is not about being naturally "smart". It is about keeping 
 Not all puzzles exercise the same cognitive functions. Here's a quick breakdown:
 
 ### Word Searches
-- **Primary benefit:** Visual scanning and pattern recognition
+- **Works on:** Visual scanning and pattern recognition
 - **Also works:** Vocabulary recall, sustained attention
 - **Best for:** Relaxation with a gentle mental challenge
 
 ### Crossword Puzzles
-- **Primary benefit:** Verbal memory and word retrieval
+- **Works on:** Verbal memory and word retrieval
 - **Also works:** General knowledge, problem-solving
 - **Best for:** Language skills and long-term memory
 
 ### Sudoku & Number Puzzles
-- **Primary benefit:** Logical reasoning and working memory
+- **Works on:** Logical reasoning and working memory
 - **Also works:** Pattern recognition, concentration
 - **Best for:** Mathematical thinking and strategic planning
 
 ### Logic Puzzles
-- **Primary benefit:** Deductive reasoning
+- **Works on:** Deductive reasoning
 - **Also works:** Patience, systematic thinking
 - **Best for:** Complex problem-solving skills
 
@@ -58,11 +58,11 @@ This is why variety matters. Doing the same type of puzzle every day is better t
 
 The most effective approach is consistency. Here's how to build a sustainable puzzle habit:
 
-1. **Start with 10-15 minutes a day.** That's enough to see benefits without it feeling like a chore.
+1. **Start with 10-15 minutes a day.** That is easy to fit into any day without it feeling like a chore.
 2. **Keep a puzzle book by your bed or on your coffee table.** Accessibility reduces friction.
 3. **Mix up your puzzle types.** Alternate between word puzzles, number puzzles, and logic challenges.
-4. **Don't skip the hard ones.** Puzzles that challenge you, the ones that make you think, provide the most cognitive benefit.
-5. **Make it social.** Working on puzzles with a partner or friend adds a social dimension that further benefits brain health.
+4. **Don't skip the hard ones.** The puzzles that challenge you are the ones that make you think hardest.
+5. **Make it social.** Working on puzzles with a partner or friend makes it social, and more fun.
 
 ## It's Never Too Early (or Too Late) to Start
 

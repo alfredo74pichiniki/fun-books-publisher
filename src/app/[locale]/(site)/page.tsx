@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
-import { cargarCatalogo, ORDEN, porFamilia, recientes } from '@/catalogo/cargar';
+import { alDia, cargarCatalogo, ORDEN, porFamilia, recientes } from '@/catalogo/cargar';
 import type { Catalogo, Libro } from '@/catalogo/tipos';
 import { Carrusel } from '@/sitio/Carrusel';
 import { Libro3d, Portada } from '@/sitio/Libro';
@@ -45,6 +45,8 @@ export default async function Home({ params }: Props) {
     const cbn = porFamilia(c, 'color-by-number');
     const conRegalo = ORDEN.flatMap((f) => porFamilia(c, f)).filter((x) => x.regalo);
     const estantes = grupos(c, l);
+    // "Updates itself" is only said while it is true: the catalog came from the live store less than 48 hours ago.
+    const actualizado = alDia(c);
 
     return (
         <>
@@ -84,7 +86,7 @@ export default async function Home({ params }: Props) {
                 <div className="aSecT">
                     <div>
                         <h2 id="a-nuevos">{t.novedades}</h2>
-                        <p>{c.origen === 'en-linea' ? t.novedadesTexto : t.novedadesFijo}</p>
+                        <p>{actualizado ? t.novedadesTexto : t.novedadesFijo}</p>
                     </div>
                     <Link className="aLink" href="/books">{t.verTodo}</Link>
                 </div>

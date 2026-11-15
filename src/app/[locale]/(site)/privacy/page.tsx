@@ -33,8 +33,8 @@ export default async function PrivacyPage({ params }: Props) {
                 <h2>Quiénes somos</h2>
                 <p>Esta web es de Fun Books Publisher LLC (Wyoming, Estados Unidos). Para cualquier cosa sobre sus datos, escriba a <a href={`mailto:${CORREO}`}>{CORREO}</a>.</p>
                 <h2>Cookies de publicidad: solo en las páginas de anuncios</h2>
-                <p>Las páginas a las que llevan nuestros anuncios de Facebook e Instagram (las que empiezan por /lp/) pueden usar el píxel de Meta (Meta Platforms). Sirve para saber si un anuncio trae lectores y si pulsan el botón para ir a Amazon. Pone una cookie llamada _fbp y envía a Meta datos de la visita.</p>
-                <p>El píxel no se carga hasta que usted pulsa «Accept» en el aviso de esa página. Si pulsa «No thanks» o no elige nada, no se carga y no se pone ninguna cookie. Puede cambiar su elección con el botón del pie de esa página, o bloquear las cookies de terceros en su navegador.</p>
+                <p>Las páginas a las que llevan nuestros anuncios de Facebook e Instagram (las que empiezan por /lp/) pueden usar el píxel de Meta (Meta Platforms). Sirve para saber si un anuncio trae lectores y si pulsan el botón para ir a Amazon. Pone cookies de Meta, como _fbp (en nuestra web) y fr (en facebook.com), y envía a Meta datos de la visita.</p>
+                <p>El píxel no se carga hasta que usted pulsa «Accept» en el aviso de esa página. Si pulsa «No thanks» o no elige nada, no se carga y no se pone ninguna cookie. Puede cambiar su elección con el botón del pie de esa página: si retira el permiso, borramos la cookie _fbp y la página se recarga sin el píxel. La cookie fr es de facebook.com y solo se puede borrar desde su navegador, donde también puede bloquear las cookies de terceros.</p>
                 <p>El resto de la web (portada, libros, regalos, blog y estas páginas) no usa cookies de publicidad.</p>
                 <h2>Estadísticas de visitas</h2>
                 <p>Contamos las visitas con Vercel Web Analytics, que no usa cookies y no guarda datos que le identifiquen. También contamos, sin saber quién, cuántas veces se descarga cada regalo.</p>
@@ -56,8 +56,8 @@ export default async function PrivacyPage({ params }: Props) {
             <h2>Who we are</h2>
             <p>This website belongs to Fun Books Publisher LLC (Wyoming, USA). For anything about your data, write to <a href={`mailto:${CORREO}`}>{CORREO}</a>.</p>
             <h2>Advertising cookies: only on our ad pages</h2>
-            <p>The pages our Facebook and Instagram ads lead to (the ones whose address starts with /lp/) can use the Meta Pixel (Meta Platforms). It tells us whether an ad brings readers and whether they press the button that takes them to Amazon. It sets a cookie called _fbp and sends data about the visit to Meta.</p>
-            <p>The pixel does not load until you press &quot;Accept&quot; in the notice on that page. If you press &quot;No thanks&quot;, or choose nothing, it does not load and no cookie is set. You can change your choice with the button at the bottom of that page, or block third party cookies in your browser.</p>
+            <p>The pages our Facebook and Instagram ads lead to (the ones whose address starts with /lp/) can use the Meta Pixel (Meta Platforms). It tells us whether an ad brings readers and whether they press the button that takes them to Amazon. It sets Meta cookies, such as _fbp (on our site) and fr (on facebook.com), and sends data about the visit to Meta.</p>
+            <p>The pixel does not load until you press &quot;Accept&quot; in the notice on that page. If you press &quot;No thanks&quot;, or choose nothing, it does not load and no Meta cookie is set. You can change your choice with the button at the bottom of that page: if you withdraw it, we delete the _fbp cookie and the page reloads without the pixel. The fr cookie belongs to facebook.com and can only be deleted from your browser, where you can also block third party cookies.</p>
             <p>The rest of the website (home, books, gifts, blog and these pages) uses no advertising cookies.</p>
             <h2>Visit statistics</h2>
             <p>We count visits with Vercel Web Analytics, which uses no cookies and keeps no data that identifies you. We also count, without knowing who, how many times each gift is downloaded.</p>

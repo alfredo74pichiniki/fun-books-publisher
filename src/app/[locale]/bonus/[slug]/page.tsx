@@ -110,7 +110,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const xo = CROSS_OUT_BONUSES[slug];
     if (xo) {
-        const lede = `A printable bonus mystery for readers of Cross Out the Killer, Book ${xo.book}: ${xo.name}.`;
+        const lede = `A printable bonus case, "${xo.name}", for readers of Cross Out the Killer, Book ${xo.book}.`;
         return {
             title: `Bonus Case: ${xo.name} | Fun Books Publisher`,
             description: lede,

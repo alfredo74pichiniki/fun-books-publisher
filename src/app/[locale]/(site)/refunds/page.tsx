@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function RefundsPage() {
     return (
-        <div className="aTexto">
+        <div className="aTexto" lang="en">
             <div>
                 <h1>Refund Policy</h1>
                 <div>
