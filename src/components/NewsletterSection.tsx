@@ -77,12 +77,8 @@ export function NewsletterSection() {
                         <h2 className="reveal text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
                             {t('title')}
                         </h2>
-                        <p className="reveal text-white/55 text-base sm:text-lg mb-4 max-w-xl mx-auto">
+                        <p className="reveal text-white/55 text-base sm:text-lg mb-10 max-w-xl mx-auto">
                             {t('subtitle')}
-                        </p>
-                        <p className="reveal text-accent/80 text-sm font-medium mb-10 flex items-center justify-center gap-2">
-                            <span className="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                            {t('socialProof')}
                         </p>
 
                         {status === 'success' ? (

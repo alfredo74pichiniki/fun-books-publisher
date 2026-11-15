@@ -4,7 +4,7 @@ import { useEffect, useRef, useCallback, useState } from 'react';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { getFeaturedBooks } from '@/data/helpers';
 import { getCategoryById } from '@/data/categories';
@@ -108,12 +108,6 @@ export function BookSlider() {
                                                         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
                                                     </div>
 
-                                                    {/* Bestseller badge */}
-                                                    {book.isBestseller && (
-                                                        <div className="absolute -top-3 -right-3 px-3 py-1.5 bg-gradient-to-r from-accent to-accent-dark text-white rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-accent/30 z-10">
-                                                            ★ Bestseller
-                                                        </div>
-                                                    )}
                                                 </div>
                                             </div>
 
@@ -138,22 +132,6 @@ export function BookSlider() {
                                                     {locale === 'es' && book.descriptionEs ? book.descriptionEs : book.description}
                                                 </p>
 
-                                                {/* Rating */}
-                                                {book.rating !== null && (
-                                                    <div className="flex items-center gap-2 justify-center md:justify-start">
-                                                        <div className="flex gap-0.5">
-                                                            {[...Array(5)].map((_, i) => (
-                                                                <Star
-                                                                    key={i}
-                                                                    className={`w-4 h-4 ${i < Math.floor(book.rating!) ? 'text-amber-400 fill-amber-400' : 'text-white/20'}`}
-                                                                />
-                                                            ))}
-                                                        </div>
-                                                        <span className="text-white/40 text-sm">
-                                                            {book.rating}{book.reviewCount > 0 && ` (${book.reviewCount})`}
-                                                        </span>
-                                                    </div>
-                                                )}
 
                                                 {/* CTAs */}
                                                 <div className="flex gap-3 justify-center md:justify-start pt-2">

@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { useSearchParams } from 'next/navigation';
-import { Star } from 'lucide-react';
 import { getActiveBooks } from '@/data/helpers';
 import { CATEGORIES, getCategoryById } from '@/data/categories';
 import type { BookCategory } from '@/data/books';
@@ -120,12 +119,6 @@ export default function CatalogPage() {
                                             </span>
                                         </div>
 
-                                        {/* Bestseller badge */}
-                                        {book.isBestseller && (
-                                            <div className="absolute top-3 right-3 px-2.5 py-1 bg-accent text-white rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-accent/30">
-                                                Bestseller
-                                            </div>
-                                        )}
 
                                         {/* Price tag */}
                                         <div className="absolute bottom-3 right-3 px-3 py-1.5 bg-navy-950/80 backdrop-blur-sm rounded-lg text-white font-bold text-sm border border-white/10">
@@ -139,22 +132,6 @@ export default function CatalogPage() {
                                             {book.title}
                                         </h3>
 
-                                        {/* Rating */}
-                                        {book.rating !== null && (
-                                            <div className="flex items-center gap-1.5">
-                                                <div className="flex gap-0.5">
-                                                    {[...Array(5)].map((_, i) => (
-                                                        <Star
-                                                            key={i}
-                                                            className={`w-3.5 h-3.5 ${i < Math.floor(book.rating!) ? 'text-amber-400 fill-amber-400' : 'text-white/15'}`}
-                                                        />
-                                                    ))}
-                                                </div>
-                                                <span className="text-white/35 text-xs">
-                                                    {book.rating}{book.reviewCount !== null && ` (${book.reviewCount})`}
-                                                </span>
-                                            </div>
-                                        )}
 
                                         {/* CTAs */}
                                         <div className="flex gap-2 pt-2">

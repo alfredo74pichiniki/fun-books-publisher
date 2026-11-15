@@ -52,13 +52,6 @@ export function BookJsonLd({ bookId }: { bookId: string }) {
             availability: 'https://schema.org/InStock',
             url: book.amazonUrl,
         },
-        aggregateRating: book.rating
-            ? {
-                  '@type': 'AggregateRating',
-                  ratingValue: book.rating.toString(),
-                  reviewCount: (book.reviewCount || 0).toString(),
-              }
-            : undefined,
     };
 
     return (

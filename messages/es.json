@@ -23,12 +23,6 @@
     "ctaPrimary": "Explorar Nuestros Libros",
     "ctaSecondary": "Comprar en Amazon"
   },
-  "stats": {
-    "books": "Libros Publicados",
-    "readers": "Lectores Felices",
-    "bestsellers": "Bestsellers",
-    "rating": "Valoración Media"
-  },
   "featured": {
     "title": "Libros Destacados",
     "subtitle": "Seleccionados de nuestra colección — desde arte terapia monocromo hasta puzzles para estimular el cerebro.",
@@ -42,10 +36,6 @@
     "viewCategory": "Ver Colección",
     "booksCount": "{count, plural, one {# libro} other {# libros}}"
   },
-  "testimonials": {
-    "title": "Lo Que Dicen los Lectores",
-    "subtitle": "Reseñas reales de clientes reales en Amazon."
-  },
   "newsletter": {
     "title": "No Te Pierdas Ningún Lanzamiento",
     "subtitle": "Únete a nuestra comunidad y sé el primero en conocer nuevos libros, descargas gratuitas y contenido exclusivo.",
@@ -53,8 +43,7 @@
     "button": "Suscribirse",
     "privacy": "Respetamos tu privacidad. Cancela cuando quieras.",
     "success": "¡Bienvenido! Revisa tu email para una sorpresa.",
-    "error": "Algo salió mal. Inténtalo de nuevo.",
-    "socialProof": "Únete a más de 100K lectores satisfechos"
+    "error": "Algo salió mal. Inténtalo de nuevo."
   },
   "social": {
     "title": "Únete a la Comunidad",
@@ -85,7 +74,6 @@
     "author": "Autor",
     "relatedBooks": "También Te Puede Gustar",
     "backToCatalog": "Volver a Todos los Libros",
-    "rating": "Valoración en Amazon",
     "english": "Inglés",
     "spanish": "Español",
     "getBonusPages": "Obtener Páginas Bonus Gratis",
