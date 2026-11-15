@@ -9,7 +9,7 @@
     --paper-warm: #ebe1cc;
     --ink: #1a120a;
     --ink-soft: #3d2c1e;
-    --ink-mute: #8a755e;
+    --ink-mute: #6b573f; /* 6.3:1 on --paper (was #8a755e, 3.82:1) */
     --rule: #d6c9ad;
     --amber: #b8742a;
     --amber-deep: #8c5417;
@@ -260,3 +260,22 @@
 .lp-section-warm {
     background: var(--paper-warm);
 }
+
+/* globals.css resets margin and padding on every element outside any cascade layer, which beats the
+   Tailwind utilities of this page (they live in a layer): content ended up glued to the left edge.
+   Inside the landing, hand margin and padding back to the layered rules. */
+.lp-root *, .lp-root *::before, .lp-root *::after {
+    margin: revert-layer;
+    padding: revert-layer;
+}
+
+/* cookie choice for the Meta Pixel: in the page flow, never over content */
+.lp-consent { position: relative; z-index: 2; margin: 0 auto; max-width: 80rem; padding: 18px 24px; background: #1a120a; color: #f5efe1; display: grid; gap: 10px; }
+.lp-consent h2 { font-size: 1.05rem; font-weight: 700; }
+.lp-consent p { font-size: 1rem; line-height: 1.6; color: #f5efe1; }
+.lp-consent a { color: #f5d9a8; text-decoration: underline; }
+.lp-consent-botones { display: flex; flex-wrap: wrap; gap: 12px; }
+.lp-consent-botones button { min-height: 44px; padding: 8px 20px; border-radius: 999px; font-weight: 700; cursor: pointer; border: 2px solid #f5efe1; background: #f5efe1; color: #1a120a; }
+.lp-consent-botones button + button { background: transparent; color: #f5efe1; }
+.lp-consent button:focus-visible, .lp-consent a:focus-visible, .lp-consent-cambiar:focus-visible { outline: 3px solid #d4a559; outline-offset: 3px; }
+.lp-consent-cambiar { min-height: 44px; background: none; border: 0; color: var(--ink-mute); font: inherit; text-decoration: underline; cursor: pointer; letter-spacing: inherit; text-transform: inherit; }

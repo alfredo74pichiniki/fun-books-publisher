@@ -7,64 +7,41 @@ import { getAllBlogSlugs } from '@/lib/blog';
 // dominio ajeno, de modo que no se enviaba a Google ni una pagina real.
 const BASE_URL = 'https://funbookpublisher.com';
 
+// English lives at the root (/en/... answers with a redirect to /...), Spanish under /es. Only the pages
+// that really have a Spanish text get a Spanish entry; the legal pages and the blog are in English only.
+const TRADUCIDAS = ['', '/about', '/books', '/faq', '/contact', '/privacy'];
+const SOLO_INGLES = ['/blog', '/terms', '/refunds'];
+
 export const revalidate = 3600;
+
+type Entrada = MetadataRoute.Sitemap[number];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const now = new Date().toISOString();
+    const dos = (path: string, prioridad: number): Entrada[] => {
+        const languages = { en: `${BASE_URL}${path || '/'}`, es: `${BASE_URL}/es${path}` };
+        const base = { lastModified: now, changeFrequency: (path === '' ? 'weekly' : 'monthly') as Entrada['changeFrequency'], alternates: { languages } };
+        return [
+            { ...base, url: languages.en, priority: prioridad },
+            { ...base, url: languages.es, priority: Math.max(0.1, prioridad - 0.1) },
+        ];
+    };
 
-    // Static pages
-    const staticPages = [
-        '',
-        '/about',
-        '/books',
-        '/blog',
-        '/contact',
-        '/faq',
-        '/privacy',
-        '/terms',
-        '/refunds',
+    const paginas: Entrada[] = [
+        ...TRADUCIDAS.flatMap((p) => dos(p, p === '' ? 1 : 0.7)),
+        ...SOLO_INGLES.map((p) => ({ url: `${BASE_URL}${p}`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.5 })),
     ];
-
-    const staticEntries = staticPages.flatMap((path) => [
-        {
-            url: `${BASE_URL}/en${path}`,
-            lastModified: now,
-            changeFrequency: path === '' ? 'weekly' as const : 'monthly' as const,
-            priority: path === '' ? 1.0 : 0.7,
-        },
-        {
-            url: `${BASE_URL}/es${path}`,
-            lastModified: now,
-            changeFrequency: path === '' ? 'weekly' as const : 'monthly' as const,
-            priority: path === '' ? 0.9 : 0.6,
-        },
-    ]);
 
     // Book pages: every FBP book in the live catalog (updated by the catalogo_fbp agent)
     const { libros } = await cargarCatalogo();
-    const bookEntries = libros.flatMap((book) => [
-        {
-            url: `${BASE_URL}/en/books/${book.slug}`,
-            lastModified: now,
-            changeFrequency: 'monthly' as const,
-            priority: 0.8,
-        },
-        {
-            url: `${BASE_URL}/es/books/${book.slug}`,
-            lastModified: now,
-            changeFrequency: 'monthly' as const,
-            priority: 0.7,
-        },
-    ]);
+    const fichas = libros.flatMap((b) => dos(`/books/${b.slug}`, 0.8));
 
-    // Blog posts
-    const blogSlugs = getAllBlogSlugs('en');
-    const blogEntries = blogSlugs.map((slug) => ({
-        url: `${BASE_URL}/en/blog/${slug}`,
+    const blog: Entrada[] = getAllBlogSlugs('en').map((slug) => ({
+        url: `${BASE_URL}/blog/${slug}`,
         lastModified: now,
         changeFrequency: 'monthly' as const,
         priority: 0.6,
     }));
 
-    return [...staticEntries, ...bookEntries, ...blogEntries];
+    return [...paginas, ...fichas, ...blog];
 }

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Script from "next/script";
 import {
     getAllLandingSlugs,
     getLandingPage,
 } from "@/data/landing-pages";
 import { BuyOnAmazonButton } from "./BuyOnAmazonButton";
+import { CambiarCookies, PixelConConsentimiento } from "./PixelConConsentimiento";
 import "./landing.css";
 
 export const dynamic = "force-static";
@@ -28,7 +28,7 @@ export async function generateMetadata(props: {
     const lp = getLandingPage(slug);
     if (!lp) return {};
     return {
-        title: `${lp.title} — ${lp.subtitle}`,
+        title: `${lp.title}: ${lp.subtitle} | Fun Books Publisher`,
         description: lp.subhook,
         robots: { index: false, follow: false },
         openGraph: {
@@ -47,19 +47,7 @@ export default async function LandingPage(props: { params: Params }) {
 
     return (
         <main className="lp-root min-h-screen">
-            <Script id="fbq-viewcontent" strategy="afterInteractive">
-                {`
-                    if (typeof window !== 'undefined' && window.fbq) {
-                        window.fbq('track', 'ViewContent', {
-                            content_name: ${JSON.stringify(lp.title)},
-                            content_ids: [${JSON.stringify(lp.asin)}],
-                            content_type: 'product',
-                            value: 9.99,
-                            currency: 'USD'
-                        });
-                    }
-                `}
-            </Script>
+            <PixelConConsentimiento asin={lp.asin} titulo={lp.title} />
 
             {/* ========== TOP BRAND BAR ========== */}
             <header className="px-6 pt-10 pb-2 sm:pt-12">
@@ -85,20 +73,14 @@ export default async function LandingPage(props: { params: Params }) {
                             One color.
                             <br />
                             <span className="italic text-[var(--amber-deep)]">
-                                Pure cozy magic.
+                                {lp.heroAccent}
                             </span>
                         </h1>
 
                         <div className="lp-anim lp-anim-3 mt-12 max-w-xl">
                             <hr className="lp-rule mb-9 w-20" />
                             <p className="text-[1.2rem] leading-[2] text-[var(--ink-soft)] sm:text-[1.25rem]">
-                                Fifty hand-drawn cottage scenes that turn your
-                                afternoon into a meditation ritual.
-                            </p>
-                            <p className="mt-5 text-[1.2rem] leading-[2] text-[var(--ink-soft)] sm:text-[1.25rem]">
-                                No color decisions. No overwhelm. Just one
-                                black pen and the most satisfying coloring
-                                session of your life.
+                                {lp.subhook}
                             </p>
                         </div>
 
@@ -119,7 +101,7 @@ export default async function LandingPage(props: { params: Params }) {
                             <div className="relative mx-auto aspect-[3/4] w-full max-w-sm">
                                 <Image
                                     src={lp.coverImage}
-                                    alt={`${lp.title} — ${lp.subtitle}`}
+                                    alt={`${lp.title}: ${lp.subtitle}`}
                                     fill
                                     priority
                                     sizes="(max-width: 1024px) 80vw, 400px"
@@ -129,7 +111,7 @@ export default async function LandingPage(props: { params: Params }) {
                             <div className="mt-10 text-center">
                                 <p className="lp-eyebrow">The Volume</p>
                                 <p className="lp-serif mt-3 text-2xl italic text-[var(--ink)]">
-                                    50 pages · 8.5 × 11&quot;
+                                    8.5 × 11 in
                                 </p>
                             </div>
                         </div>
@@ -142,7 +124,7 @@ export default async function LandingPage(props: { params: Params }) {
                 <div className="mx-auto max-w-4xl text-center">
                     <p className="lp-eyebrow">A Manifesto</p>
                     <p className="lp-pullquote mt-8">
-                        You don't need a rainbow to create something beautiful.
+                        You don&apos;t need a rainbow to create something beautiful.
                         You need silence, focus, and one black pen.
                     </p>
                     <div className="lp-ornament mt-10">
@@ -157,10 +139,10 @@ export default async function LandingPage(props: { params: Params }) {
                     <div className="mb-24 text-center">
                         <p className="lp-eyebrow">What Sets It Apart</p>
                         <h2 className="lp-display mt-7 text-[clamp(2.5rem,5.5vw,4.5rem)]">
-                            Four reasons colorists
+                            Four reasons to
                             <br />
                             <span className="italic text-[var(--amber-deep)]">
-                                are obsessed.
+                                pick up a pen.
                             </span>
                         </h2>
                     </div>
@@ -198,10 +180,9 @@ export default async function LandingPage(props: { params: Params }) {
                                 </span>
                             </h2>
                             <p className="mt-10 text-[1.15rem] leading-[2] text-[#d6c9ad]">
-                                Every detail considered. Every page printed on
-                                premium paper. Every illustration drawn by
-                                hand with the X-mark guide system that makes
-                                gallery-worthy results inevitable.
+                                Every illustration sits on its own page, with
+                                the X-mark guide that shows where the black
+                                goes.
                             </p>
                         </div>
 
@@ -269,8 +250,8 @@ export default async function LandingPage(props: { params: Params }) {
                         </span>
                     </h2>
                     <p className="mx-auto mt-10 max-w-lg text-[1.15rem] leading-[2] text-[#d6c9ad]">
-                        Shipped fast via Amazon Prime. 30-day returns.
-                        High-resolution digital PDF included with every order.
+                        Printed and shipped by Amazon, with Amazon&apos;s
+                        returns. A free printable bonus PDF comes with the book.
                     </p>
                     <div className="mt-14">
                         <BuyOnAmazonButton
@@ -290,6 +271,7 @@ export default async function LandingPage(props: { params: Params }) {
                 <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--ink-mute)] sm:flex-row">
                     <p>© {new Date().getFullYear()} Fun Books Publisher LLC</p>
                     <p>Wyoming, USA</p>
+                    <CambiarCookies />
                 </div>
             </footer>
         </main>

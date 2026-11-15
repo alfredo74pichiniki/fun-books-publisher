@@ -1,17 +1,22 @@
 // Sharp covers in /public/portadas/<ASIN>.webp, each one checked against the live Amazon cover of that
 // ASIN on 15 nov 2026 (perceptual match plus a side by side look). Amazon's own image is 387 x 500, too
-// soft for the large views; these come from the print files. A new book uses Amazon's image until a
+// soft for the large views; these come from the print files, or for 4 books (B0FKHCJSDY, B0DZVMRMT6,
+// B0D6TZKZW2, B0D9YJY28N) from the large image of their Amazon product page. A new book uses Amazon's image until a
 // sharp file is added here.
 export const PORTADAS_NITIDAS: Record<string, [number, number]> = {
     B0D5L9MKGC: [900, 1185],
     B0D5QCS2ZJ: [900, 1165],
     B0D6N92QZ1: [760, 984],
+    B0D6TZKZW2: [900, 1164],
     B0D8FG7NDJ: [900, 1164],
     B0D95Q7D9Y: [900, 1165],
+    B0D9YJY28N: [900, 1164],
     B0DBJ3YJJS: [900, 1164],
     B0DH3Q9XN6: [760, 984],
     B0DKSC5QTL: [900, 1165],
     B0DTQ2K31D: [900, 1372],
+    B0DZVMRMT6: [900, 1349],
+    B0FKHCJSDY: [900, 1164],
     B0FM4B5Z7H: [900, 1165],
     B0FQ1JBGY6: [900, 900],
     B0FR91RBSZ: [900, 1165],

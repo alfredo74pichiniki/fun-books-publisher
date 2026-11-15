@@ -10,6 +10,7 @@ export type LandingPage = {
     coverImage: string; // public path
     hook: string; // one-line attention grabber
     subhook: string; // supporting sentence
+    heroAccent: string; // third line of the headline, in italics
     amazonAttributionUrl: string;
     benefits: { title: string; description: string }[];
     features: string[];
@@ -26,7 +27,8 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
         coverImage: "/covers/cozy-escapes.png",
         hook: "One pen. One color. Pure cozy magic.",
         subhook:
-            "50 hand-drawn cottage scenes turn your afternoon into a meditation ritual. No color decisions. No overwhelm. Just quiet focus.",
+            "Sofas, window seats and quiet corners in black and white, to fill with one pen. No color decisions. No overwhelm. Just quiet focus.",
+        heroAccent: "Pure cozy magic.",
         amazonAttributionUrl:
             "https://www.amazon.com/dp/B0FSZ9V9MS?maas=maas_adg_7302287DFDE242FCC3BBB4709B25958E_afap_abs&ref_=aa_maas&tag=maas",
         benefits: [
@@ -36,9 +38,9 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
                     "No color decisions. No overwhelm. Just you, one black pen, and the meditative rhythm of filling negative space.",
             },
             {
-                title: "50 hand-drawn cottage scenes",
+                title: "Cozy scenes, page after page",
                 description:
-                    "Rustic kitchens, stone fireplaces, rainy windows, garden sheds, reading nooks. Every page is a new cozy world.",
+                    "Sofas, window seats, reading nooks and quiet corners. Every page is a new cozy world.",
             },
             {
                 title: "Guided X-mark system",
@@ -52,10 +54,10 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
             },
         ],
         features: [
-            "50 original monochrome illustrations",
-            "Premium 8.5\" x 11\" format",
+            "Original monochrome illustrations",
+            "Large 8.5\" x 11\" format",
             "Guided X-mark system",
-            "High-resolution digital PDF included",
+            "A free printable bonus PDF (QR code inside)",
             "Works with fine-liners, gel pens, markers",
         ],
         faqs: [
@@ -72,22 +74,23 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
             {
                 question: "What's included besides the printed book?",
                 answer:
-                    "Every purchase includes a free high-resolution digital PDF so you can print your favorite pages again and re-color them unlimited times.",
+                    "The book has a QR code that opens a free printable bonus PDF on our website. No sign-up and no email.",
             },
         ],
         pageColorTheme: "warm-cream",
     },
     "cottagecore-homestead": {
         slug: "cottagecore-homestead",
-        asin: "PENDIENTE",
+        asin: "B0GWY67XKF",
         title: "Monochrome Coloring Book",
         subtitle: "Cottagecore Homestead",
         coverImage: "/covers/cottagecore-homestead.png",
         hook: "Your quiet life in the countryside starts here.",
         subhook:
-            "50 hand-drawn rustic homestead scenes. One pen, zero stress. Fill each page with black ink and watch a cozy country world come alive.",
+            "Rustic homestead scenes in black and white. One pen, zero stress. Fill each page with black ink and watch a cozy country world come alive.",
+        heroAccent: "Pure country calm.",
         amazonAttributionUrl:
-            "https://www.amazon.com/dp/PENDIENTE",
+            "https://www.amazon.com/dp/B0GWY67XKF",
         benefits: [
             {
                 title: "Art therapy through simplicity",
@@ -95,9 +98,9 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
                     "No color decisions. No overwhelm. Just you, one black pen, and the meditative rhythm of filling negative space.",
             },
             {
-                title: "50 hand-drawn homestead scenes",
+                title: "Country life, page after page",
                 description:
-                    "Rustic kitchens, herb gardens, country villages, farmhouse porches, rolling meadows, and cozy hearths. Every page is a retreat to simpler times.",
+                    "Hearths, kitchens, gardens and farmhouse corners. Every page is a retreat to simpler times.",
             },
             {
                 title: "Guided X-mark system",
@@ -111,10 +114,10 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
             },
         ],
         features: [
-            "50 original monochrome illustrations",
-            "Premium 8.5\" x 11\" format",
+            "Original monochrome illustrations",
+            "Large 8.5\" x 11\" format",
             "Guided X-mark system",
-            "High-resolution digital PDF included",
+            "A free printable bonus PDF (QR code inside)",
             "Works with fine-liners, gel pens, markers",
         ],
         faqs: [
@@ -131,7 +134,7 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
             {
                 question: "What's included besides the printed book?",
                 answer:
-                    "Every purchase includes a free high-resolution digital PDF so you can print your favorite pages again and re-color them unlimited times.",
+                    "The book has a QR code that opens a free printable bonus PDF on our website. No sign-up and no email.",
             },
         ],
         pageColorTheme: "warm-cream",

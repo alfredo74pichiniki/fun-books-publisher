@@ -1,3 +1,11 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Returns and refunds | Fun Books Publisher',
+    description: 'How returns and refunds work for our books, which are sold by Amazon.',
+    alternates: { canonical: '/refunds' },
+};
+
 export default function RefundsPage() {
     return (
         <div className="aTexto">

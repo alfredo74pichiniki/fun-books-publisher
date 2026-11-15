@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         title: `${libro.nombre} | Fun Books Publisher`,
         description: `${libro.linea} ${locale === 'es' ? 'En Amazon.' : 'On Amazon.'}`.trim(),
-        alternates: { canonical: `/${locale}/books/${libro.slug}`, languages: { en: `/en/books/${libro.slug}`, es: `/es/books/${libro.slug}` } },
+        alternates: { canonical: locale === 'es' ? `/es/books/${libro.slug}` : `/books/${libro.slug}`, languages: { en: `/books/${libro.slug}`, es: `/es/books/${libro.slug}`, 'x-default': `/books/${libro.slug}` } },
         openGraph: { title: libro.nombre, description: libro.linea, images: [libro.img.src], type: 'book' },
     };
 }
@@ -37,7 +37,7 @@ export default async function LibroPage({ params }: Props) {
     const c = await cargarCatalogo();
     const { libro, canonico } = buscar(c, slug);
     if (!libro) notFound();
-    if (!canonico) permanentRedirect(`/${locale}/books/${libro.slug}`);
+    if (!canonico) permanentRedirect(locale === 'es' ? `/es/books/${libro.slug}` : `/books/${libro.slug}`);
     const mas = porFamilia(c, libro.familia).filter((x) => x.asin !== libro.asin).slice(0, 4);
     const formatos = (['paperback', 'hardcover', 'kindle'] as const).filter((f) => libro.formatos[f]);
     const ld = {
@@ -47,7 +47,7 @@ export default async function LibroPage({ params }: Props) {
         inLanguage: libro.idioma,
         publisher: { '@type': 'Organization', name: 'Fun Books Publisher' },
         image: libro.img.nitida ? `https://funbookpublisher.com${libro.img.src}` : libro.img.src,
-        url: `https://funbookpublisher.com/${locale}/books/${libro.slug}`,
+        url: `https://funbookpublisher.com${locale === 'es' ? '/es' : ''}/books/${libro.slug}`,
         datePublished: libro.publicado ?? undefined,
         workExample: formatos.map((f) => ({
             '@type': 'Book',

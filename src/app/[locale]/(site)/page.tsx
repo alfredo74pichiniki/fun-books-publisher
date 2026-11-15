@@ -6,7 +6,7 @@ import type { Catalogo, Libro } from '@/catalogo/tipos';
 import { Carrusel } from '@/sitio/Carrusel';
 import { Libro3d, Portada } from '@/sitio/Libro';
 import { AMAZON_AUTOR } from '@/sitio/Marco';
-import { FAMILIA, fechaCorta, loc, textos } from '@/sitio/textos';
+import { FAMILIA, fechaCorta, grupos, loc, textos } from '@/sitio/textos';
 
 export const dynamic = 'force-static';
 export const revalidate = 3600;
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: es
             ? 'Libros para colorear, misterios, juegos de memoria en letra grande y libros sin pantallas para niños. En Amazon, muchos con un regalo gratis para imprimir.'
             : 'Coloring books, mystery puzzles, large print memory games and screen-free books for kids. On Amazon, many with a free printable gift.',
-        alternates: { canonical: es ? '/es' : '/en', languages: { en: '/en', es: '/es' } },
+        alternates: { canonical: es ? '/es' : '/', languages: { en: '/', es: '/es', 'x-default': '/' } },
     };
 }
 
@@ -44,7 +44,7 @@ export default async function Home({ params }: Props) {
     const nuevos = recientes(c, 6);
     const cbn = porFamilia(c, 'color-by-number');
     const conRegalo = ORDEN.flatMap((f) => porFamilia(c, f)).filter((x) => x.regalo);
-    const familias = ORDEN.filter((f) => porFamilia(c, f).length > 0);
+    const estantes = grupos(c, l);
 
     return (
         <>
@@ -84,7 +84,7 @@ export default async function Home({ params }: Props) {
                 <div className="aSecT">
                     <div>
                         <h2 id="a-nuevos">{t.novedades}</h2>
-                        <p>{t.novedadesTexto}</p>
+                        <p>{c.origen === 'en-linea' ? t.novedadesTexto : t.novedadesFijo}</p>
                     </div>
                     <Link className="aLink" href="/books">{t.verTodo}</Link>
                 </div>
@@ -156,25 +156,32 @@ export default async function Home({ params }: Props) {
                     </div>
                     <Link className="aLink" href="/books">{t.verTodo}</Link>
                 </div>
-                {familias.map((f) => {
-                    const libros = porFamilia(c, f);
+                {estantes.map((g) => {
+                    // Rows of up to 5, balanced (6 books make 3 + 3, never 5 + 1).
+                    const porFila = Math.ceil(g.libros.length / Math.ceil(g.libros.length / 5));
+                    const filas: Libro[][] = [];
+                    for (let i = 0; i < g.libros.length; i += porFila) filas.push(g.libros.slice(i, i + porFila));
                     return (
-                        <div key={f} className="aEstante">
+                        <div key={g.clave} className="aEstante">
                             <div className="aEstanteT">
-                                <h3><Link href={`/books#${f}`}>{FAMILIA[f][l].nombre}</Link></h3>
-                                <p>{FAMILIA[f][l].frase}</p>
-                                <p className="aDato">{t.librosN(libros.length)}</p>
+                                <h3>{g.clave === 'more' ? g.nombre : <Link href={`/books#${g.clave}`}>{g.nombre}</Link>}</h3>
+                                <p>{g.frase}</p>
+                                <p className="aDato">{t.librosN(g.libros.length)}</p>
                             </div>
-                            <ul aria-label={FAMILIA[f][l].nombre}>
-                                {libros.map((x) => (
-                                    <li key={x.asin}>
-                                        <Link href={`/books/${x.slug}`}>
-                                            <Portada libro={x} sizes="(max-width: 900px) 124px, 150px" />
-                                            <span className="aOculto" lang={x.idioma}>{x.nombre}</span>
-                                        </Link>
-                                    </li>
+                            <div className="aBaldas">
+                                {filas.map((fila, i) => (
+                                    <ul key={i} aria-label={i === 0 ? g.nombre : undefined}>
+                                        {fila.map((x) => (
+                                            <li key={x.asin}>
+                                                <Link href={`/books/${x.slug}`}>
+                                                    <Portada libro={x} sizes="(max-width: 900px) 28vw, 150px" />
+                                                    <span className="aOculto" lang={x.idioma}>{x.nombre}</span>
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 ))}
-                            </ul>
+                            </div>
                         </div>
                     );
                 })}

@@ -1,38 +1,25 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Playfair_Display, Inter } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { OrganizationJsonLd } from "@/components/JsonLd";
-import { MetaPixel } from "@/components/MetaPixel";
 import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "Fun Books Publisher | Premium Books for Creative Minds",
+  metadataBase: new URL("https://funbookpublisher.com"),
+  title: "Fun Books Publisher | Activity books for adults, seniors and kids",
   description:
-    "Publisher of premium coloring books, puzzle books, and educational guides. Available worldwide on Amazon.",
+    "Coloring books, mystery puzzles, large print word searches and memory games, and screen-free books for kids. Sold on Amazon.",
   keywords:
     "coloring books, puzzle books, activity books, educational books, wellness, monochrome coloring, Fun Books Publisher",
   authors: [{ name: "Fun Books Publisher" }],
   openGraph: {
-    title: "Fun Books Publisher | Premium Books for Creative Minds",
+    title: "Fun Books Publisher | Activity books for adults, seniors and kids",
     description:
-      "Coloring books, brain puzzles, and educational guides — crafted for adults, kids, and curious minds.",
+      "Coloring books, puzzle books and workbooks for adults, seniors and kids. Sold on Amazon.",
     url: "https://funbookpublisher.com",
     siteName: "Fun Books Publisher",
     locale: "en_US",
@@ -42,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Fun Books Publisher",
     description:
-      "Premium coloring books, puzzles, and educational materials. Available on Amazon.",
+      "Coloring books, puzzle books and workbooks. Sold on Amazon.",
   },
 };
 
@@ -61,12 +48,11 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>
+    <html lang={locale}>
       <head>
         <OrganizationJsonLd />
       </head>
       <body className="antialiased bg-navy-950 text-white">
-        <MetaPixel />
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>

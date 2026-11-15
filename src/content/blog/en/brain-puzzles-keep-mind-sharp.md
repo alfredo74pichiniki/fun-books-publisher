@@ -2,7 +2,7 @@
 title: "How Brain Puzzles Keep Your Mind Sharp at Any Age"
 slug: "brain-puzzles-keep-mind-sharp"
 date: "2026-01-28"
-excerpt: "Word searches, crosswords, and logic puzzles aren't just fun — research shows they can strengthen memory, improve processing speed, and delay cognitive decline."
+excerpt: "Word searches, crosswords, and logic puzzles aren't just fun. Studies link them with sharper memory and attention in later life."
 coverImage: "/images/blog/brain-puzzles.jpg"
 category: "Brain Health"
 tags: ["puzzles", "brain health", "cognitive", "memory"]
@@ -10,17 +10,17 @@ tags: ["puzzles", "brain health", "cognitive", "memory"]
 
 ## Your Brain Needs Exercise Too
 
-We all know that physical exercise keeps our bodies healthy. But your brain needs a workout too — and puzzle books are one of the most enjoyable ways to give it one.
+We all know that physical exercise keeps our bodies healthy. But your brain needs a workout too, and puzzle books are one of the most enjoyable ways to give it one.
 
 Whether you're 25 or 75, regularly challenging your brain with puzzles can have real, measurable benefits for your cognitive health.
 
 ## What the Research Says
 
-A landmark study published in the *International Journal of Geriatric Psychiatry* in 2019, involving over 19,000 participants, found that adults who regularly engaged in word puzzles had brain function equivalent to someone ten years younger than their actual age.
+A study of 19,078 adults aged 50 to 93, published in the *International Journal of Geriatric Psychiatry* in 2019, found that the more often people did word puzzles, the better they scored on memory, attention and reasoning tests ([Brooker and others, 2019](https://doi.org/10.1002/gps.5033)). The authors are careful: the link is clear, but it does not yet prove that puzzles change how the brain ages.
 
-Another study from the *New England Journal of Medicine* found that adults who frequently did crossword puzzles had a 47% lower risk of developing dementia compared to those who did puzzles only occasionally.
+A study in the *New England Journal of Medicine* followed older adults for years and found that those who often did mentally active pastimes, such as reading, board games and crossword puzzles, were less likely to develop dementia ([Verghese and others, 2003](https://doi.org/10.1056/NEJMoa022252)).
 
-The key finding across multiple studies: it's not about being naturally "smart" — it's about consistent mental engagement over time.
+The common thread: it is not about being naturally "smart". It is about keeping your mind busy, often, over time.
 
 ## How Different Puzzles Work Your Brain
 
@@ -48,7 +48,7 @@ Not all puzzles exercise the same cognitive functions. Here's a quick breakdown:
 
 ## The "Use It or Lose It" Principle
 
-Neuroscientists often refer to cognitive maintenance as "use it or lose it." The neural pathways in your brain strengthen with use and weaken without it — a concept known as neuroplasticity.
+Neuroscientists often refer to cognitive maintenance as "use it or lose it." The neural pathways in your brain strengthen with use and weaken without it, a concept known as neuroplasticity.
 
 Every time you solve a puzzle, you're reinforcing neural connections. The more varied the puzzles you do, the more connections you maintain and strengthen.
 
@@ -61,7 +61,7 @@ The most effective approach is consistency. Here's how to build a sustainable pu
 1. **Start with 10-15 minutes a day.** That's enough to see benefits without it feeling like a chore.
 2. **Keep a puzzle book by your bed or on your coffee table.** Accessibility reduces friction.
 3. **Mix up your puzzle types.** Alternate between word puzzles, number puzzles, and logic challenges.
-4. **Don't skip the hard ones.** Puzzles that challenge you — the ones that make you think — provide the most cognitive benefit.
+4. **Don't skip the hard ones.** Puzzles that challenge you, the ones that make you think, provide the most cognitive benefit.
 5. **Make it social.** Working on puzzles with a partner or friend adds a social dimension that further benefits brain health.
 
 ## It's Never Too Early (or Too Late) to Start

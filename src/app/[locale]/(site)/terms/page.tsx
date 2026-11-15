@@ -1,3 +1,11 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Terms of use | Fun Books Publisher',
+    description: 'The terms for using the Fun Books Publisher website.',
+    alternates: { canonical: '/terms' },
+};
+
 export default function TermsPage() {
     return (
         <div className="aTexto">
@@ -14,9 +22,6 @@ export default function TermsPage() {
 
                     <h2>Intellectual Property</h2>
                     <p>All content on this website, including book covers, descriptions, designs, and branding, is the property of Fun Books Publisher. Unauthorized reproduction or distribution is prohibited.</p>
-
-                    <h2>Newsletter</h2>
-                    <p>By subscribing to our newsletter, you consent to receive periodic emails about new releases and promotions. You may unsubscribe at any time.</p>
 
                     <h2>Limitation of Liability</h2>
                     <p>Fun Books Publisher is not liable for any issues related to book purchases, shipping, or returns, these are handled by Amazon according to their policies.</p>

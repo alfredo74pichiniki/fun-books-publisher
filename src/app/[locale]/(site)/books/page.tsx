@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
-import { cargarCatalogo, ORDEN, porFamilia } from '@/catalogo/cargar';
+import { cargarCatalogo } from '@/catalogo/cargar';
 import { Portada } from '@/sitio/Libro';
-import { FAMILIA, loc, textos } from '@/sitio/textos';
+import { grupos, loc, textos } from '@/sitio/textos';
 
 export const dynamic = 'force-static';
 export const revalidate = 3600;
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: es
             ? 'Todos los libros de Fun Books Publisher en Amazon: Monochrome Color by Number, colorear en monocromo, misterios, sopas de letras, libros en español y para niños.'
             : 'Every Fun Books Publisher book on Amazon: Monochrome Color by Number Mysteries, monochrome coloring, mystery puzzles, word searches, Spanish books and kids.',
-        alternates: { canonical: es ? '/es/books' : '/en/books', languages: { en: '/en/books', es: '/es/books' } },
+        alternates: { canonical: es ? '/es/books' : '/books', languages: { en: '/books', es: '/es/books', 'x-default': '/books' } },
     };
 }
 
@@ -30,7 +30,7 @@ export default async function Catalogo({ params }: Props) {
     const l = loc(locale);
     const t = textos(l);
     const c = await cargarCatalogo();
-    const familias = ORDEN.filter((f) => porFamilia(c, f).length > 0);
+    const estantes = grupos(c, l);
 
     return (
         <>
@@ -39,22 +39,24 @@ export default async function Catalogo({ params }: Props) {
                 <p>{t.catTexto(c.libros.length)}</p>
                 <nav aria-label={t.catSaltar}>
                     <ul className="aSaltos">
-                        {familias.map((f) => (
-                            <li key={f}>
-                                <a href={`#${f}`}>{FAMILIA[f][l].nombre} <span>{porFamilia(c, f).length}</span></a>
+                        {estantes.map((g) => (
+                            <li key={g.clave}>
+                                <a href={`#${g.clave}`}>{g.nombre} <span>{g.libros.length}</span></a>
                             </li>
                         ))}
                     </ul>
                 </nav>
             </div>
 
-            {familias.map((f) => {
-                const libros = porFamilia(c, f);
+            {estantes.map((g, gi) => {
+                const { libros } = g;
+                const f = g.clave;
                 return (
                     <section key={f} id={f} className="aSerie" aria-labelledby={`s-${f}`}>
+                        {g.familias.filter((x) => x !== f).map((x) => <span key={x} id={x} />)}
                         <header>
-                            <h2 id={`s-${f}`}>{FAMILIA[f][l].nombre}</h2>
-                            <p>{FAMILIA[f][l].frase}</p>
+                            <h2 id={`s-${f}`}>{g.nombre}</h2>
+                            <p>{g.frase}</p>
                             <span className="aDato">{t.librosN(libros.length)}</span>
                         </header>
                         <ul className="aRejilla">
@@ -62,7 +64,7 @@ export default async function Catalogo({ params }: Props) {
                                 <li key={x.asin} className="aTarjeta">
                                     <Link href={`/books/${x.slug}`} tabIndex={-1} aria-hidden="true">
                                         {x.nuevo && <span className="aSello">{t.nuevo}</span>}
-                                        <Portada libro={x} sizes="(max-width: 900px) 44vw, 220px" prioridad={f === familias[0] && i < 4} />
+                                        <Portada libro={x} sizes="(max-width: 900px) 44vw, 220px" prioridad={gi === 0 && i < 4} />
                                     </Link>
                                     <h3 lang={x.idioma}><Link href={`/books/${x.slug}`}>{x.nombre}</Link></h3>
                                     <p lang={x.idioma}>{x.linea}</p>

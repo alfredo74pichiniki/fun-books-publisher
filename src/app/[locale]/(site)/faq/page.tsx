@@ -9,7 +9,12 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { locale } = await params;
-    return { title: locale === 'es' ? 'Preguntas frecuentes | Fun Books Publisher' : 'Frequently asked questions | Fun Books Publisher' };
+    const es = locale === 'es';
+    return {
+        title: es ? 'Preguntas frecuentes | Fun Books Publisher' : 'Frequently asked questions | Fun Books Publisher',
+        description: es ? 'Dónde se compran los libros, formatos, regalos con código QR, devoluciones y libros en español.' : 'Where to buy our books, formats, the free QR code gifts, returns and books in Spanish.',
+        alternates: { canonical: es ? '/es/faq' : '/faq', languages: { en: '/faq', es: '/es/faq', 'x-default': '/faq' } },
+    };
 }
 
 // Answers we can stand behind. Nothing about paper or return windows that Amazon, not us, decides.

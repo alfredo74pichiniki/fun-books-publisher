@@ -6,7 +6,7 @@ export function OrganizationJsonLd() {
         '@type': 'Organization',
         name: 'Fun Books Publisher',
         url: 'https://funbookpublisher.com',
-        logo: 'https://funbookpublisher.com/images/logo.png',
+        logo: 'https://funbookpublisher.com/logo.png',
         sameAs: [
             'https://www.facebook.com/funbookspublisher1/',
             'https://instagram.com/funbooks_publisher',
@@ -14,7 +14,7 @@ export function OrganizationJsonLd() {
             'https://www.amazon.com/author/funbookspublisher',
         ],
         description:
-            'Publisher of premium coloring books, puzzle books, and educational guides. Available worldwide on Amazon.',
+            'Publisher of activity books for adults, seniors and kids: coloring books, puzzle books and workbooks, sold on Amazon.',
     };
 
     return (
@@ -43,7 +43,7 @@ export function BookJsonLd({ bookId }: { bookId: string }) {
             name: 'Fun Books Publisher',
         },
         bookFormat: 'https://schema.org/Paperback',
-        url: `https://funbookpublisher.com/en/books/${book.id}`,
+        url: `https://funbookpublisher.com/books/${book.id}`,
         image: book.coverImage,
         offers: {
             '@type': 'Offer',
@@ -87,7 +87,7 @@ export function BlogPostJsonLd({
             '@type': 'Organization',
             name: 'Fun Books Publisher',
         },
-        url: `https://funbookpublisher.com/en/blog/${slug}`,
+        url: `https://funbookpublisher.com/blog/${slug}`,
     };
 
     return (

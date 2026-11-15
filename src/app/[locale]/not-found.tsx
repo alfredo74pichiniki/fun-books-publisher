@@ -1,7 +1,10 @@
+import type { Metadata } from 'next';
 import { Link } from '@/i18n/routing';
 import { claseFuentes } from '@/sitio/fuentes';
 import { Cabecera } from '@/sitio/Marco';
 import '@/sitio/sitio.css';
+
+export const metadata: Metadata = { title: 'Page not found | Fun Books Publisher', robots: { index: false } };
 
 export default function NotFound() {
     return (

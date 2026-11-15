@@ -235,12 +235,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         return { title: 'Bonus Not Found | Fun Books Publisher' };
     }
 
+    const titulo = book.title.replace(/\s+[–—]\s+/g, ': ');
     return {
-        title: `Free Bonus Pages — ${book.title} | Fun Books Publisher`,
-        description: `Download your free bonus interior pages for ${book.title}. Thank you for your purchase!`,
+        title: `Free Bonus Pages: ${titulo} | Fun Books Publisher`,
+        description: `Download your free bonus interior pages for ${titulo}. Thank you for your purchase!`,
         openGraph: {
-            title: `Free Bonus Pages — ${book.title}`,
-            description: `Download your free bonus interior pages for ${book.title}.`,
+            title: `Free Bonus Pages: ${titulo}`,
+            description: `Download your free bonus interior pages for ${titulo}.`,
             images: [book.coverImage],
             type: 'website',
         },

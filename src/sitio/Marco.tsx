@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
-import { Boletin } from './Boletin';
 import { textos, type Loc } from './textos';
 
 export const AMAZON_AUTOR = 'https://www.amazon.com/author/funbookspublisher';
@@ -30,7 +29,6 @@ export function Pie({ l }: { l: Loc }) {
     const t = textos(l);
     return (
         <footer className="aPieW">
-            <Boletin t={{ titulo: t.boletinTitulo, texto: t.boletinTexto, correo: t.boletinCorreo, boton: t.boletinBoton, ok: t.boletinOk, error: t.boletinError, priv: t.boletinPriv }} />
             <div className="aPie">
             <div className="aPieMarca">
                 <span className="aPlaca"><Image src="/logo.png" alt="Fun Books Publisher" width={72} height={72} /></span>

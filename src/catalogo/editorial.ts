@@ -28,14 +28,16 @@ export const EDITORIAL: Record<string, Editorial> = {
     B0HK4LQ18M: { slug: 'color-by-number-mystery-collection', nombre: 'Color by Number Mysteries: The Collection', linea: '100 hidden pictures of every kind, revealed square by square with one black pen.' },
 
     // Monochrome coloring (Ink Bliss series)
-    B0FM4B5Z7H: { slug: 'ink-bliss-imagination', nombre: 'Ink Bliss: The Ultimate Monochrome', linea: 'The book that started the series: scenes in pure black and white, with hints on the page.', regalo: 'ink-bliss-imagination' },
+    B0FM4B5Z7H: { slug: 'ink-bliss-imagination', nombre: 'Ink Bliss: The Ultimate Monochrome Coloring Book', linea: 'The book that started the series: scenes in pure black and white, with hints on the page.', regalo: 'ink-bliss-imagination' },
     B0FQ1JBGY6: { slug: 'monochrome-mandala', nombre: 'Monochrome Mandala', linea: 'Mandalas in pure black and white, made for one marker. Square format.', regalo: 'monochrome-mandala' },
     B0FR91RBSZ: { slug: 'negative-space-animals', nombre: 'Monochrome: Animal Collection', linea: 'Animals drawn in negative space: bold linework for a single black marker.', regalo: 'negative-space-animals' },
     B0FSZ9V9MS: { slug: 'cozy-escapes', nombre: 'Monochrome: Black & White Cozy Escapes', linea: 'Sofas, window seats and quiet corners to fill with one pen.', regalo: 'cozy-escapes' },
     B0G3889XTJ: { slug: 'tattoo-flash', nombre: 'Monochrome: Tattoo Flash', linea: '50 bold blackwork designs, old school and neo-traditional.', regalo: 'tattoo-flash' },
     B0D8FG7NDJ: { slug: 'botanicals', nombre: 'Monochrome: Botanicals & Nature Escapes', linea: 'Mushrooms, leaves and wild plants in black and white.', familia: 'monochrome', regalo: 'botanicals' },
     B0GVZGLCZS: { slug: 'spooky-kawaii', nombre: 'Monochrome: Spooky Kawaii', linea: 'Cute Halloween characters in black and white.', regalo: 'spooky-kawaii' },
-    B0GW33476D: { slug: 'power-of-black-and-white-mixed', nombre: 'Monochrome: Power of Black & White, Mixed', linea: '50 mixed one-color illustrations in black and white.' },
+    // Its gift page /bonus/black-white-art-therapy (PDF power-of-black-and-white.pdf) shows the cover of this book in
+    // books.ts (covers/power-black-white.png matches this ASIN's live Amazon cover: wine bottle and grapes).
+    B0GW33476D: { slug: 'power-of-black-and-white-mixed', nombre: 'Monochrome: Power of Black & White, Mixed', linea: '50 mixed one-color illustrations in black and white.', regalo: 'black-white-art-therapy' },
     B0GWY67XKF: { slug: 'cottagecore-homestead', nombre: 'Monochrome: Cottagecore Homestead', linea: 'Cozy country living: hearths, kitchens and gardens in black and white.', regalo: 'cottagecore-homestead' },
     B0GXMQ5KV2: { slug: 'witchy-celestial', nombre: 'Monochrome: Witchy Celestial', linea: 'Moon phases, tarot and crystals in black and white.', regalo: 'witchy-celestial' },
 

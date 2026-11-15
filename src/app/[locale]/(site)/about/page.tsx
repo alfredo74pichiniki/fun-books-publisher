@@ -12,7 +12,12 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { locale } = await params;
-    return { title: locale === 'es' ? 'Quiénes somos | Fun Books Publisher' : 'About | Fun Books Publisher' };
+    const es = locale === 'es';
+    return {
+        title: es ? 'Quiénes somos | Fun Books Publisher' : 'About us | Fun Books Publisher',
+        description: es ? 'Quién hace los libros de actividades de Fun Books Publisher, qué publicamos y dónde se compran.' : 'Who makes the Fun Books Publisher activity books, what we publish and where to buy them.',
+        alternates: { canonical: es ? '/es/about' : '/about', languages: { en: '/about', es: '/es/about', 'x-default': '/about' } },
+    };
 }
 
 // Only facts: who we are, what we publish, where it is sold. The book count comes from the live catalog.

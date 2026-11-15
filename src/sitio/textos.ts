@@ -1,4 +1,5 @@
-import type { Familia } from '@/catalogo/tipos';
+import type { Catalogo, Familia, Libro } from '@/catalogo/tipos';
+import { ORDEN, porFamilia } from '@/catalogo/cargar';
 
 // Site copy in English and Spanish. Nothing here is a claim we cannot back: no ratings, no reader numbers.
 
@@ -63,11 +64,14 @@ export const T = {
             { t: 'Sold and shipped by Amazon', d: 'You buy on Amazon, with Amazon delivery and returns.' },
             { t: 'A free printable gift', d: 'Scan the QR code inside your book. No sign-up, no email.' },
             { t: 'Large print where it matters', d: 'Our books for seniors are set in large, clear type.' },
-            { t: 'English and Spanish', d: 'Memory and puzzle books in both languages.' },
+            { t: 'English and Spanish', d: 'Puzzle books in both languages, and memory exercises in Spanish.' },
         ],
         hechosLabel: 'What to expect',
         novedades: 'Just published',
         novedadesTexto: 'New books arrive every week. This shelf updates itself from Amazon.',
+        novedadesFijo: 'Our latest books, the newest first.',
+        masNombre: 'More books',
+        mas: (n: number) => `+${n} more: see the whole series`,
         nuevo: 'New',
         publicado: 'Published',
         cbnEtiqueta: 'The new series',
@@ -114,13 +118,6 @@ export const T = {
         formato: { paperback: 'Paperback', hardcover: 'Hardcover', kindle: 'Kindle' },
         regaloCaja: 'This book has a free printable gift. The QR code is inside the book.',
         portadaDe: (t: string) => `Cover of ${t}`,
-        boletinTitulo: 'New books, once in a while',
-        boletinTexto: 'Leave your email and we will write when a new book comes out.',
-        boletinCorreo: 'Your email',
-        boletinBoton: 'Subscribe',
-        boletinOk: 'Thank you. You are on the list.',
-        boletinError: 'Something went wrong. Please try again.',
-        boletinPriv: 'No spam. Unsubscribe at any time.',
     },
     es: {
         saltar: 'Saltar al contenido',
@@ -140,11 +137,14 @@ export const T = {
             { t: 'Los vende y envía Amazon', d: 'Compra en Amazon, con su envío y sus devoluciones.' },
             { t: 'Un regalo para imprimir', d: 'Escanee el código QR de su libro. Sin registro y sin correo.' },
             { t: 'Letra grande donde hace falta', d: 'Los libros para mayores llevan letra grande y clara.' },
-            { t: 'En inglés y en español', d: 'Libros de memoria y pasatiempos en los dos idiomas.' },
+            { t: 'En inglés y en español', d: 'Pasatiempos en los dos idiomas y ejercicios de memoria en español.' },
         ],
         hechosLabel: 'Lo que encontrará',
         novedades: 'Recién publicados',
         novedadesTexto: 'Cada semana sale un libro nuevo. Esta balda se actualiza sola desde Amazon.',
+        novedadesFijo: 'Nuestros últimos libros, del más nuevo al más antiguo.',
+        masNombre: 'Más libros',
+        mas: (n: number) => `${n} más: ver la serie entera`,
         nuevo: 'Nuevo',
         publicado: 'Publicado',
         cbnEtiqueta: 'La serie nueva',
@@ -191,13 +191,6 @@ export const T = {
         formato: { paperback: 'Tapa blanda', hardcover: 'Tapa dura', kindle: 'Kindle' },
         regaloCaja: 'Este libro trae un regalo gratis para imprimir. El código QR está dentro del libro.',
         portadaDe: (t: string) => `Portada de ${t}`,
-        boletinTitulo: 'Libros nuevos, de vez en cuando',
-        boletinTexto: 'Déjenos su correo y le escribiremos cuando salga un libro nuevo.',
-        boletinCorreo: 'Su correo',
-        boletinBoton: 'Suscribirme',
-        boletinOk: 'Gracias. Ya está en la lista.',
-        boletinError: 'Algo ha fallado. Inténtelo de nuevo.',
-        boletinPriv: 'Sin spam. Puede darse de baja cuando quiera.',
     },
 } as const;
 
@@ -210,4 +203,33 @@ export function fechaCorta(iso: string | null, l: Loc): string {
     if (!iso) return '';
     const d = new Date(`${iso}T12:00:00Z`);
     return d.toLocaleDateString(l === 'es' ? 'es-ES' : 'en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+}
+
+export type Grupo = { clave: string; nombre: string; frase: string; libros: Libro[]; familias: Familia[] };
+
+// The series as shelves. Series with fewer than 4 books share one last shelf, so no shelf looks empty.
+export function grupos(c: Catalogo, l: Loc): Grupo[] {
+    const grandes: Grupo[] = [];
+    const pequenas: Familia[] = [];
+    for (const f of ORDEN) {
+        const libros = porFamilia(c, f);
+        if (!libros.length) continue;
+        if (libros.length >= 4) grandes.push({ clave: f, nombre: FAMILIA[f][l].nombre, frase: FAMILIA[f][l].frase, libros, familias: [f] });
+        else pequenas.push(f);
+    }
+    if (pequenas.length === 1) {
+        const f = pequenas[0];
+        grandes.push({ clave: f, nombre: FAMILIA[f][l].nombre, frase: FAMILIA[f][l].frase, libros: porFamilia(c, f), familias: [f] });
+    } else if (pequenas.length > 1) {
+        const nombres = pequenas.map((f) => FAMILIA[f][l].nombre.toLowerCase());
+        const lista = `${nombres.slice(0, -1).join(', ')} ${l === 'es' ? 'y' : 'and'} ${nombres[nombres.length - 1]}`;
+        grandes.push({
+            clave: 'more',
+            nombre: T[l].masNombre,
+            frase: `${l === 'es' ? 'Incluye' : 'Includes'} ${lista}.`,
+            libros: pequenas.flatMap((f) => porFamilia(c, f)),
+            familias: pequenas,
+        });
+    }
+    return grandes;
 }
