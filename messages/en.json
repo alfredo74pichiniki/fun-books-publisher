@@ -23,12 +23,6 @@
     "ctaPrimary": "Explore Our Books",
     "ctaSecondary": "Shop on Amazon"
   },
-  "stats": {
-    "books": "Published Books",
-    "readers": "Happy Readers",
-    "bestsellers": "Bestsellers",
-    "rating": "Average Rating"
-  },
   "featured": {
     "title": "Featured Books",
     "subtitle": "Handpicked from our collection — from monochrome art therapy to brain-boosting puzzles.",
@@ -42,10 +36,6 @@
     "viewCategory": "View Collection",
     "booksCount": "{count, plural, one {# book} other {# books}}"
   },
-  "testimonials": {
-    "title": "What Readers Say",
-    "subtitle": "Real reviews from real customers on Amazon."
-  },
   "newsletter": {
     "title": "Never Miss a Release",
     "subtitle": "Join our community and be the first to know about new books, free downloads, and exclusive content.",
@@ -53,8 +43,7 @@
     "button": "Subscribe",
     "privacy": "We respect your privacy. Unsubscribe anytime.",
     "success": "Welcome aboard! Check your email for a surprise.",
-    "error": "Something went wrong. Please try again.",
-    "socialProof": "Join 100K+ satisfied readers"
+    "error": "Something went wrong. Please try again."
   },
   "social": {
     "title": "Join the Community",
@@ -85,7 +74,6 @@
     "author": "Author",
     "relatedBooks": "You May Also Like",
     "backToCatalog": "Back to All Books",
-    "rating": "Amazon Rating",
     "english": "English",
     "spanish": "Spanish",
     "getBonusPages": "Get Free Bonus Pages",

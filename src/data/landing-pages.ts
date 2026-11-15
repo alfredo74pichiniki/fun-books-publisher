@@ -14,7 +14,6 @@ export type LandingPage = {
     benefits: { title: string; description: string }[];
     features: string[];
     faqs: { question: string; answer: string }[];
-    social: { rating: number; reviews: number };
     pageColorTheme: "warm-cream" | "dark-mono";
 };
 
@@ -76,7 +75,6 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
                     "Every purchase includes a free high-resolution digital PDF so you can print your favorite pages again and re-color them unlimited times.",
             },
         ],
-        social: { rating: 4.8, reviews: 46 },
         pageColorTheme: "warm-cream",
     },
     "cottagecore-homestead": {
@@ -136,7 +134,6 @@ export const LANDING_PAGES: Record<string, LandingPage> = {
                     "Every purchase includes a free high-resolution digital PDF so you can print your favorite pages again and re-color them unlimited times.",
             },
         ],
-        social: { rating: 0, reviews: 0 },
         pageColorTheme: "warm-cream",
     },
 };

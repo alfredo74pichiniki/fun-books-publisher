@@ -110,19 +110,6 @@ export default async function LandingPage(props: { params: Params }) {
                             >
                                 Get it on Amazon
                             </BuyOnAmazonButton>
-
-                            <div className="flex flex-col gap-2">
-                                <span
-                                    className="lp-stars text-base"
-                                    aria-label={`${lp.social.rating} out of 5 stars`}
-                                >
-                                    ★★★★★
-                                </span>
-                                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--ink-mute)]">
-                                    {lp.social.rating} on Amazon ·{" "}
-                                    {lp.social.reviews} reviews
-                                </span>
-                            </div>
                         </div>
                     </div>
 
@@ -233,45 +220,6 @@ export default async function LandingPage(props: { params: Params }) {
                                 </li>
                             ))}
                         </ul>
-                    </div>
-                </div>
-            </section>
-
-            {/* ========== SOCIAL PROOF ========== */}
-            <section className="px-6 py-28 sm:py-40">
-                <div className="mx-auto max-w-5xl">
-                    <div className="mb-20 text-center">
-                        <p className="lp-eyebrow">By The Numbers</p>
-                    </div>
-                    <div className="grid gap-x-12 gap-y-16 sm:grid-cols-3">
-                        <div>
-                            <p className="lp-numeral">{lp.social.rating}</p>
-                            <hr className="lp-rule my-7 w-14" />
-                            <p className="lp-stars text-xl">★★★★★</p>
-                            <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--ink-mute)]">
-                                Amazon Rating
-                            </p>
-                        </div>
-                        <div>
-                            <p className="lp-numeral">{lp.social.reviews}</p>
-                            <hr className="lp-rule my-7 w-14" />
-                            <p className="lp-serif text-xl italic text-[var(--ink-soft)]">
-                                Verified reviews
-                            </p>
-                            <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--ink-mute)]">
-                                On Amazon
-                            </p>
-                        </div>
-                        <div>
-                            <p className="lp-numeral">50</p>
-                            <hr className="lp-rule my-7 w-14" />
-                            <p className="lp-serif text-xl italic text-[var(--ink-soft)]">
-                                Hand-drawn pages
-                            </p>
-                            <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--ink-mute)]">
-                                Original Illustrations
-                            </p>
-                        </div>
                     </div>
                 </div>
             </section>

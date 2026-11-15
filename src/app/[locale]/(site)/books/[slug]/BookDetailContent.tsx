@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { Star, ArrowLeft, ExternalLink, BookOpen, Globe, Ruler, Tag, Gift } from 'lucide-react';
+import { ArrowLeft, ExternalLink, BookOpen, Globe, Ruler, Tag, Gift } from 'lucide-react';
 import { getBookBySlug, getRelatedBooks } from '@/data/helpers';
 import { getCategoryById } from '@/data/categories';
 import gsap from 'gsap';
@@ -86,13 +86,6 @@ export function BookDetailContent({ bookId }: { bookId: string }) {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
                             </div>
-
-                            {/* Bestseller badge */}
-                            {book.isBestseller && (
-                                <div className="absolute -top-3 -right-3 px-3 py-1.5 bg-accent text-white rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-accent/25">
-                                    Bestseller
-                                </div>
-                            )}
                         </div>
                     </div>
 
@@ -107,23 +100,6 @@ export function BookDetailContent({ bookId }: { bookId: string }) {
                         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
                             {bookTitle}
                         </h1>
-
-                        {/* Rating */}
-                        {book.rating !== null && (
-                            <div className="flex items-center gap-2">
-                                <div className="flex gap-0.5">
-                                    {[...Array(5)].map((_, i) => (
-                                        <Star
-                                            key={i}
-                                            className={`w-5 h-5 ${i < Math.floor(book.rating!) ? 'text-amber-400 fill-amber-400' : 'text-white/20'}`}
-                                        />
-                                    ))}
-                                </div>
-                                <span className="text-white/50 text-sm">
-                                    {book.rating} {t('rating')}
-                                </span>
-                            </div>
-                        )}
 
                         {/* Price */}
                         <div className="flex items-baseline gap-3">
