@@ -9,9 +9,9 @@ import { track } from '@vercel/analytics';
 import { Bebas_Neue, Special_Elite, Atkinson_Hyperlegible } from 'next/font/google';
 import type { WhoWasWhereBonus } from './who-was-where-bonus';
 
-const display = Bebas_Neue({ weight: '400', subsets: ['latin'], display: 'swap' });
-const typewriter = Special_Elite({ weight: '400', subsets: ['latin'], display: 'swap' });
-const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap' });
+const display = Bebas_Neue({ weight: '400', subsets: ['latin'], display: 'swap', preload: false });
+const typewriter = Special_Elite({ weight: '400', subsets: ['latin'], display: 'swap', preload: false });
+const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap', preload: false });
 
 /** A small house plan with three floors and a magnifying glass. Pure SVG, black and white like the book. */
 function Plan() {

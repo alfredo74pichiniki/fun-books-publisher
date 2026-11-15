@@ -9,9 +9,9 @@ import { track } from '@vercel/analytics';
 import { Bebas_Neue, Pacifico, Atkinson_Hyperlegible } from 'next/font/google';
 import type { NostalgiaBonus } from './nostalgia-bonus';
 
-const display = Bebas_Neue({ weight: '400', subsets: ['latin'], display: 'swap' });
-const script = Pacifico({ weight: '400', subsets: ['latin'], display: 'swap' });
-const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap' });
+const display = Bebas_Neue({ weight: '400', subsets: ['latin'], display: 'swap', preload: false });
+const script = Pacifico({ weight: '400', subsets: ['latin'], display: 'swap', preload: false });
+const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap', preload: false });
 
 /** A 45 rpm record with a sunshine label. Pure SVG. */
 function Record() {

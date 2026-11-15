@@ -11,9 +11,9 @@ import { track } from '@vercel/analytics';
 import { Anton, Atkinson_Hyperlegible, Courier_Prime } from 'next/font/google';
 import type { SecretScienceBonus } from './secret-science-agency-bonus';
 
-const display = Anton({ weight: '400', subsets: ['latin'], display: 'swap' });
-const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap' });
-const type = Courier_Prime({ weight: ['400', '700'], subsets: ['latin'], display: 'swap' });
+const display = Anton({ weight: '400', subsets: ['latin'], display: 'swap', preload: false });
+const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap', preload: false });
+const type = Courier_Prime({ weight: ['400', '700'], subsets: ['latin'], display: 'swap', preload: false });
 
 /** Book cover slot. While `src` is null it shows a dashed placeholder (the cover does not exist yet). */
 function BookCover({ src, book }: { src: string | null; book: string }) {

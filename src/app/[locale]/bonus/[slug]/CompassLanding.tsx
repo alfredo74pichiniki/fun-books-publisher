@@ -6,8 +6,8 @@ import { track } from '@vercel/analytics';
 import { Anton, Bitter } from 'next/font/google';
 import { COMPASS_GIFTS, otherGifts, type CompassGift } from './compass-gifts';
 
-const display = Anton({ weight: '400', subsets: ['latin'], display: 'swap' });
-const body = Bitter({ weight: ['400', '600', '700'], subsets: ['latin'], display: 'swap' });
+const display = Anton({ weight: '400', subsets: ['latin'], display: 'swap', preload: false });
+const body = Bitter({ weight: ['400', '600', '700'], subsets: ['latin'], display: 'swap', preload: false });
 
 /** Compass rose. The needle swings once on load and settles pointing at the download. */
 function CompassRose({ tint }: { tint: string }) {

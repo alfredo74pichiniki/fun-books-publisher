@@ -9,9 +9,9 @@ import { track } from '@vercel/analytics';
 import { Bebas_Neue, Anton, Atkinson_Hyperlegible } from 'next/font/google';
 import type { StatesBonus } from './states-bonus';
 
-const display = Bebas_Neue({ weight: '400', subsets: ['latin'], display: 'swap' });
-const heavy = Anton({ weight: '400', subsets: ['latin'], display: 'swap' });
-const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap' });
+const display = Bebas_Neue({ weight: '400', subsets: ['latin'], display: 'swap', preload: false });
+const heavy = Anton({ weight: '400', subsets: ['latin'], display: 'swap', preload: false });
+const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap', preload: false });
 
 /** A generic highway shield with the stop number. Pure SVG. */
 function Shield() {

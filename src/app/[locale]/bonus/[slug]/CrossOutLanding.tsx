@@ -9,9 +9,9 @@ import { track } from '@vercel/analytics';
 import { Bebas_Neue, Special_Elite, Atkinson_Hyperlegible } from 'next/font/google';
 import type { CrossOutBonus } from './cross-out-bonuses';
 
-const display = Bebas_Neue({ weight: '400', subsets: ['latin'], display: 'swap' });
-const typewriter = Special_Elite({ weight: '400', subsets: ['latin'], display: 'swap' });
-const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap' });
+const display = Bebas_Neue({ weight: '400', subsets: ['latin'], display: 'swap', preload: false });
+const typewriter = Special_Elite({ weight: '400', subsets: ['latin'], display: 'swap', preload: false });
+const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap', preload: false });
 
 const SERIES = [
     { level: 1, name: 'Murder at the Antiques Fair', note: 'Easy · 3,000 suspects' },

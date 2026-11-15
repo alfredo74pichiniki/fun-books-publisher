@@ -9,8 +9,8 @@ import { track } from '@vercel/analytics';
 import { Fraunces, Atkinson_Hyperlegible } from 'next/font/google';
 import type { CursiveBonus } from './cursive-bonus';
 
-const display = Fraunces({ weight: ['600', '900'], style: ['italic'], subsets: ['latin'], display: 'swap' });
-const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap' });
+const display = Fraunces({ weight: ['600', '900'], style: ['italic'], subsets: ['latin'], display: 'swap', preload: false });
+const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap', preload: false });
 
 /** The three guide lines of the book: solid, dashed, solid. Pure SVG. */
 function GuideLines() {

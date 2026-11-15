@@ -9,9 +9,9 @@ import { track } from '@vercel/analytics';
 import { Playfair_Display, Lexend } from 'next/font/google';
 import type { MemoriaBonus } from './memoria-bonus';
 
-const display = Playfair_Display({ weight: ['700', '900'], subsets: ['latin'], display: 'swap' });
+const display = Playfair_Display({ weight: ['700', '900'], subsets: ['latin'], display: 'swap', preload: false });
 // Lexend, not Atkinson: Atkinson draws a slashed zero, and the book itself avoids it for older readers.
-const body = Lexend({ weight: ['400', '700'], subsets: ['latin'], display: 'swap' });
+const body = Lexend({ weight: ['400', '700'], subsets: ['latin'], display: 'swap', preload: false });
 
 function Filete() {
     return (

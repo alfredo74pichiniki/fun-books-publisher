@@ -14,9 +14,9 @@ import { Bebas_Neue, Special_Elite, Atkinson_Hyperlegible } from 'next/font/goog
 import type { BirthdayTriviaBonus } from './birthday-trivia-bonus';
 import { BIRTH_YEAR_CARDS, TRIVIA_DECADES, type BirthYearCard, type TriviaQuestion } from './birthday-trivia-data';
 
-const display = Bebas_Neue({ weight: '400', subsets: ['latin'], display: 'swap' });
-const typewriter = Special_Elite({ weight: '400', subsets: ['latin'], display: 'swap' });
-const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap' });
+const display = Bebas_Neue({ weight: '400', subsets: ['latin'], display: 'swap', preload: false });
+const typewriter = Special_Elite({ weight: '400', subsets: ['latin'], display: 'swap', preload: false });
+const body = Atkinson_Hyperlegible({ weight: ['400', '700'], subsets: ['latin'], display: 'swap', preload: false });
 
 const LETTERS = ['A', 'B', 'C', 'D'];
 const TIMERS = [0, 15, 30, 60];
