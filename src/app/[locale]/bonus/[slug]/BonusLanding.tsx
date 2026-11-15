@@ -1,191 +1,112 @@
-'use client';
-
-import { useRef, useEffect } from 'react';
-import { track } from '@vercel/analytics';
+import { statSync } from 'node:fs';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
-import { Download, CheckCircle, Gift, ExternalLink, Sparkles } from 'lucide-react';
+import { join } from 'node:path';
+import { Link } from '@/i18n/routing';
+import { cargarCatalogo, porFamilia } from '@/catalogo/cargar';
 import { getBookBySlug } from '@/data/helpers';
-import gsap from 'gsap';
+import { claseFuentes } from '@/sitio/fuentes';
+import { Libro3d, Portada } from '@/sitio/Libro';
+import { Cabecera } from '@/sitio/Marco';
+import { FAMILIA } from '@/sitio/textos';
+import { DescargarRegalo } from './DescargarRegalo';
+import '@/sitio/sitio.css';
 
-export function BonusLanding({ bookId }: { bookId: string }) {
-    const t = useTranslations('bonus');
+// The generic gift page (direction A), used by every book whose gift is a single PDF in books.ts.
+// The address, the PDF and the analytics event are the same as before: only the look changed.
+// Gift pages are always in English: the printed books are in English.
+
+function peso(pdf: string): string | null {
+    try {
+        const mb = statSync(join(process.cwd(), 'public', pdf)).size / 1_048_576;
+        return mb >= 1 ? `${Math.round(mb)} MB` : `${Math.max(1, Math.round(mb * 1024))} KB`;
+    } catch {
+        return null; // at runtime on Vercel the public folder is not on disk; the size is only a hint
+    }
+}
+
+const CONSEJOS = [
+    'Print at 100% scale. Letter and A4 paper both work.',
+    'Print on one side of the paper so ink never shows through.',
+    'Thicker paper (cardstock) works best with markers.',
+];
+
+export async function BonusLanding({ bookId }: { bookId: string }) {
     const book = getBookBySlug(bookId)!;
-
-    const pageRef = useRef<HTMLDivElement>(null);
-    const cardRef = useRef<HTMLDivElement>(null);
-
-    // Bonus pages always in English — physical books are in English
-    const bookTitle = book.title;
-    const siteUrl = typeof window !== 'undefined' ? window.location.origin : '';
-
-    // Direct download, no email capture. The bonus PDF is served publicly.
-    const downloadUrl = `${siteUrl}${book.bonusPdf}`;
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            if (cardRef.current) {
-                gsap.from(cardRef.current, {
-                    opacity: 0,
-                    y: 40,
-                    duration: 0.8,
-                    ease: 'power3.out',
-                });
-            }
-        }, pageRef);
-        return () => ctx.revert();
-    }, []);
+    const c = await cargarCatalogo();
+    const libro = c.libros.find((l) => l.regalo === bookId || l.slug === bookId || l.asin === book.asin);
+    const nombre = libro?.nombre ?? book.title.replace(/\s+[–—]\s+/g, ': ');
+    const mas = libro ? porFamilia(c, libro.familia).filter((x) => x.asin !== libro.asin).slice(0, 4) : [];
+    const tam = book.bonusPdf ? peso(book.bonusPdf) : null;
 
     return (
-        <div ref={pageRef} className="min-h-screen bg-navy-950" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 24px' }}>
-            <div style={{ maxWidth: '1100px', width: '100%' }}>
-                {/* Main Card */}
-                <div
-                    ref={cardRef}
-                    style={{
-                        background: 'linear-gradient(135deg, rgba(249,115,22,0.08), rgba(15,23,42,1) 30%, rgba(15,23,42,1) 70%, rgba(56,189,248,0.05))',
-                        border: '1px solid rgba(249,115,22,0.25)',
-                        borderRadius: '24px',
-                        padding: '60px 48px',
-                    }}
-                >
-                    {/* Brand */}
-                    <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-                        <div style={{ display: 'inline-flex', background: 'white', borderRadius: '20px', padding: '16px 20px', boxShadow: '0 12px 30px rgba(0,0,0,0.35)' }}>
-                            <Image src="/logo.png" alt="Fun Books Publisher" width={110} height={110} style={{ display: 'block', width: '110px', height: '110px' }} priority />
-                        </div>
-                    </div>
-
-                    {/* Header */}
-                    <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-                        <div
-                            style={{
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                gap: '8px',
-                                padding: '8px 20px',
-                                background: 'rgba(249,115,22,0.1)',
-                                border: '1px solid rgba(249,115,22,0.25)',
-                                borderRadius: '9999px',
-                                marginBottom: '24px',
-                            }}
-                        >
-                            <Gift className="w-5 h-5 text-accent" />
-                            <span style={{ color: 'rgb(249,115,22)', fontSize: '14px', fontWeight: 600 }}>
-                                {t('freeBonus')}
+        <div className={`dA ${claseFuentes}`} lang="en">
+            <a className="aSalto" href="#main">Skip to content</a>
+            <Cabecera l="en" />
+            <main id="main" tabIndex={-1}>
+                <section className="aGiftTop" aria-labelledby="a-regalo">
+                    <div className="aDetLibro">
+                        <div className="aCono" aria-hidden="true" />
+                        {libro ? (
+                            <Libro3d libro={libro} alt={`Cover of ${nombre}`} clase="aGrande" prioridad sizes="(max-width: 900px) 56vw, 340px" />
+                        ) : (
+                            <span className="aLibroW aGrande">
+                                <span className="aLibro" style={{ aspectRatio: book.coverRatio ?? '3 / 4' }}>
+                                    <Image src={book.coverImage} alt={`Cover of ${nombre}`} width={760} height={984} sizes="(max-width: 900px) 56vw, 340px" priority />
+                                </span>
                             </span>
-                        </div>
-                        <h1 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, color: 'white', lineHeight: 1.2, marginBottom: '16px' }}>
-                            {t('title')}
-                        </h1>
-                        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 'clamp(16px, 2vw, 20px)', maxWidth: '600px', margin: '0 auto' }}>
-                            {t('subtitle')}
-                        </p>
-                    </div>
-
-                    {/* Book Info */}
-                    <div
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '32px',
-                            marginBottom: '48px',
-                            padding: '32px',
-                            background: 'rgba(255,255,255,0.02)',
-                            border: '1px solid rgba(255,255,255,0.06)',
-                            borderRadius: '16px',
-                            flexWrap: 'wrap',
-                            justifyContent: 'center',
-                        }}
-                    >
-                        <div style={{ width: '180px', flexShrink: 0 }}>
-                            <div className="relative" style={{ aspectRatio: book.coverRatio || '3/4', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}>
-                                <Image
-                                    src={book.coverImage}
-                                    alt={bookTitle}
-                                    fill
-                                    className="object-cover"
-                                    sizes="180px"
-                                />
-                            </div>
-                        </div>
-                        <div style={{ flex: 1, minWidth: '250px', textAlign: 'left' }}>
-                            <h2 style={{ fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 700, color: 'white', marginBottom: '8px' }}>
-                                {bookTitle}
-                            </h2>
-                            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '16px', marginBottom: '12px' }}>
-                                {book.subtitle} — {book.author}
-                            </p>
-                            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', lineHeight: 1.6 }}>
-                                {t('thankYou')}
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Download Section — direct download, no email required */}
-                    <div style={{ textAlign: 'center' }}>
-                        <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '72px', height: '72px', borderRadius: '50%', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.2)', marginBottom: '20px' }}>
-                            <CheckCircle style={{ width: '36px', height: '36px', color: 'rgb(74,222,128)' }} />
-                        </div>
-                        <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'white', marginBottom: '8px' }}>
-                            {t('ready')}
-                        </h3>
-                        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', marginBottom: '24px' }}>
-                            {t('readySubtitle')}
-                        </p>
-
-                        <a
-                            href={downloadUrl}
-                            download
-                            // Sin esto solo se sabe cuanta gente LLEGA a la pagina del
-                            // regalo, no cuanta se lo lleva. La diferencia entre las dos
-                            // cifras es lo que decide si merece la pena pedir el correo.
-                            onClick={() => track('bonus_download', { book: book.id })}
-                            className="btn-primary"
-                            style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '18px', padding: '16px 48px' }}
-                        >
-                            <Download style={{ width: '20px', height: '20px' }} />
-                            {t('downloadNow')}
-                        </a>
-
-                        {/* Pro Tips */}
-                        <div style={{ marginTop: '40px', padding: '24px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '16px', textAlign: 'left', maxWidth: '600px', margin: '40px auto 0' }}>
-                            <h4 style={{ color: 'white', fontWeight: 600, fontSize: '16px', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <Sparkles style={{ width: '16px', height: '16px', color: 'rgb(249,115,22)' }} />
-                                {t('proTips')}
-                            </h4>
-                            <ul style={{ color: 'rgba(255,255,255,0.5)', fontSize: '15px', listStyle: 'none', padding: 0 }}>
-                                <li style={{ marginBottom: '8px' }}>{t('tip1')}</li>
-                                <li style={{ marginBottom: '8px' }}>{t('tip2')}</li>
-                                <li>{t('tip3')}</li>
-                            </ul>
-                        </div>
-
-                        {/* Leave Review — only show if ASIN exists */}
-                        {book.asin && (
-                            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '24px' }}>
-                                <a
-                                    href={`https://www.amazon.com/review/create-review?ie=UTF8&channel=glance-detail&asin=${book.asin}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn-secondary"
-                                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                                >
-                                    {t('leaveReview')}
-                                    <ExternalLink style={{ width: '16px', height: '16px' }} />
-                                </a>
-                            </div>
                         )}
+                        <div className="aBalda" aria-hidden="true" />
                     </div>
-
-                    {/* Brand footer */}
-                    <div style={{ textAlign: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                        <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '13px' }}>
-                            © {new Date().getFullYear()} Fun Books Publisher LLC · Wyoming, USA
+                    <div className="aGiftT">
+                        <p className="aFam">A free gift for readers of {nombre}</p>
+                        <h1 id="a-regalo">Your bonus pages are ready.</h1>
+                        <p>
+                            Extra pages to print and enjoy, as a thank you for buying the book. No sign-up and no email:
+                            press the button and the file is yours.
                         </p>
+                        <DescargarRegalo href={book.bonusPdf!} libro={book.id} texto="Download the PDF" />
+                        <p className="aNota">PDF{tam ? `, ${tam}` : ''}. Big files download best on Wi-Fi.</p>
                     </div>
-                </div>
-            </div>
+                </section>
+
+                <section className="aConsejos" aria-labelledby="a-consejos">
+                    <h2 id="a-consejos">Before you print</h2>
+                    <ul>
+                        {CONSEJOS.map((x) => <li key={x}>{x}</li>)}
+                    </ul>
+                </section>
+
+                {libro && mas.length > 0 && (
+                    <section className="aMas" aria-labelledby="a-mas">
+                        <h2 id="a-mas">More {FAMILIA[libro.familia].en.nombre.toLowerCase()}</h2>
+                        <ul>
+                            {mas.map((x) => (
+                                <li key={x.asin}>
+                                    <Link href={`/books/${x.slug}`}>
+                                        <Portada libro={x} sizes="(max-width: 900px) 42vw, 230px" />
+                                        <span lang={x.idioma}>{x.nombre}</span>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
+                )}
+
+                {libro && (
+                    <section className="aResena" aria-label="Reviews">
+                        <p>Enjoying the book? An honest review on Amazon helps other readers find it.</p>
+                        <a className="aLink" href={`https://www.amazon.com/review/create-review?asin=${libro.asin}`} rel="noopener">
+                            Write a review on Amazon
+                        </a>
+                    </section>
+                )}
+            </main>
+            <footer className="aGiftPie">
+                <p>Fun Books Publisher LLC, Wyoming, USA. Our books are printed and sold by Amazon.</p>
+                <Link href="/books">All our books</Link>
+                <Link href="/contact">Contact</Link>
+                <Link href="/privacy">Privacy</Link>
+            </footer>
         </div>
     );
 }

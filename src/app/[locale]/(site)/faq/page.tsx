@@ -1,103 +1,60 @@
-'use client';
+import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
+import { Link } from '@/i18n/routing';
 
-import { useState, useEffect, useRef } from 'react';
-import { useTranslations } from 'next-intl';
-import { ChevronDown } from 'lucide-react';
-import gsap from 'gsap';
+export const dynamic = 'force-static';
+export const generateStaticParams = () => [{ locale: 'en' }, { locale: 'es' }];
 
-export default function FAQPage() {
-    const t = useTranslations('faq');
-    const pageRef = useRef<HTMLDivElement>(null);
+type Props = { params: Promise<{ locale: string }> };
 
-    // Build question list from i18n keys (q1-q7)
-    const questions = [1, 2, 3, 4, 5, 6, 7].map((id) => ({
-        q: t(`questions.q${id}`),
-        a: t(`questions.a${id}`),
-        id,
-    }));
-
-    useEffect(() => {
-        if (pageRef.current) {
-            gsap.from('.faq-header', {
-                opacity: 0,
-                y: 40,
-                duration: 0.8,
-                ease: 'power3.out',
-            });
-            gsap.from('.faq-item', {
-                opacity: 0,
-                y: 20,
-                stagger: 0.06,
-                duration: 0.5,
-                ease: 'power3.out',
-                delay: 0.3,
-            });
-        }
-    }, []);
-
-    return (
-        <div ref={pageRef} className="pt-32 pb-20 sm:pb-28 bg-navy-950 min-h-screen">
-            <div className="max-w-3xl mx-auto px-6">
-                {/* Header */}
-                <div className="faq-header text-center mb-14">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
-                        {t('title')}
-                    </h1>
-                    <p className="text-white/50 text-base sm:text-lg max-w-xl mx-auto">
-                        {t('subtitle')}
-                    </p>
-                </div>
-
-                {/* Accordion */}
-                <div className="space-y-3">
-                    {questions.map((item) => (
-                        <AccordionItem key={item.id} question={item.q} answer={item.a} />
-                    ))}
-                </div>
-            </div>
-        </div>
-    );
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { locale } = await params;
+    return { title: locale === 'es' ? 'Preguntas frecuentes | Fun Books Publisher' : 'Frequently asked questions | Fun Books Publisher' };
 }
 
-function AccordionItem({ question, answer }: { question: string; answer: string }) {
-    const [open, setOpen] = useState(false);
-    const contentRef = useRef<HTMLDivElement>(null);
+// Answers we can stand behind. Nothing about paper or return windows that Amazon, not us, decides.
+const PREGUNTAS = {
+    en: [
+        ['Where can I buy your books?', 'On Amazon. Every book is printed, sold and shipped by Amazon. Each book page on this site has a button that opens it on Amazon.'],
+        ['Are they paperbacks, Kindle or hardcover?', 'Almost all are paperbacks, made to be used with a pen or pencil. A few also have a Kindle or a hardcover edition: the book page lists the formats Amazon has.'],
+        ['How do I get the free gift of my book?', 'Scan the QR code near the end of your book, or pick your book under "Free gifts" on the home page. The gift is a PDF you print at home. No sign-up and no email.'],
+        ['Can I return a book?', 'Returns and refunds go through Amazon, under Amazon\'s return policy. Start the return from your Amazon orders page.'],
+        ['Do you have books in Spanish?', 'Yes: memory exercises, word searches and puzzle books in Spanish, in large print for seniors.'],
+        ['Are the books for seniors in large print?', 'Yes. The word searches, trivia, memory and mystery books made for seniors say "Large Print" on the cover and are set in large, clear type.'],
+        ['How can I contact you?', 'Use the contact page.'],
+    ],
+    es: [
+        ['¿Dónde se compran sus libros?', 'En Amazon. Amazon imprime, vende y envía todos los libros. Cada ficha de esta web tiene un botón que abre el libro en Amazon.'],
+        ['¿Son de tapa blanda, Kindle o tapa dura?', 'Casi todos son de tapa blanda, pensados para usar con bolígrafo o lápiz. Algunos tienen además versión Kindle o tapa dura: la ficha de cada libro dice los formatos que tiene Amazon.'],
+        ['¿Cómo consigo el regalo de mi libro?', 'Escanee el código QR de las últimas páginas del libro, o elija su libro en "Regalos" en la portada. El regalo es un PDF para imprimir en casa. Sin registro y sin correo.'],
+        ['¿Puedo devolver un libro?', 'Las devoluciones las gestiona Amazon, con su política de devoluciones. Empiece la devolución desde sus pedidos de Amazon.'],
+        ['¿Tienen libros en español?', 'Sí: ejercicios de memoria, sopas de letras y pasatiempos en español, en letra grande para personas mayores.'],
+        ['¿Los libros para mayores son de letra grande?', 'Sí. Las sopas de letras, la trivia, los ejercicios de memoria y los misterios para mayores lo dicen en la portada ("Large Print" o "Letra grande").'],
+        ['¿Cómo puedo escribirles?', 'Desde la página de contacto.'],
+    ],
+} as const;
 
-    useEffect(() => {
-        if (contentRef.current) {
-            if (open) {
-                gsap.to(contentRef.current, {
-                    height: 'auto',
-                    opacity: 1,
-                    duration: 0.35,
-                    ease: 'power2.out',
-                });
-            } else {
-                gsap.to(contentRef.current, {
-                    height: 0,
-                    opacity: 0,
-                    duration: 0.25,
-                    ease: 'power2.in',
-                });
-            }
-        }
-    }, [open]);
-
+export default async function Faq({ params }: Props) {
+    const { locale } = await params;
+    setRequestLocale(locale);
+    const es = locale === 'es';
+    const lista = PREGUNTAS[es ? 'es' : 'en'];
     return (
-        <div className="faq-item glass-card overflow-hidden">
-            <button
-                onClick={() => setOpen(!open)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left"
-            >
-                <span className="text-white font-medium text-base pr-4">{question}</span>
-                <ChevronDown
-                    className={`w-5 h-5 text-white/40 flex-shrink-0 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
-                />
-            </button>
-            <div ref={contentRef} className="overflow-hidden" style={{ height: 0, opacity: 0 }}>
-                <div className="px-6 pb-5">
-                    <p className="text-white/55 text-sm leading-relaxed">{answer}</p>
-                </div>
+        <div className="aTexto">
+            <h1>{es ? 'Preguntas frecuentes' : 'Frequently asked questions'}</h1>
+            <p className="aIntro">{es ? 'Lo que más nos preguntan sobre los libros, los regalos y Amazon.' : 'What readers ask most about our books, the gifts and Amazon.'}</p>
+            <ul className="aPreguntas">
+                {lista.map(([q, a]) => (
+                    <li key={q}>
+                        <details>
+                            <summary>{q}</summary>
+                            <p>{a}</p>
+                        </details>
+                    </li>
+                ))}
+            </ul>
+            <div className="aAcc">
+                <Link className="aBtn" href="/contact">{es ? 'Escribirnos' : 'Contact us'}</Link>
             </div>
         </div>
     );

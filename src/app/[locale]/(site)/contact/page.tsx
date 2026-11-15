@@ -1,37 +1,19 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { useTranslations } from 'next-intl';
-import { Send, CheckCircle, AlertCircle } from 'lucide-react';
-import gsap from 'gsap';
+import { useState } from 'react';
+import { useLocale } from 'next-intl';
 
+// Same behaviour as the live site: the form posts name, email and message to /api/newsletter with type "contact".
 export default function ContactPage() {
-    const t = useTranslations('contact');
-
+    const es = useLocale() === 'es';
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-    const [loading, setLoading] = useState(false);
-    const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [estado, setEstado] = useState<'idle' | 'enviando' | 'ok' | 'error'>('idle');
 
-    const pageRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (pageRef.current) {
-            gsap.from(pageRef.current.children, {
-                opacity: 0,
-                y: 30,
-                stagger: 0.1,
-                duration: 0.7,
-                ease: 'power3.out',
-            });
-        }
-    }, []);
-
-    const handleSubmit = async (e: React.FormEvent) => {
+    const enviar = async (e: React.FormEvent) => {
         e.preventDefault();
-        setLoading(true);
-        setStatus('idle');
+        setEstado('enviando');
         try {
             const res = await fetch('/api/newsletter', {
                 method: 'POST',
@@ -42,97 +24,46 @@ export default function ContactPage() {
                 setName('');
                 setEmail('');
                 setMessage('');
-                setStatus('success');
+                setEstado('ok');
             } else {
-                setStatus('error');
+                setEstado('error');
             }
         } catch {
-            setStatus('error');
-        } finally {
-            setLoading(false);
+            setEstado('error');
         }
     };
 
     return (
-        <div className="pt-32 pb-20 sm:pb-28 bg-navy-950 min-h-screen">
-            <div ref={pageRef} className="max-w-2xl mx-auto px-6">
-                {/* Header */}
-                <div className="text-center mb-12">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
-                        {t('title')}
-                    </h1>
-                    <p className="text-white/50 text-base sm:text-lg max-w-lg mx-auto">
-                        {t('subtitle')}
+        <div className="aTexto">
+            <h1>{es ? 'Escríbanos' : 'Get in touch'}</h1>
+            <p className="aIntro">
+                {es
+                    ? 'Una pregunta sobre un libro, un regalo que no se descarga o cualquier otra cosa: escríbanos aquí.'
+                    : 'A question about a book, a gift that will not download, or anything else: write to us here.'}
+            </p>
+            <form className="aForm" onSubmit={enviar}>
+                <div>
+                    <label htmlFor="c-nombre">{es ? 'Su nombre' : 'Your name'}</label>
+                    <input id="c-nombre" type="text" autoComplete="name" required value={name} onChange={(e) => setName(e.target.value)} />
+                </div>
+                <div>
+                    <label htmlFor="c-correo">{es ? 'Su correo' : 'Your email'}</label>
+                    <input id="c-correo" type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div>
+                    <label htmlFor="c-mensaje">{es ? 'Su mensaje' : 'Your message'}</label>
+                    <textarea id="c-mensaje" required value={message} onChange={(e) => setMessage(e.target.value)} />
+                </div>
+                <div>
+                    <button className="aBtn" type="submit" disabled={estado === 'enviando'}>
+                        {estado === 'enviando' ? '...' : es ? 'Enviar mensaje' : 'Send message'}
+                    </button>
+                    <p className="aNota" role="status" aria-live="polite">
+                        {estado === 'ok' && (es ? 'Mensaje enviado. Le contestaremos pronto.' : 'Message sent. We will get back to you soon.')}
+                        {estado === 'error' && (es ? 'Algo ha fallado. Inténtelo de nuevo.' : 'Something went wrong. Please try again.')}
                     </p>
                 </div>
-
-                {/* Form */}
-                <form onSubmit={handleSubmit} className="glass-card p-8 sm:p-10 space-y-6">
-                    <div>
-                        <label htmlFor="name" className="block text-white/60 text-sm font-medium mb-2">
-                            {t('name')}
-                        </label>
-                        <input
-                            id="name"
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            className="input-email"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="email" className="block text-white/60 text-sm font-medium mb-2">
-                            {t('email')}
-                        </label>
-                        <input
-                            id="email"
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className="input-email"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="message" className="block text-white/60 text-sm font-medium mb-2">
-                            {t('message')}
-                        </label>
-                        <textarea
-                            id="message"
-                            value={message}
-                            onChange={(e) => setMessage(e.target.value)}
-                            rows={5}
-                            className="input-email resize-none"
-                            required
-                        />
-                    </div>
-
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className="btn-primary w-full justify-center text-base disabled:opacity-50"
-                    >
-                        {loading ? '...' : t('send')}
-                        <Send className="w-4 h-4" />
-                    </button>
-
-                    {status === 'success' && (
-                        <div className="flex items-center gap-2 text-green-400 text-sm">
-                            <CheckCircle className="w-4 h-4" />
-                            {t('success')}
-                        </div>
-                    )}
-                    {status === 'error' && (
-                        <div className="flex items-center gap-2 text-red-400 text-sm">
-                            <AlertCircle className="w-4 h-4" />
-                            {t('error')}
-                        </div>
-                    )}
-                </form>
-            </div>
+            </form>
         </div>
     );
 }

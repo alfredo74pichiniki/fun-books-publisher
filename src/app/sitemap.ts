@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { BOOKS } from '@/data/books';
+import { cargarCatalogo } from '@/catalogo/cargar';
 import { getAllBlogSlugs } from '@/lib/blog';
 
 // SIN "s" tras "book". funbookspublisher.com (con "s") esta aparcado y no es
@@ -7,7 +7,9 @@ import { getAllBlogSlugs } from '@/lib/blog';
 // dominio ajeno, de modo que no se enviaba a Google ni una pagina real.
 const BASE_URL = 'https://funbookpublisher.com';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 3600;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const now = new Date().toISOString();
 
     // Static pages
@@ -38,16 +40,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
     ]);
 
-    // Book pages
-    const bookEntries = BOOKS.filter((b) => b.isActive).flatMap((book) => [
+    // Book pages: every FBP book in the live catalog (updated by the catalogo_fbp agent)
+    const { libros } = await cargarCatalogo();
+    const bookEntries = libros.flatMap((book) => [
         {
-            url: `${BASE_URL}/en/books/${book.id}`,
+            url: `${BASE_URL}/en/books/${book.slug}`,
             lastModified: now,
             changeFrequency: 'monthly' as const,
             priority: 0.8,
         },
         {
-            url: `${BASE_URL}/es/books/${book.id}`,
+            url: `${BASE_URL}/es/books/${book.slug}`,
             lastModified: now,
             changeFrequency: 'monthly' as const,
             priority: 0.7,

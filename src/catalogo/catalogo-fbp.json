@@ -1,0 +1,674 @@
+{
+ "version": 1,
+ "fuente": "amazon-ads/product-metadata",
+ "marca": "Fun Books Publisher",
+ "generado": "2026-11-15T16:25:54Z",
+ "libros": [
+  {
+   "asin": "B0HRQDD5Q4",
+   "slug": "secret-science-agency-logic-puzzles-for-teens-and-middle",
+   "titulo": "Secret Science Agency: Logic Puzzles for Teens and Middle Schoolers: 80 Brain Teaser Missions for Kids Ages 11-14 with Hints and Step-by-Step Solutions. A No-Screen Gift for Boys and Girls",
+   "corto": "Secret Science Agency: Logic Puzzles for Teens and Middle Schoolers",
+   "subtitulo": "80 Brain Teaser Missions for Kids Ages 11-14 with Hints and Step-by-Step Solutions. A No-Screen Gift for Boys and Girls",
+   "serieAmazon": "",
+   "idioma": "en",
+   "familia": "kids",
+   "formatos": {
+    "paperback": "B0HRQDD5Q4"
+   },
+   "portada": "https://m.media-amazon.com/images/I/511jkbYHdxL.jpg",
+   "publicado": "2026-11-14",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HR1WQ4Q4",
+   "slug": "birthday-trivia-for-seniors-a-large-print-trivia-book-with",
+   "titulo": "Birthday Trivia for Seniors: A Large Print Trivia Book with 240 Questions from the 1950s, 60s, 70s and 80s, Answers and Fun Facts. A Nostalgic Party ... (Fun Books Nostalgia Games for Seniors)",
+   "corto": "Birthday Trivia for Seniors: A Large Print Trivia Book with 240 Questions from the 1950s, 60s, 70s and 80s, Answers and",
+   "subtitulo": "",
+   "serieAmazon": "Fun Books Nostalgia Games for Seniors",
+   "idioma": "en",
+   "familia": "puzzles",
+   "formatos": {
+    "paperback": "B0HR1WQ4Q4"
+   },
+   "portada": "https://m.media-amazon.com/images/I/513Oo7Q1JRL.jpg",
+   "publicado": "2026-11-09",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HQDJ7TNV",
+   "slug": "ejercicios-de-memoria-para-personas-mayores-volumen-2",
+   "titulo": "Ejercicios de Memoria para Personas Mayores Volumen 2: Juegos de Memoria y Gimnasia Cerebral para Adultos Mayores con Olvidos o Alzheimer Inicial, ... PARA ADULTOS LETRA GRANDE) (Spanish Edition)",
+   "corto": "Ejercicios de Memoria para Personas Mayores Volumen 2",
+   "subtitulo": "Juegos de Memoria y Gimnasia Cerebral para Adultos Mayores con Olvidos o Alzheimer Inicial",
+   "serieAmazon": "",
+   "idioma": "es",
+   "familia": "espanol",
+   "formatos": {
+    "paperback": "B0HQDJ7TNV"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51tUA-YTaFL.jpg",
+   "publicado": "2026-11-04",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HPT79HMN",
+   "slug": "50-states-workbook-for-kids-ages-8-12",
+   "titulo": "50 States Workbook for Kids Ages 8-12: The Great USA Road Trip: Learn US Geography, States and Capitals One Stop at a Time with Maps to Color, Fact Cards, Puzzles and a Secret Message to Crack",
+   "corto": "50 States Workbook for Kids Ages 8-12",
+   "subtitulo": "The Great USA Road Trip",
+   "serieAmazon": "",
+   "idioma": "en",
+   "familia": "kids",
+   "formatos": {
+    "paperback": "B0HPT79HMN"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51otRp2XVbL.jpg",
+   "publicado": "2026-10-30",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HPFW7XQV",
+   "slug": "nostalgia-word-search-for-seniors",
+   "titulo": "Nostalgia Word Search for Seniors: 100 Large Print Puzzles from the 1950s, 60s, 70s and 80s with Hidden Trivia Answers. A Memory Lane Brain Game Book ... (Fun Books Nostalgia Games for Seniors)",
+   "corto": "Nostalgia Word Search for Seniors",
+   "subtitulo": "100 Large Print Puzzles from the 1950s, 60s, 70s and 80s with Hidden Trivia Answers. A Memory Lane Brain Game Book",
+   "serieAmazon": "Fun Books Nostalgia Games for Seniors",
+   "idioma": "en",
+   "familia": "puzzles",
+   "formatos": {
+    "paperback": "B0HPFW7XQV"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51TD-2YEAzL.jpg",
+   "publicado": "2026-10-26",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HP7XF291",
+   "slug": "murder-mystery-word-search-murder-in-every-room",
+   "titulo": "Murder Mystery Word Search: Murder in Every Room: Who Was Where? A Large Print Whodunit Puzzle Book for Adults and Seniors. 38 Floor Plan Cases: Find the Names, Read the Clues, Catch the Killer",
+   "corto": "Murder Mystery Word Search: Murder in Every Room",
+   "subtitulo": "Who Was Where? A Large Print Whodunit Puzzle Book for Adults and Seniors. 38 Floor Plan Cases",
+   "serieAmazon": "",
+   "idioma": "en",
+   "familia": "mystery",
+   "formatos": {
+    "paperback": "B0HP7XF291"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51qR0MymKxL.jpg",
+   "publicado": "2026-10-21",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HNVPDNJ9",
+   "slug": "cross-out-the-killer-murder-at-the-ballpark",
+   "titulo": "Cross Out the Killer: Murder at the Ballpark: A Large Print Whodunit Murder Mystery Detective Logic Puzzle Book for Adults & Seniors. 8,000 Suspects, 15 Clues, 1 Killer (Level 3, Hard)",
+   "corto": "Cross Out the Killer: Murder at the Ballpark",
+   "subtitulo": "A Large Print Whodunit Murder Mystery Detective Logic Puzzle Book for Adults & Seniors. 8,000 Suspects, 15 Clues, 1 Killer",
+   "serieAmazon": "Level 3, Hard",
+   "idioma": "en",
+   "familia": "mystery",
+   "formatos": {
+    "paperback": "B0HNVPDNJ9"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51r05JCSvGL.jpg",
+   "publicado": "2026-10-19",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HN5QCKYD",
+   "slug": "cross-out-the-killer-death-at-the-model-railroad-show",
+   "titulo": "Cross Out the Killer: Death at the Model Railroad Show: A Large Print Whodunit Murder Mystery Detective Logic Puzzle Book for Adults & Seniors. 5,000 Suspects, 14 Clues, 1 Killer (Level 2, Medium)",
+   "corto": "Cross Out the Killer: Death at the Model Railroad Show",
+   "subtitulo": "A Large Print Whodunit Murder Mystery Detective Logic Puzzle Book for Adults & Seniors. 5,000 Suspects, 14 Clues, 1 Killer",
+   "serieAmazon": "Level 2, Medium",
+   "idioma": "en",
+   "familia": "mystery",
+   "formatos": {
+    "paperback": "B0HN5QCKYD"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51dWpZ8leHL.jpg",
+   "publicado": "2026-10-15",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HN5J3F5J",
+   "slug": "cross-out-the-killer-murder-at-the-antiques-fair",
+   "titulo": "Cross Out the Killer: Murder at the Antiques Fair: A Large Print Whodunit Murder Mystery Detective Logic Puzzle Book for Adults & Seniors. 3,000 Suspects, 14 Clues, 1 Killer (Level 1, Easy)",
+   "corto": "Cross Out the Killer: Murder at the Antiques Fair",
+   "subtitulo": "A Large Print Whodunit Murder Mystery Detective Logic Puzzle Book for Adults & Seniors. 3,000 Suspects, 14 Clues, 1 Killer",
+   "serieAmazon": "Level 1, Easy",
+   "idioma": "en",
+   "familia": "mystery",
+   "formatos": {
+    "paperback": "B0HN5J3F5J"
+   },
+   "portada": "https://m.media-amazon.com/images/I/517RMV8dniL.jpg",
+   "publicado": "2026-10-15",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HL35C1RV",
+   "slug": "100-monochrome-color-by-number-cottagecore-mysteries",
+   "titulo": "100 Monochrome Color by Number Cottagecore Mysteries: A One Color Coloring Book for Adults: Reveal Hidden Pixel Art Farm Scenes in Black and White ... Stress Relief (One-Color Mystery Coloring)",
+   "corto": "100 Monochrome Color by Number Cottagecore Mysteries",
+   "subtitulo": "A One Color Coloring Book for Adults",
+   "serieAmazon": "One-Color Mystery Coloring",
+   "idioma": "en",
+   "familia": "color-by-number",
+   "formatos": {
+    "paperback": "B0HL35C1RV"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51YIOZ2vjJL.jpg",
+   "publicado": "2026-09-17",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HK7Y38KM",
+   "slug": "100-monochrome-color-by-number-botanicals-mysteries",
+   "titulo": "100 Monochrome Color by Number Botanicals Mysteries: A One Color Coloring Book for Adults: Reveal Pixel Art Flowers in Black and White with One Pen, ... Stress Relief (One-Color Mystery Coloring)",
+   "corto": "100 Monochrome Color by Number Botanicals Mysteries",
+   "subtitulo": "A One Color Coloring Book for Adults",
+   "serieAmazon": "One-Color Mystery Coloring",
+   "idioma": "en",
+   "familia": "color-by-number",
+   "formatos": {
+    "paperback": "B0HK7Y38KM"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51TfbYSnE5L.jpg",
+   "publicado": "2026-09-17",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HK7WHK1G",
+   "slug": "100-monochrome-color-by-number-cozy-escapes-mysteries",
+   "titulo": "100 Monochrome Color by Number Cozy Escapes Mysteries: A One Color Coloring Book for Adults: Reveal Hidden Pixel Art Getaways in Black and White with ... Stress Relief (One-Color Mystery Coloring)",
+   "corto": "100 Monochrome Color by Number Cozy Escapes Mysteries",
+   "subtitulo": "A One Color Coloring Book for Adults",
+   "serieAmazon": "One-Color Mystery Coloring",
+   "idioma": "en",
+   "familia": "color-by-number",
+   "formatos": {
+    "paperback": "B0HK7WHK1G"
+   },
+   "portada": "https://m.media-amazon.com/images/I/5181g3ZbsSL.jpg",
+   "publicado": "2026-09-17",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HK571DVB",
+   "slug": "100-monochrome-color-by-number-animal-mysteries",
+   "titulo": "100 Monochrome Color by Number Animal Mysteries: A One Color Coloring Book for Adults: Reveal Hidden Pixel Art Wildlife in Black and White with a ... Stress Relief (One-Color Mystery Coloring)",
+   "corto": "100 Monochrome Color by Number Animal Mysteries",
+   "subtitulo": "A One Color Coloring Book for Adults",
+   "serieAmazon": "One-Color Mystery Coloring",
+   "idioma": "en",
+   "familia": "color-by-number",
+   "formatos": {
+    "paperback": "B0HK571DVB"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51mt7I5oWPL.jpg",
+   "publicado": "2026-09-17",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HK4LQ18M",
+   "slug": "100-monochrome-color-by-number-mystery-collection",
+   "titulo": "100 Monochrome Color by Number Mystery Collection: A One Color Coloring Book for Adults: Reveal Hidden Pixel Art Pictures in Black and White with a ... Stress Relief (One-Color Mystery Coloring)",
+   "corto": "100 Monochrome Color by Number Mystery Collection",
+   "subtitulo": "A One Color Coloring Book for Adults",
+   "serieAmazon": "One-Color Mystery Coloring",
+   "idioma": "en",
+   "familia": "color-by-number",
+   "formatos": {
+    "paperback": "B0HK4LQ18M"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51jdWrDwEhL.jpg",
+   "publicado": "2026-09-17",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HCCVH3B2",
+   "slug": "ocean-animals-the-no-screen-activity-book-for-kids-8-12",
+   "titulo": "Ocean Animals — The No-Screen Activity Book for Kids 8-12: The Screen-Free Way to Keep Ocean-Loving Kids Busy & Learning — 100+ Pages of Puzzles, ... | A Fun Educational Gift for Boys & Girls",
+   "corto": "Ocean Animals: The No-Screen Activity Book for Kids 8-12",
+   "subtitulo": "The Screen-Free Way to Keep Ocean-Loving Kids Busy & Learning",
+   "serieAmazon": "",
+   "idioma": "en",
+   "familia": "kids",
+   "formatos": {
+    "paperback": "B0HCCVH3B2"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51iiJML5MYL.jpg",
+   "publicado": "2026-07-25",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0HBCG2HKR",
+   "slug": "blood-pressure-log-book-and-journal-large-print-for-seniors",
+   "titulo": "Blood Pressure Log Book and Journal Large Print for Seniors: Daily AM & PM Tracker to Record Heart Rate, Pulse, Medication & Symptoms | Easy-to-Read ... Adults & Caregivers | Ready for Doctor Visits",
+   "corto": "Blood Pressure Log Book and Journal Large Print for Seniors",
+   "subtitulo": "Daily AM & PM Tracker to Record Heart Rate, Pulse, Medication & Symptoms | Easy-to-Read",
+   "serieAmazon": "",
+   "idioma": "en",
+   "familia": "logbooks",
+   "formatos": {
+    "paperback": "B0HBCG2HKR"
+   },
+   "portada": "https://m.media-amazon.com/images/I/41GDpEV3iNL.jpg",
+   "publicado": "2026-07-24",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0H71NMM51",
+   "slug": "4th-of-july-activity-book-for-kids-ages-8-12",
+   "titulo": "4th of July Activity Book for Kids Ages 8-12: A Patriotic Independence Day Collection — American History Trivia, Word Searches, Mazes, Cryptograms, Coloring Pages & Brain Games for Boys & Girls",
+   "corto": "4th of July Activity Book for Kids Ages 8-12",
+   "subtitulo": "A Patriotic Independence Day Collection",
+   "serieAmazon": "",
+   "idioma": "en",
+   "familia": "kids",
+   "formatos": {
+    "paperback": "B0H71NMM51"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51OfkOAQZqL.jpg",
+   "publicado": "2026-06-28",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0GXMQ5KV2",
+   "slug": "monochrome-coloring-book-witchy-celestial",
+   "titulo": "Monochrome Coloring Book - Witchy Celestial: Black And White Edition: Moon Phases Tarot Crystals One Color Art Pages, Dark Mystical Occult Designs For ... (MONOCHROME COLORING BOOK INK BLISS SERIES)",
+   "corto": "Monochrome Coloring Book: Witchy Celestial",
+   "subtitulo": "Black And White Edition",
+   "serieAmazon": "MONOCHROME COLORING BOOK INK BLISS SERIES",
+   "idioma": "en",
+   "familia": "monochrome",
+   "formatos": {
+    "paperback": "B0GXMQ5KV2"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51tW+wVUWFL.jpg",
+   "publicado": "2026-04-15",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0GWY67XKF",
+   "slug": "monochrome-coloring-book-cottagecore-homestead",
+   "titulo": "Monochrome Coloring Book - Cottagecore Homestead: One Color Edition: Cozy Country Living Black And White Art Pages, Rustic Kitchen Garden Village ... (MONOCHROME COLORING BOOK INK BLISS SERIES)",
+   "corto": "Monochrome Coloring Book: Cottagecore Homestead",
+   "subtitulo": "One Color Edition",
+   "serieAmazon": "MONOCHROME COLORING BOOK INK BLISS SERIES",
+   "idioma": "en",
+   "familia": "monochrome",
+   "formatos": {
+    "paperback": "B0GWY67XKF"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51Qnc7AMRjL.jpg",
+   "publicado": "2026-04-10",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0GW33476D",
+   "slug": "monochrome-coloring-book-for-adults-power-black-and-white",
+   "titulo": "Monochrome Coloring Book for Adults: Power Black & White Art Therapy: 50 One-Color Mixed Illustrations Featuring Abstract Art & Figurative Scenes for ... BOOK INK BLISS SERIES) (Spanish Edition)",
+   "corto": "Monochrome Coloring Book for Adults: Power Black & White Art Therapy",
+   "subtitulo": "50 One-Color Mixed Illustrations Featuring Abstract Art & Figurative Scenes for",
+   "serieAmazon": "",
+   "idioma": "en",
+   "familia": "monochrome",
+   "formatos": {
+    "paperback": "B0GW33476D"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51uNhLve1OL.jpg",
+   "publicado": "2026-04-02",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0GVZGLCZS",
+   "slug": "monochrome-coloring-book-spooky-kawaii",
+   "titulo": "Monochrome Coloring Book: Spooky Kawaii – Black & White Cute Halloween: One Color Edition – Adorable Creepy Creatures, Ghosts, Witches & Monsters for ... BOOK INK BLISS SERIES) (Spanish Edition)",
+   "corto": "Monochrome Coloring Book: Spooky Kawaii",
+   "subtitulo": "Black & White Cute Halloween",
+   "serieAmazon": "",
+   "idioma": "en",
+   "familia": "monochrome",
+   "formatos": {
+    "paperback": "B0GVZGLCZS"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51fHk7e8uHL.jpg",
+   "publicado": "2026-04-01",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0G3889XTJ",
+   "slug": "monochrome-coloring-book-for-adults-tattoo-flash-black-and",
+   "titulo": "Monochrome Coloring Book for Adults – Tattoo Flash Black and White Edition: 50 Bold Blackwork Designs – Old School & Neo-Traditional Tattoo Art for ... (MONOCHROME COLORING BOOK INK BLISS SERIES)",
+   "corto": "Monochrome Coloring Book for Adults: Tattoo Flash Black and White Edition",
+   "subtitulo": "50 Bold Blackwork Designs",
+   "serieAmazon": "MONOCHROME COLORING BOOK INK BLISS SERIES",
+   "idioma": "en",
+   "familia": "monochrome",
+   "formatos": {
+    "paperback": "B0G3889XTJ"
+   },
+   "portada": "https://m.media-amazon.com/images/I/41OH0FjwMJL.jpg",
+   "publicado": "2025-11-20",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0FSZ9V9MS",
+   "slug": "monochrome-coloring-book-power-of-black-and-white-art",
+   "titulo": "Monochrome Coloring Book – Power of Black & White Art Therapy: One-Color Masterpieces for Adults & Teens: Stress Relief, Mindful Focus & Creative Escape (MONOCHROME COLORING BOOK INK BLISS SERIES)",
+   "corto": "Monochrome Coloring Book: Power of Black & White Art Therapy",
+   "subtitulo": "One-Color Masterpieces for Adults & Teens",
+   "serieAmazon": "MONOCHROME COLORING BOOK INK BLISS SERIES",
+   "idioma": "en",
+   "familia": "monochrome",
+   "formatos": {
+    "paperback": "B0FSZ9V9MS"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51zh9tUzCeL.jpg",
+   "publicado": "2025-09-25",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0FR91RBSZ",
+   "slug": "monochrome-coloring-book-one-color-negative-space-designs",
+   "titulo": "Monochrome Coloring Book — One-Color Negative-Space Designs for Adults & Teens: One-pen linework for black marker; bold silhouettes and crisp outlines ... (MONOCHROME COLORING BOOK INK BLISS SERIES)",
+   "corto": "Monochrome Coloring Book: One-Color Negative-Space Designs for Adults & Teens",
+   "subtitulo": "One-pen linework for black marker; bold silhouettes and crisp outlines",
+   "serieAmazon": "MONOCHROME COLORING BOOK INK BLISS SERIES",
+   "idioma": "en",
+   "familia": "monochrome",
+   "formatos": {
+    "paperback": "B0FR91RBSZ"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51JorTPB4kL.jpg",
+   "publicado": "2025-09-13",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0FQ1JBGY6",
+   "slug": "monochrome-mandala-coloring-book-stress-relief-for-adults",
+   "titulo": "Monochrome Mandala Coloring Book — Stress Relief for Adults & Teens — Ink Bliss Series: Mindful zen patterns for calm focus — one-marker linework with ... (MONOCHROME COLORING BOOK INK BLISS SERIES)",
+   "corto": "Monochrome Mandala Coloring Book: Stress Relief for Adults & Teens",
+   "subtitulo": "Ink Bliss Series",
+   "serieAmazon": "MONOCHROME COLORING BOOK INK BLISS SERIES",
+   "idioma": "en",
+   "familia": "monochrome",
+   "formatos": {
+    "paperback": "B0FQ1JBGY6"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51HIL08JLfL.jpg",
+   "publicado": "2025-08-31",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0FM4B5Z7H",
+   "slug": "ink-bliss-the-ultimate-monochrome-coloring-book-for",
+   "titulo": "Ink Bliss: The Ultimate Monochrome Coloring Book for Creative Minds: Relax, Focus & Unleash Your Imagination with Over 50 Elegant Black Ink Designs – ... (MONOCHROME COLORING BOOK INK BLISS SERIES)",
+   "corto": "Ink Bliss: The Ultimate Monochrome Coloring Book for Creative Minds",
+   "subtitulo": "Relax, Focus & Unleash Your Imagination with Over 50 Elegant Black Ink Designs",
+   "serieAmazon": "MONOCHROME COLORING BOOK INK BLISS SERIES",
+   "idioma": "en",
+   "familia": "monochrome",
+   "formatos": {
+    "paperback": "B0FM4B5Z7H"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51TGaqW+JgL.jpg",
+   "publicado": "2025-08-07",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0FKHCJSDY",
+   "slug": "challenging-word-search-for-curious-minds",
+   "titulo": "Challenging Word Search for Curious Minds – A Brain-Boosting Puzzle Book for Adults & Seniors: Enhance Focus, Strengthen Memory & Enjoy Hours of ... to Reduce Stress, Improve Mental Clarity",
+   "corto": "Challenging Word Search for Curious Minds",
+   "subtitulo": "A Brain-Boosting Puzzle Book for Adults & Seniors",
+   "serieAmazon": "",
+   "idioma": "en",
+   "familia": "puzzles",
+   "formatos": {
+    "paperback": "B0FKHCJSDY"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51dZdwhY9eL.jpg",
+   "publicado": "2025-07-27",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0DZVMRMT6",
+   "slug": "fun-and-motivational-mandala-coloring-book",
+   "titulo": "Fun & Motivational Mandala Coloring Book: Intricate Patterns Designs With Uplifting Quotes And Positive Affirmations To Spark Creativity, Encourage ... (MONOCHROME COLORING BOOK INK BLISS SERIES)",
+   "corto": "Fun & Motivational Mandala Coloring Book",
+   "subtitulo": "Intricate Patterns Designs With Uplifting Quotes And Positive Affirmations To Spark Creativity, Encourage",
+   "serieAmazon": "MONOCHROME COLORING BOOK INK BLISS SERIES",
+   "idioma": "en",
+   "familia": "coloring",
+   "formatos": {
+    "paperback": "B0DZVMRMT6"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51P4AFP-xAL.jpg",
+   "publicado": "2025-03-06",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0DTQ2K31D",
+   "slug": "how-to-use-a-compass-for-kids",
+   "titulo": "How to Use a Compass for Kids: Fun Outdoor Skills and Activities: Master Orienteering, Camping Tips, Land Navigation, and Reading Maps for Kids and Families",
+   "corto": "How to Use a Compass for Kids",
+   "subtitulo": "Fun Outdoor Skills and Activities",
+   "serieAmazon": "",
+   "idioma": "en",
+   "familia": "kids",
+   "formatos": {
+    "kindle": "B0DSQTGTWV",
+    "paperback": "B0DTQ2K31D",
+    "hardcover": "B0F1XNP1R6"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51fblLQ13hL.jpg",
+   "publicado": "2025-01-10",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0DKSC5QTL",
+   "slug": "christmas-santa-claus-coloring-book",
+   "titulo": "Christmas Santa Claus Coloring Book: Jolly Adventures & Ho Ho Ho Fun!: Festive Holiday Scenes, Reindeer, Elves, and Christmas Magic for All Ages (MONOCHROME COLORING BOOK INK BLISS SERIES)",
+   "corto": "Christmas Santa Claus Coloring Book",
+   "subtitulo": "Jolly Adventures & Ho Ho Ho Fun!",
+   "serieAmazon": "MONOCHROME COLORING BOOK INK BLISS SERIES",
+   "idioma": "en",
+   "familia": "coloring",
+   "formatos": {
+    "paperback": "B0DKSC5QTL"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51ipoYbPhOL.jpg",
+   "publicado": "2024-10-21",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0DH3Q9XN6",
+   "slug": "ejercicios-de-memoria-para-personas-mayores",
+   "titulo": "Ejercicios de Memoria para Personas Mayores: Actividades de Estimulación Cognitiva para Entrenar tu Memoria, Combatir el Alzheimer y Mejorar la ... PARA ADULTOS LETRA GRANDE) (Spanish Edition)",
+   "corto": "Ejercicios de Memoria para Personas Mayores",
+   "subtitulo": "Actividades de Estimulación Cognitiva para Entrenar tu Memoria, Combatir el Alzheimer y Mejorar la",
+   "serieAmazon": "",
+   "idioma": "es",
+   "familia": "espanol",
+   "formatos": {
+    "kindle": "B0CW1BQWLH",
+    "paperback": "B0DH3Q9XN6"
+   },
+   "portada": "https://m.media-amazon.com/images/I/512O7-I974L.jpg",
+   "publicado": "2024-09-07",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0DBJ3YJJS",
+   "slug": "art-of-serenity-101-zen-mandalas-coloring-book-and",
+   "titulo": "Art of Serenity: 101 Zen Mandalas Coloring Book & Inspirational Stories: Patterns that Calm the Mind and Words that Elevate the Spirit. Discover ... (MONOCHROME COLORING BOOK INK BLISS SERIES)",
+   "corto": "Art of Serenity: 101 Zen Mandalas Coloring Book & Inspirational Stories",
+   "subtitulo": "Patterns that Calm the Mind and Words that Elevate the Spirit. Discover",
+   "serieAmazon": "MONOCHROME COLORING BOOK INK BLISS SERIES",
+   "idioma": "en",
+   "familia": "coloring",
+   "formatos": {
+    "paperback": "B0DBJ3YJJS"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51OQKaEbxuL.jpg",
+   "publicado": "2024-07-24",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0D9YJY28N",
+   "slug": "variety-puzzle-book-for-adults-2",
+   "titulo": "Variety Puzzle Book for Adults: Plus Edition: Ultimate Edition with 150 Brain Games: Sudoku, Crosswords, Word Search, Mazes, Anagrams, Nonograms, ... Stress Relief, Relaxation and Brain Fitness",
+   "corto": "Variety Puzzle Book for Adults",
+   "subtitulo": "Plus Edition",
+   "serieAmazon": "",
+   "idioma": "en",
+   "familia": "puzzles",
+   "formatos": {
+    "paperback": "B0D9YJY28N"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51z7jFqE1SL.jpg",
+   "publicado": "2024-07-22",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0D95Q7D9Y",
+   "slug": "150-pasatiempos-para-adultos-y-personas-mayores",
+   "titulo": "150 Pasatiempos para Adultos y Personas Mayores: Libro de Juegos Mentales y Actividades Antiestrés con Crucigramas, Sopas de letras, Sudokus, ... PARA ADULTOS LETRA GRANDE) (Spanish Edition)",
+   "corto": "150 Pasatiempos para Adultos y Personas Mayores",
+   "subtitulo": "Libro de Juegos Mentales y Actividades Antiestrés con Crucigramas, Sopas de letras, Sudokus",
+   "serieAmazon": "",
+   "idioma": "es",
+   "familia": "espanol",
+   "formatos": {
+    "paperback": "B0D95Q7D9Y"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51tP46EdK5L.jpg",
+   "publicado": "2024-07-09",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0D8FG7NDJ",
+   "slug": "adult-coloring-book-stress-relief-and-inspiration",
+   "titulo": "Adult Coloring Book: Stress Relief & Inspiration: Discover Relaxation with Mindful Coloring: Find Peace, Serenity, and Positive Vibes through ... (MONOCHROME COLORING BOOK INK BLISS SERIES)",
+   "corto": "Adult Coloring Book: Stress Relief & Inspiration",
+   "subtitulo": "Discover Relaxation with Mindful Coloring",
+   "serieAmazon": "MONOCHROME COLORING BOOK INK BLISS SERIES",
+   "idioma": "en",
+   "familia": "coloring",
+   "formatos": {
+    "paperback": "B0D8FG7NDJ"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51CmUpBPQiL.jpg",
+   "publicado": "2024-06-26",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0D6TZKZW2",
+   "slug": "variety-puzzle-book-for-adults",
+   "titulo": "Variety Puzzle Book for Adults: The Ultimate Collection of Sudoku, Crossword Puzzles, Word Search, Mazes, Anagrams, Large Print and Mindful Coloring ... Brain Training, Relaxation and Stress Relief",
+   "corto": "Variety Puzzle Book for Adults",
+   "subtitulo": "The Ultimate Collection of Sudoku, Crossword Puzzles, Word Search, Mazes, Anagrams, Large Print and Mindful Coloring",
+   "serieAmazon": "",
+   "idioma": "en",
+   "familia": "puzzles",
+   "formatos": {
+    "paperback": "B0D6TZKZW2"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51Ec9dQnX+L.jpg",
+   "publicado": "2024-06-10",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0D6N92QZ1",
+   "slug": "cursive-workbook-for-kids-ages-8-12",
+   "titulo": "Cursive Workbook for Kids Ages 8-12: Master Handwriting With This Fun Cursive Writing Book Of Practice Sheets, Letters, Words, and Sentences; Includes Coloring Pages",
+   "corto": "Cursive Workbook for Kids Ages 8-12",
+   "subtitulo": "Master Handwriting With This Fun Cursive Writing Book Of Practice Sheets, Letters, Words, and Sentences; Includes Coloring Pages",
+   "serieAmazon": "",
+   "idioma": "en",
+   "familia": "kids",
+   "formatos": {
+    "paperback": "B0D6N92QZ1"
+   },
+   "portada": "https://m.media-amazon.com/images/I/514YzpQta2L.jpg",
+   "publicado": "2024-06-10",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0D5QCS2ZJ",
+   "slug": "sopa-de-letras-en-espanol-para-adultos-2",
+   "titulo": "SOPA DE LETRAS EN ESPAÑOL PARA ADULTOS: 100 puzzles y 2000 Palabras Positivas y Motivadoras Para Que Encuentres Tú Inspiración. Palabras Que ... PARA ADULTOS LETRA GRANDE) (Spanish Edition)",
+   "corto": "SOPA DE LETRAS EN ESPAÑOL PARA ADULTOS",
+   "subtitulo": "100 puzzles y 2000 Palabras Positivas y Motivadoras Para Que Encuentres Tú Inspiración. Palabras Que",
+   "serieAmazon": "",
+   "idioma": "es",
+   "familia": "espanol",
+   "formatos": {
+    "paperback": "B0D5QCS2ZJ"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51BlRdVgKQL.jpg",
+   "publicado": "2024-05-30",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  },
+  {
+   "asin": "B0D5L9MKGC",
+   "slug": "sopa-de-letras-en-espanol-para-adultos",
+   "titulo": "SOPA DE LETRAS EN ESPAÑOL PARA ADULTOS: 100 Desafíos Mentales con 1500 Palabras con Letra Grande, para Mejorar tu Vocabulario, Relajarte y Mantener tu ... PARA ADULTOS LETRA GRANDE) (Spanish Edition)",
+   "corto": "SOPA DE LETRAS EN ESPAÑOL PARA ADULTOS",
+   "subtitulo": "100 Desafíos Mentales con 1500 Palabras con Letra Grande, para Mejorar tu Vocabulario, Relajarte y Mantener tu",
+   "serieAmazon": "",
+   "idioma": "es",
+   "familia": "espanol",
+   "formatos": {
+    "paperback": "B0D5L9MKGC"
+   },
+   "portada": "https://m.media-amazon.com/images/I/51lTzc-uo8L.jpg",
+   "publicado": "2024-05-29",
+   "disponible": true,
+   "marca": "Fun Books Publisher"
+  }
+ ]
+}
