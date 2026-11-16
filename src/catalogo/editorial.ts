@@ -57,7 +57,6 @@ export const EDITORIAL: Record<string, Editorial> = {
     B0HR1WQ4Q4: { slug: 'birthday-trivia', nombre: 'Birthday Trivia for Seniors', linea: '240 large print questions about the 1950s, 60s, 70s and 80s.', regalo: 'birthday-trivia' },
     B0FKHCJSDY: { slug: 'challenging-word-search', nombre: 'Challenging Word Search for Curious Minds', linea: '200 large print word searches for adults and seniors.' },
     B0D6TZKZW2: { slug: 'variety-puzzle-ultimate', nombre: 'Variety Puzzle Book for Adults', linea: 'Sudoku, crosswords, word searches, mazes and more in one book.' },
-    B0D9YJY28N: { slug: 'variety-puzzle-plus', nombre: 'Variety Puzzle Book for Adults: Plus Edition', linea: '150 brain games: sudoku, crosswords, word searches and more.' },
 
     // En español
     B0DH3Q9XN6: { slug: 'ejercicios-memoria', nombre: 'Ejercicios de Memoria para Personas Mayores', linea: '200 actividades de estimulación cognitiva, en letra grande.', regalo: 'ejercicios-memoria' },

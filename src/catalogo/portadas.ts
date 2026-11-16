@@ -10,7 +10,6 @@ export const PORTADAS_NITIDAS: Record<string, [number, number]> = {
     B0D6TZKZW2: [900, 1164],
     B0D8FG7NDJ: [900, 1164],
     B0D95Q7D9Y: [900, 1165],
-    B0D9YJY28N: [900, 1164],
     B0DBJ3YJJS: [900, 1164],
     B0DH3Q9XN6: [760, 984],
     B0DKSC5QTL: [900, 1165],

@@ -69,6 +69,7 @@
 .dA .aFila{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:center;padding:0 4% 0 10%;list-style:none;margin:0}
 .dA .aFila>li{width:19%;margin-left:-6.5%;flex:none;position:relative;animation:aSube .9s cubic-bezier(.2,.7,.2,1) both}
 .dA .aFila>li>a{display:block}
+.dA .aFila>li:focus-within{z-index:5}
 /* seven books, the centre one largest and in front */
 .dA .aE0{--ry:-36deg;animation-delay:.05s;z-index:1}.dA .aE6{--ry:-36deg;animation-delay:.65s;z-index:1}
 .dA .aE1{--ry:-32deg;animation-delay:.15s;width:21%!important;z-index:2}.dA .aE5{--ry:-32deg;animation-delay:.55s;width:21%!important;z-index:2}
