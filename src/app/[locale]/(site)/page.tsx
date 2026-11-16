@@ -26,8 +26,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-// Hand-picked for the shelf in the window and the lamp. If a book leaves the catalog it simply drops out.
-const ESCAPARATE = ['B0HPFW7XQV', 'B0HN5J3F5J', 'B0HK7WHK1G', 'B0HCCVH3B2', 'B0HQDJ7TNV'];
+// Hand-picked for the shelf in the window and the lamp (Alfredo, 16 nov 2026: the best sellers and a mix of lines,
+// Botanicals in the middle). If a book leaves the catalog it simply drops out.
+const ESCAPARATE = [
+    'B0DH3Q9XN6', // Ejercicios de Memoria, volume 1
+    'B0DTQ2K31D', // How to Use a Compass for Kids
+    'B0FSZ9V9MS', // Black & White Cozy Escapes
+    'B0HK7Y38KM', // Color by Number Mysteries: Botanicals (centre, largest)
+    'B0HK7WHK1G', // Color by Number Mysteries: Cozy Escapes
+    'B0HPFW7XQV', // Nostalgia Word Search for Seniors
+    'B0HR1WQ4Q4', // Birthday Trivia for Seniors
+];
 const FOCO = ['B0FSZ9V9MS', 'B0HP7XF291', 'B0HR1WQ4Q4', 'B0HRQDD5Q4', 'B0DH3Q9XN6', 'B0DTQ2K31D'];
 
 const elegir = (c: Catalogo, asins: string[]) =>
@@ -64,7 +73,7 @@ export default async function Home({ params }: Props) {
                         {escaparate.map((x, i) => (
                             <li key={x.asin} className={`aE${i}`}>
                                 <Link href={`/books/${x.slug}`} aria-label={x.nombre} lang={x.idioma}>
-                                    <Libro3d libro={x} alt="" prioridad sizes="(max-width: 900px) 34vw, 240px" />
+                                    <Libro3d libro={x} alt="" prioridad={i >= 2 && i <= 4} sizes="(max-width: 900px) 26vw, 200px" />
                                 </Link>
                             </li>
                         ))}

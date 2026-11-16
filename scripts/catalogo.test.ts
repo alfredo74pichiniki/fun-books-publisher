@@ -7,9 +7,9 @@ import type { CatalogoFuente } from '../src/catalogo/tipos';
 
 const copia = (): CatalogoFuente => JSON.parse(readFileSync(new URL('../src/catalogo/catalogo-fbp.json', import.meta.url), 'utf8'));
 
-test('the repo copy is valid: 39 FBP books, none of another pen name', () => {
+test('the repo copy is valid: 38 FBP books, none of another pen name', () => {
     const c = validar(copia());
-    assert.equal(c.libros.length, 39);
+    assert.equal(c.libros.length, 38);
     assert.ok(c.libros.every((l) => l.marca === 'Fun Books Publisher'));
 });
 
@@ -20,7 +20,7 @@ test('one broken book is left out on its own, the rest stays', () => {
     (d.libros as unknown[])[2] = null;
     const avisos: string[] = [];
     const c = validar(d, (m) => avisos.push(m));
-    assert.equal(c.libros.length, 36);
+    assert.equal(c.libros.length, 35);
     assert.equal(avisos.length, 3);
     assert.ok(!c.libros.some((l) => l.asin === 'B0FCS2XH6H'));
 });
@@ -37,7 +37,7 @@ test('editorial layer: old addresses kept, sharp covers, gifts, no book Amazon s
     const d = copia();
     d.libros[0] = { ...d.libros[0], disponible: false };
     const c = componer(validar(d), 'copia');
-    assert.equal(c.libros.length, 38);
+    assert.equal(c.libros.length, 37);
     const cozy = c.libros.find((l) => l.asin === 'B0FSZ9V9MS')!;
     assert.equal(cozy.slug, 'cozy-escapes');
     assert.equal(cozy.regalo, 'cozy-escapes');

@@ -6,9 +6,10 @@ import type { Catalogo, CatalogoFuente, Familia, Libro, LibroFuente } from './ti
 // so it is tested on its own (scripts/catalogo.test.ts, `npm run test:catalogo`).
 
 const FAMILIAS: Familia[] = ['color-by-number', 'monochrome', 'coloring', 'mystery', 'puzzles', 'espanol', 'kids', 'logbooks', 'otros'];
-// Books of other pen names that live in the same Amazon account. Never on this site, whatever the file says.
+// Books of other pen names that live in the same Amazon account, and books Alfredo took off the site. Never shown,
+// whatever the file says.
 // Same list as FUERA in empire/fbp_catalogo.py (EMPIRE): keep both equal.
-export const NUNCA = new Set(['B0FCS2XH6H', 'B0FB3XC3DF', 'B0F4K94XXJ', 'B0F1NB5CZV', 'B0FDG2RFVC', 'B0CVHNNYDT', 'B0D6FMD98N', 'B0CZHYM7S7']);
+export const NUNCA = new Set(['B0FCS2XH6H', 'B0FB3XC3DF', 'B0F4K94XXJ', 'B0F1NB5CZV', 'B0FDG2RFVC', 'B0CVHNNYDT', 'B0D6FMD98N', 'B0CZHYM7S7', 'B0D9YJY28N']);
 const ASIN = /^[A-Z0-9]{10}$/;
 const PORTADA = /^https:\/\/m\.media-amazon\.com\/images\/I\/[A-Za-z0-9+%-]+\.(jpg|png)$/;
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -25,7 +26,7 @@ function texto(v: unknown, max: number): v is string {
 export function defecto(l: LibroFuente | null | undefined, vistos: Set<string>): string | null {
     if (!l || typeof l !== 'object') return 'not a book';
     if (typeof l.asin !== 'string' || !ASIN.test(l.asin)) return `bad ASIN ${String(l.asin)}`;
-    if (NUNCA.has(l.asin)) return `${l.asin} belongs to another pen name`;
+    if (NUNCA.has(l.asin)) return `${l.asin} is never shown on this site`;
     if (l.marca !== 'Fun Books Publisher') return `${l.asin} is not FBP`;
     if (!texto(l.titulo, 400) || !texto(l.corto, 200)) return `${l.asin} has no title`;
     if (typeof l.slug !== 'string' || !SLUG.test(l.slug) || vistos.has(l.slug)) return `${l.asin} bad or repeated slug`;

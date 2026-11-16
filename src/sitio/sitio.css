@@ -66,12 +66,14 @@
 .dA .aHero h1{font-size:clamp(44px,6.2vw,92px);margin:0 0 24px;font-variation-settings:"opsz" 144}
 .dA .aHeroT>p{font-size:20px;color:var(--tenue);max-width:30em}
 .dA .aEscaparate{position:relative;padding:30px 0 0}
-.dA .aFila{display:flex;align-items:flex-end;justify-content:center;padding:0 4% 0 10%;list-style:none;margin:0}
-.dA .aFila>li{width:27%;margin-left:-7%;flex:none;animation:aSube .9s cubic-bezier(.2,.7,.2,1) both}
+.dA .aFila{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:center;padding:0 4% 0 10%;list-style:none;margin:0}
+.dA .aFila>li{width:19%;margin-left:-6.5%;flex:none;position:relative;animation:aSube .9s cubic-bezier(.2,.7,.2,1) both}
 .dA .aFila>li>a{display:block}
-.dA .aE0{--ry:-34deg;animation-delay:.05s}.dA .aE1{--ry:-30deg;animation-delay:.15s;width:29%!important}
-.dA .aE2{--ry:-20deg;animation-delay:.25s;width:34%!important;position:relative;z-index:2}
-.dA .aE3{--ry:-30deg;animation-delay:.35s;width:29%!important}.dA .aE4{--ry:-34deg;animation-delay:.45s}
+/* seven books, the centre one largest and in front */
+.dA .aE0{--ry:-36deg;animation-delay:.05s;z-index:1}.dA .aE6{--ry:-36deg;animation-delay:.65s;z-index:1}
+.dA .aE1{--ry:-32deg;animation-delay:.15s;width:21%!important;z-index:2}.dA .aE5{--ry:-32deg;animation-delay:.55s;width:21%!important;z-index:2}
+.dA .aE2{--ry:-27deg;animation-delay:.25s;width:24%!important;z-index:3}.dA .aE4{--ry:-27deg;animation-delay:.45s;width:24%!important;z-index:3}
+.dA .aE3{--ry:-20deg;animation-delay:.35s;width:29%!important;z-index:4}
 @keyframes aSube{from{opacity:0;translate:0 60px}to{opacity:1;translate:0 0}}
 .dA .aBalda{height:16px;margin:0 -2%;border-radius:3px;background:linear-gradient(180deg,#FFD7AE 0,#FF8A2B 22%,#7a3a08 100%);box-shadow:0 0 60px 8px rgba(255,138,43,.35),0 30px 60px rgba(0,0,0,.6);position:relative;z-index:3}
 .dA .aBalda::after{content:"";position:absolute;left:4%;right:4%;top:100%;height:120px;background:radial-gradient(60% 100% at 50% 0,rgba(255,138,43,.22),transparent 70%);pointer-events:none}
