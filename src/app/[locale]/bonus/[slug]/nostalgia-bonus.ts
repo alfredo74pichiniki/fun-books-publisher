@@ -25,7 +25,7 @@ export const NOSTALGIA_BONUSES: Record<string, NostalgiaBonus> = {
         slug: 'nostalgia-word-search',
         title: '100 More Nostalgia Word Searches',
         subtitle: '100 new large print puzzles that are not in the book, each with its own hidden trivia answer',
-        pdf: '/downloads/nostalgia-word-search-bonus.pdf',
+        pdf: '/downloads/nostalgia-word-search-bonus-c28e0718b54e4f97.pdf',
         cover: '/covers/nostalgia-word-search/bonus-puzzle.jpg',
         pages: 114,
         size: '1.8 MB',

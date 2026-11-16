@@ -25,7 +25,7 @@ export const WHO_WAS_WHERE_BONUSES: Record<string, WhoWasWhereBonus> = {
         slug: 'who-was-where',
         title: 'Murder in Every Room: Bonus Cases',
         subtitle: '3 extra cases that are not in the book, one on each floor',
-        pdf: '/downloads/who-was-where-bonus.pdf',
+        pdf: '/downloads/who-was-where-bonus-4ce10bc7893872b3.pdf',
         cover: '/covers/who-was-where/bonus-cases.jpg',
         pages: 13,
         size: '0.6 MB',

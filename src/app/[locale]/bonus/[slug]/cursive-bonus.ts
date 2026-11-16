@@ -23,7 +23,7 @@ export const CURSIVE_BONUSES: Record<string, CursiveBonus> = {
         slug: 'cursive-workbook',
         title: 'Your Cursive Bonus Pack',
         subtitle: 'Printable practice pages that are not in the book, from Pencie and Fun Books Publisher',
-        pdf: '/downloads/cursive-workbook-bonus.pdf',
+        pdf: '/downloads/cursive-workbook-bonus-7015c36f61c9da9f.pdf',
         cover: '/covers/cursive-workbook/bonus-pack.jpg',
         pages: 22,
         size: '2.9 MB',

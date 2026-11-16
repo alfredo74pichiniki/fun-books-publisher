@@ -25,7 +25,7 @@ export const STATES_BONUSES: Record<string, StatesBonus> = {
         slug: '50-states-road-trip',
         title: '50 State Flashcards',
         subtitle: 'Printable cards that are not in the book: the shape of each state on the front, its facts on the back',
-        pdf: '/downloads/50-states-flashcards-bonus.pdf',
+        pdf: '/downloads/50-states-flashcards-bonus-573fc04badfea10b.pdf',
         cover: '/covers/50-states-road-trip/bonus-cards.jpg',
         pages: 20,
         size: '0.7 MB',

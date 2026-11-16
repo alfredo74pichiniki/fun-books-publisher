@@ -14,7 +14,6 @@ export function Cabecera({ l }: { l: Loc }) {
             </Link>
             <nav aria-label={t.menu} className="aNav">
                 <Link href="/books">{t.libros}</Link>
-                <Link href="/#gifts">{t.regalos}</Link>
                 <Link href="/about">{t.sobre}</Link>
                 <Link href="/" locale={l === 'es' ? 'en' : 'es'} lang={l === 'es' ? 'en' : 'es'} className="aIdioma">
                     {t.otroIdioma}

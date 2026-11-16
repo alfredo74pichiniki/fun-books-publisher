@@ -116,7 +116,7 @@ export const T = {
         idiomaEn: 'English',
         idiomaEs: 'Spanish',
         formato: { paperback: 'Paperback', hardcover: 'Hardcover', kindle: 'Kindle' },
-        regaloCaja: 'This book has a free printable gift. The QR code is inside the book.',
+        regaloCaja: 'This book comes with a free printable gift for its readers. Scan the QR code at the back of the book.',
         portadaDe: (t: string) => `Cover of ${t}`,
     },
     es: {
@@ -189,7 +189,7 @@ export const T = {
         idiomaEn: 'Inglés',
         idiomaEs: 'Español',
         formato: { paperback: 'Tapa blanda', hardcover: 'Tapa dura', kindle: 'Kindle' },
-        regaloCaja: 'Este libro trae un regalo gratis para imprimir. El código QR está dentro del libro.',
+        regaloCaja: 'Este libro trae un regalo para imprimir para sus lectores. Escanee el código QR del final del libro.',
         portadaDe: (t: string) => `Portada de ${t}`,
     },
 } as const;

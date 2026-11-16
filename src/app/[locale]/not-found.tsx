@@ -14,11 +14,10 @@ export default function NotFound() {
             <main id="main" tabIndex={-1} className="a404">
                 <p className="aEyebrow">Page not found</p>
                 <h1>This page is not on the shelf.</h1>
-                <p>The address may have changed. All our books and their free gifts are one click away.</p>
-                <p lang="es">Esta página no existe. Todos los libros y sus regalos están a un clic.</p>
+                <p>The address may have changed. All our books are one click away.</p>
+                <p lang="es">Esta página no existe. Todos los libros están a un clic.</p>
                 <div className="aAcc">
                     <Link className="aBtn" href="/books">See all books</Link>
-                    <Link className="aBtn aBtnL" href="/#gifts">Find your free gift</Link>
                 </div>
             </main>
         </div>

@@ -77,7 +77,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["mandala", "monochrome", "coloring book", "stress relief", "adult coloring"],
     sortOrder: 1,
-    bonusPdf: "/downloads/monochrome-mandala.pdf",
+    bonusPdf: "/downloads/monochrome-mandala-60942847bc43c05e.pdf",
     coverRatio: "1/1",
   },
   {
@@ -105,7 +105,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["monochrome", "coloring book", "art therapy", "creative"],
     sortOrder: 2,
-    bonusPdf: "/downloads/ink-bliss.pdf",
+    bonusPdf: "/downloads/ink-bliss-5139755f61646e98.pdf",
   },
   {
     id: "negative-space-animals",
@@ -132,7 +132,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["negative space", "animals", "coloring book", "one color"],
     sortOrder: 3,
-    bonusPdf: "/downloads/animal-collection.pdf",
+    bonusPdf: "/downloads/animal-collection-ca772f0f5c7e7224.pdf",
   },
   {
     id: "cozy-escapes",
@@ -159,7 +159,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["cozy escapes", "cottage", "hygge", "monochrome", "coloring book", "black and white", "stress relief", "one color"],
     sortOrder: 4,
-    bonusPdf: "/downloads/cozy-escapes.pdf",
+    bonusPdf: "/downloads/cozy-escapes-15a35579cfea3392.pdf",
   },
   {
     id: "cottagecore-homestead",
@@ -186,7 +186,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["cottagecore", "homestead", "monochrome", "coloring book", "rustic", "country living", "one color", "art therapy"],
     sortOrder: 5,
-    bonusPdf: "/downloads/cottagecore-homestead.pdf",
+    bonusPdf: "/downloads/cottagecore-homestead-59b809dbebd1c6bb.pdf",
   },
   {
     id: "tattoo-flash",
@@ -213,7 +213,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["tattoo", "flash", "blackwork", "old school", "neo traditional"],
     sortOrder: 5,
-    bonusPdf: "/downloads/tattoo-flash.pdf",
+    bonusPdf: "/downloads/tattoo-flash-c68fa59bc90833b2.pdf",
   },
   {
     id: "black-white-art-therapy",
@@ -240,7 +240,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["monochrome", "art therapy", "mixed illustrations", "abstract", "figurative", "stress relief", "one color", "black and white"],
     sortOrder: 19,
-    bonusPdf: "/downloads/power-of-black-and-white.pdf",
+    bonusPdf: "/downloads/power-of-black-and-white-c136e2d14f94e24d.pdf",
   },
 
   {
@@ -268,7 +268,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["botanicals", "nature", "flowers", "coloring book", "one color", "monochrome"],
     sortOrder: 6,
-    bonusPdf: "/downloads/botanicals.pdf",
+    bonusPdf: "/downloads/botanicals-45f67d638578a68a.pdf",
   },
 
   // ============ OTHER COLORING (3) ============
@@ -323,7 +323,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["zen", "mandala", "serenity", "meditation", "coloring"],
     sortOrder: 7,
-    bonusPdf: "/downloads/zen-mandalas.pdf",
+    bonusPdf: "/downloads/zen-mandalas-4ca06df829d37b9b.pdf",
   },
   {
     id: "christmas-santa",
@@ -621,7 +621,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["blood pressure", "log book", "large print", "seniors", "health tracker"],
     sortOrder: 18,
-    bonusPdf: "/downloads/blood-pressure-log-book.pdf",
+    bonusPdf: "/downloads/blood-pressure-log-book-cb3f81b8caef2b2d.pdf",
   },
 
   // ============ NEW — SPOOKY KAWAII ============
@@ -650,7 +650,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["spooky kawaii", "halloween coloring book", "kawaii coloring", "cute halloween", "monochrome", "black and white", "one color", "adults teens"],
     sortOrder: 18,
-    bonusPdf: "/downloads/spooky-kawaii-bonus.pdf",
+    bonusPdf: "/downloads/spooky-kawaii-bonus-e13a7779d47a8ea4.pdf",
   },
 
   // ============ NEW — WITCHY CELESTIAL ============
@@ -679,7 +679,7 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["witchy coloring book", "celestial coloring", "monochrome", "tarot coloring", "moon phases", "black and white", "one color", "gothic art therapy"],
     sortOrder: 19,
-    bonusPdf: "/downloads/witchy-celestial-bonus.pdf",
+    bonusPdf: "/downloads/witchy-celestial-bonus-3bdc53dcbed2ba1e.pdf",
   },
 
   // ============ NEW — OCEAN ANIMALS (kids activity book) ============
@@ -708,6 +708,6 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["ocean animals", "activity book for kids", "no screen", "puzzles", "coloring", "mazes", "word search", "ages 8-12", "sea creatures"],
     sortOrder: 20,
-    bonusPdf: "/downloads/ocean-fantasy-bonus.pdf",
+    bonusPdf: "/downloads/ocean-fantasy-bonus-9b9e12c7f65bcf62.pdf",
   },
 ];

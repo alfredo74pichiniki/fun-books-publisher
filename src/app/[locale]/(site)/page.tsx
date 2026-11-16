@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
-import { alDia, cargarCatalogo, ORDEN, porFamilia, recientes } from '@/catalogo/cargar';
+import { alDia, cargarCatalogo, porFamilia, recientes } from '@/catalogo/cargar';
 import type { Catalogo, Libro } from '@/catalogo/tipos';
 import { Carrusel } from '@/sitio/Carrusel';
 import { Libro3d, Portada } from '@/sitio/Libro';
@@ -28,14 +28,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // Hand-picked for the shelf in the window and the lamp (Alfredo, 16 nov 2026: the best sellers and a mix of lines,
 // Botanicals in the middle). If a book leaves the catalog it simply drops out.
+// One book per series, never two of the same line. Christmas until the holidays are over (then swap it).
 const ESCAPARATE = [
     'B0DH3Q9XN6', // Ejercicios de Memoria, volume 1
     'B0DTQ2K31D', // How to Use a Compass for Kids
     'B0FSZ9V9MS', // Black & White Cozy Escapes
     'B0HK7Y38KM', // Color by Number Mysteries: Botanicals (centre, largest)
-    'B0HK7WHK1G', // Color by Number Mysteries: Cozy Escapes
+    'B0HN5J3F5J', // Cross Out the Killer 1: Murder at the Antiques Fair
     'B0HPFW7XQV', // Nostalgia Word Search for Seniors
-    'B0HR1WQ4Q4', // Birthday Trivia for Seniors
+    'B0DKSC5QTL', // Christmas Santa Claus Coloring Book (seasonal)
 ];
 const FOCO = ['B0FSZ9V9MS', 'B0HP7XF291', 'B0HR1WQ4Q4', 'B0HRQDD5Q4', 'B0DH3Q9XN6', 'B0DTQ2K31D'];
 
@@ -52,7 +53,6 @@ export default async function Home({ params }: Props) {
     const foco = elegir(c, FOCO);
     const nuevos = recientes(c, 6);
     const cbn = porFamilia(c, 'color-by-number');
-    const conRegalo = ORDEN.flatMap((f) => porFamilia(c, f)).filter((x) => x.regalo);
     const estantes = grupos(c, l);
     // "Updates itself" is only said while it is true: the catalog came from the live store less than 48 hours ago.
     const actualizado = alDia(c);
@@ -65,7 +65,6 @@ export default async function Home({ params }: Props) {
                     <p>{t.heroTexto}</p>
                     <div className="aAcc">
                         <Link className="aBtn" href="/books">{t.verLibros}</Link>
-                        <a className="aBtn aBtnL" href="#gifts">{t.escaneeQR}</a>
                     </div>
                 </div>
                 <div className="aEscaparate">
@@ -196,25 +195,6 @@ export default async function Home({ params }: Props) {
                         </div>
                     );
                 })}
-            </section>
-
-            <section id="gifts" className="aRegalos" aria-labelledby="a-regalos">
-                <div className="aRegalosIn">
-                <div className="aRegalosT">
-                    <h2 id="a-regalos">{t.regalosTitulo}</h2>
-                    <p>{t.regalosTexto}</p>
-                </div>
-                <ul>
-                    {conRegalo.map((x) => (
-                        <li key={x.asin}>
-                            <Link href={`/bonus/${x.regalo}`}>
-                                <Portada libro={x} sizes="56px" />
-                                <span lang={x.idioma}>{x.nombre}</span>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-                </div>
             </section>
 
             <section className="aOtro" aria-labelledby="a-otro" lang={l === 'es' ? 'en' : 'es'}>

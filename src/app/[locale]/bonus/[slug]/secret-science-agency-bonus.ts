@@ -34,7 +34,7 @@ export const SECRET_SCIENCE_BONUSES: Record<string, SecretScienceBonus> = {
         book: 'Secret Science Agency: Logic Puzzles for Teens and Middle Schoolers',
         title: 'Bonus Mission Pack',
         subtitle: 'Ten extra missions for agents who finished the book, or who just want more. Missions 81 to 90',
-        pdf: '/downloads/secret-science-agency-bonus-missions.pdf',
+        pdf: '/downloads/secret-science-agency-bonus-missions-082b7b649fd79a73.pdf',
         preview: '/covers/secret-science-agency/bonus-pack.jpg',
         bookCover: '/covers/secret-science-agency/book-cover.jpg',
         pages: 26,

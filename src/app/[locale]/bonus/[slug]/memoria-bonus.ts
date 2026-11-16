@@ -28,7 +28,7 @@ export const MEMORIA_BONUSES: Record<string, MemoriaBonus> = {
         title: '100 pasatiempos para imprimir',
         subtitle:
             'Sopas de letras, crucigramas, laberintos, anagramas y sudokus que no están en el libro, con todas las soluciones al final',
-        pdf: '/downloads/ejercicios-memoria-regalo.pdf',
+        pdf: '/downloads/ejercicios-memoria-regalo-250f5af46e557380.pdf',
         cover: '/covers/ejercicios-memoria/regalo.jpg',
         pages: 158,
         size: '2,2 MB',
@@ -59,7 +59,7 @@ export const MEMORIA_BONUSES: Record<string, MemoriaBonus> = {
         title: 'Mi libro de vida y 20 ejercicios fáciles',
         subtitle:
             'Hojas para imprimir en casa que no están en el libro: recuerdos, recetas y consejos para rellenar juntos, y 20 ejercicios de una estrella',
-        pdf: '/downloads/ejercicios-memoria-2-regalo.pdf',
+        pdf: '/downloads/ejercicios-memoria-2-regalo-37d8eba0a6cf8e3c.pdf',
         cover: '/covers/ejercicios-memoria-2/regalo.jpg',
         pages: 40,
         size: '100 KB',

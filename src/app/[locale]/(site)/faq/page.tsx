@@ -22,7 +22,7 @@ const PREGUNTAS = {
     en: [
         ['Where can I buy your books?', 'On Amazon. Every book is printed, sold and shipped by Amazon. Each book page on this site has a button that opens it on Amazon.'],
         ['Are they paperbacks, Kindle or hardcover?', 'Almost all are paperbacks, made to be used with a pen or pencil. A few also have a Kindle or a hardcover edition: the book page lists the formats Amazon has.'],
-        ['How do I get the free gift of my book?', 'Scan the QR code near the end of your book, or pick your book under "Free gifts" on the home page. The gift is a PDF you print at home. No sign-up and no email.'],
+        ['How do I get the free gift of my book?', 'Scan the QR code near the end of your book, or type the address printed under it. The gift is a PDF you print at home, for readers of that book. No sign-up and no email.'],
         ['Can I return a book?', 'Returns and refunds go through Amazon, under Amazon\'s return policy. Start the return from your Amazon orders page.'],
         ['Do you have books in Spanish?', 'Yes: memory exercises, word searches and puzzle books in Spanish, in large print for seniors.'],
         ['Are the books for seniors in large print?', 'Yes. The word searches, trivia, memory and mystery books made for seniors say "Large Print" on the cover and are set in large, clear type.'],
@@ -31,7 +31,7 @@ const PREGUNTAS = {
     es: [
         ['¿Dónde se compran sus libros?', 'En Amazon. Amazon imprime, vende y envía todos los libros. Cada ficha de esta web tiene un botón que abre el libro en Amazon.'],
         ['¿Son de tapa blanda, Kindle o tapa dura?', 'Casi todos son de tapa blanda, pensados para usar con bolígrafo o lápiz. Algunos tienen además versión Kindle o tapa dura: la ficha de cada libro dice los formatos que tiene Amazon.'],
-        ['¿Cómo consigo el regalo de mi libro?', 'Escanee el código QR de las últimas páginas del libro, o elija su libro en "Regalos" en la portada. El regalo es un PDF para imprimir en casa. Sin registro y sin correo.'],
+        ['¿Cómo consigo el regalo de mi libro?', 'Escanee el código QR de las últimas páginas del libro, o escriba la dirección impresa debajo. El regalo es un PDF para imprimir en casa, para los lectores de ese libro. Sin registro y sin correo.'],
         ['¿Puedo devolver un libro?', 'Las devoluciones las gestiona Amazon, con su política de devoluciones. Empiece la devolución desde sus pedidos de Amazon.'],
         ['¿Tienen libros en español?', 'Sí: ejercicios de memoria, sopas de letras y pasatiempos en español, en letra grande para personas mayores.'],
         ['¿Los libros para mayores son de letra grande?', 'Sí. Las sopas de letras, la trivia, los ejercicios de memoria y los misterios para mayores lo dicen en la portada ("Large Print" o "Letra grande").'],

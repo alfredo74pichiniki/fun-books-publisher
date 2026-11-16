@@ -97,7 +97,6 @@ export default async function LibroPage({ params }: Props) {
                     {libro.regalo && (
                         <div className="aRegaloCaja">
                             <p>{t.regaloCaja}</p>
-                            <Link className="aBtn aBtnS" href={`/bonus/${libro.regalo}`}>{t.verRegalo}</Link>
                         </div>
                     )}
                 </div>
