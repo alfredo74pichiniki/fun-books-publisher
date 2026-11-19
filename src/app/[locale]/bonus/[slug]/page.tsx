@@ -29,6 +29,9 @@ import { BirthdayTriviaLanding } from './BirthdayTriviaLanding';
 // CRITICAL once on sale: printed as a QR on page 170 of "Secret Science Agency" (book 08, logic puzzles for ages 11-14)
 import { SECRET_SCIENCE_BONUSES, SECRET_SCIENCE_SLUGS } from './secret-science-agency-bonus';
 import { SecretScienceLanding } from './SecretScienceLanding';
+// CRITICAL once on sale: printed as a QR on the gift page of "One Clue Is a Lie", Case 1 (6 x 9 saga, book 1)
+import { ONE_CLUE_BONUSES, ONE_CLUE_SLUGS } from './one-clue-bonus';
+import { OneClueLanding } from './OneClueLanding';
 
 type Props = {
     params: Promise<{ locale: string; slug: string }>;
@@ -87,6 +90,10 @@ export function generateStaticParams() {
         params.push({ slug });
     }
 
+    for (const slug of ONE_CLUE_SLUGS) {
+        params.push({ slug });
+    }
+
     return params;
 }
 
@@ -110,7 +117,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const xo = CROSS_OUT_BONUSES[slug];
     if (xo) {
-        const lede = `A printable bonus case, "${xo.name}", for readers of Cross Out the Killer, Book ${xo.book}.`;
+        const lede = `A bonus case, "${xo.name}", for readers of Cross Out the Killer, Book ${xo.book}.`;
         return {
             title: `Bonus Case: ${xo.name} | Fun Books Publisher`,
             description: lede,
@@ -229,6 +236,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
+    const oc = ONE_CLUE_BONUSES[slug];
+    if (oc) {
+        const lede = `A bonus case, "${oc.name}: ${oc.caseTitle}", for readers of One Clue Is a Lie, Case ${oc.caseNumber}: ${oc.bookTitle}.`;
+        return {
+            title: `Bonus Case: ${oc.name} | One Clue Is a Lie | Fun Books Publisher`,
+            description: lede,
+            openGraph: {
+                title: `Bonus Case: ${oc.name}`,
+                description: lede,
+                images: [oc.cover],
+                type: 'website',
+            },
+            robots: { index: false, follow: false },
+        };
+    }
+
     const book = getBookBySlugOrAlias(slug);
 
     if (!book || !book.bonusPdf) {
@@ -296,6 +319,11 @@ export default async function BonusPage({ params }: Props) {
     const ssBonus = SECRET_SCIENCE_BONUSES[slug];
     if (ssBonus) {
         return <SecretScienceLanding bonus={ssBonus} />;
+    }
+
+    const ocBonus = ONE_CLUE_BONUSES[slug];
+    if (ocBonus) {
+        return <OneClueLanding bonus={ocBonus} />;
     }
 
     // Resolve slug directly — works with canonical IDs AND old aliases
