@@ -54,7 +54,7 @@ export const ONE_CLUE_BONUSES: Record<string, OneClueBonus> = {
         caseTitle: 'Waverley Station, one month later',
         pdf: '/downloads/one-clue-is-a-lie-2-the-couriers-satchel-e8baa7d388f4a209.pdf',
         cover: '/covers/one-clue/the-couriers-satchel.jpg',
-        pages: 18,
+        pages: 27,
         size: '0.6 MB',
         lede: 'A month after closing night, the luggage storage office at the railroad station below the castle opens a bag that nobody came back for. The tag on its strap says L. DREY. Lucian Drey had one delivery left. You open it with the pages of your own copy of Case 2.',
         inside: [
