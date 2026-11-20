@@ -29,7 +29,7 @@ import { BirthdayTriviaLanding } from './BirthdayTriviaLanding';
 // CRITICAL once on sale: printed as a QR on page 170 of "Secret Science Agency" (book 08, logic puzzles for ages 11-14)
 import { SECRET_SCIENCE_BONUSES, SECRET_SCIENCE_SLUGS } from './secret-science-agency-bonus';
 import { SecretScienceLanding } from './SecretScienceLanding';
-// CRITICAL once on sale: printed as a QR on the gift page of "One Clue Is a Lie", Case 1 (6 x 9 saga, book 1)
+// CRITICAL once on sale: printed as a QR on the gift page of "One Clue Is a Lie", Case 1 and Case 2 (6 x 9 saga)
 import { ONE_CLUE_BONUSES, ONE_CLUE_SLUGS } from './one-clue-bonus';
 import { OneClueLanding } from './OneClueLanding';
 
@@ -238,12 +238,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const oc = ONE_CLUE_BONUSES[slug];
     if (oc) {
-        const lede = `A bonus case, "${oc.name}: ${oc.caseTitle}", for readers of One Clue Is a Lie, Case ${oc.caseNumber}: ${oc.bookTitle}.`;
+        const lede = `${oc.kind ?? 'A bonus case'}, "${oc.name}: ${oc.caseTitle}", for readers of One Clue Is a Lie, Case ${oc.caseNumber}: ${oc.bookTitle}.`;
+        const label = oc.kicker ? `${oc.kicker} ${oc.name}` : `Bonus Case: ${oc.name}`;
         return {
-            title: `Bonus Case: ${oc.name} | One Clue Is a Lie | Fun Books Publisher`,
+            title: `${label} | One Clue Is a Lie | Fun Books Publisher`,
             description: lede,
             openGraph: {
-                title: `Bonus Case: ${oc.name}`,
+                title: label,
                 description: lede,
                 images: [oc.cover],
                 type: 'website',

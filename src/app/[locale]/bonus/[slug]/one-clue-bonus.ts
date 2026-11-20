@@ -17,6 +17,13 @@ export type OneClueBonus = {
     size: string;
     lede: string;
     inside: string[];
+    // Optional, added for Case 2 (an "extra file", not a "bonus case"). When absent, the Case 1 page renders as before.
+    kicker?: string; // small line above the title, e.g. 'One More File:'
+    kind?: string; // metadata wording, default 'A bonus case'
+    stamp?: string; // default `Bonus case · Case N`
+    cta?: string; // default 'Download the bonus case'
+    books?: { caseNumber: number; title: string; note: string }[]; // default: only this case's book
+    review?: { text: string; asin?: string }; // neutral review request, shown after the download; link only with an ASIN
 };
 
 export const ONE_CLUE_BONUSES: Record<string, OneClueBonus> = {
@@ -36,6 +43,44 @@ export const ONE_CLUE_BONUSES: Record<string, OneClueBonus> = {
             'A Witness Room with twelve statements, the morning\'s records and a Witness Check Table, then twelve clues with checkpoints by card range',
             'The case files, three tests, hints in three steps and a three-step Verdict Code to check your answer, with no spoilers',
         ],
+    },
+    // Printed as a QR on the gift page of Case 2 (after the epilogue). Approved gift: "The Courier's Satchel" (19 nov 2026).
+    // No spoilers of Case 2 here: no killer, no forged paper, no solution of the file.
+    'one-clue-is-a-lie-2': {
+        slug: 'one-clue-is-a-lie-2',
+        caseNumber: 2,
+        bookTitle: 'Murder on the Last Night in Edinburgh',
+        name: 'The Courier\'s Satchel',
+        caseTitle: 'Waverley Station, one month later',
+        pdf: '/downloads/one-clue-is-a-lie-2-the-couriers-satchel-e8baa7d388f4a209.pdf',
+        cover: '/covers/one-clue/the-couriers-satchel.jpg',
+        pages: 18,
+        size: '0.6 MB',
+        lede: 'A month after closing night, the luggage storage office at the railroad station below the castle opens a bag that nobody came back for. The tag on its strap says L. DREY. Lucian Drey had one delivery left. You open it with the pages of your own copy of Case 2.',
+        inside: [
+            'Nothing to print: you play it with your copy of Case 2, on its Ticket Register and its Plan of the Castle Esplanade, with a pencil and a notepad',
+            'Three locks, each one opening the next: the Number Card, the Directions (one step is not what it seems) and the Delivery Code, checked in a Delivery Table',
+            'A card for Case 1 detectives only, read with the Key Card Register of your copy of Case 1, hints in three levels, from a nudge to the full answer, and a sealed envelope at the end',
+        ],
+        kicker: 'One More File:',
+        kind: 'An extra file',
+        stamp: 'Extra file · Case 2',
+        cta: 'Download the extra file',
+        books: [
+            {
+                caseNumber: 2,
+                title: 'Murder on the Last Night in Edinburgh',
+                note: 'You need your copy: this file is played on its Ticket Register and its Plan of the Castle Esplanade',
+            },
+            {
+                caseNumber: 1,
+                title: 'Murder on the Last Night at Sea',
+                note: 'Keep it nearby if you played it: the card for Case 1 detectives only is read on its Key Card Register',
+            },
+        ],
+        review: {
+            text: 'Closed the file? If you have a minute, an honest review of the book on Amazon, whatever you thought of it, helps other detectives decide.',
+        },
     },
 };
 

@@ -51,9 +51,12 @@ export function OneClueLanding({ bonus: BONUS }: { bonus: OneClueBonus }) {
                 <p className={`oc-brand ${typewriter.className}`}>Fun Books Publisher</p>
 
                 <header className="oc-hero">
-                    <p className={`oc-stamp ${display.className}`}>Bonus case · Case {BONUS.caseNumber}</p>
+                    <p className={`oc-stamp ${display.className}`}>{BONUS.stamp ?? <>Bonus case · Case {BONUS.caseNumber}</>}</p>
                     <p className={`oc-found ${typewriter.className}`}>You found it, detective.</p>
-                    <h1 className={`oc-title ${display.className}`}>{BONUS.name}</h1>
+                    <h1 className={`oc-title ${display.className}`}>
+                        {BONUS.kicker && <span className="oc-kicker">{BONUS.kicker} </span>}
+                        {BONUS.name}
+                    </h1>
                     <p className="oc-case">{BONUS.caseTitle}</p>
                     <p className="oc-lede">{BONUS.lede}</p>
                 </header>
@@ -77,7 +80,7 @@ export function OneClueLanding({ bonus: BONUS }: { bonus: OneClueBonus }) {
                         download
                         onClick={() => track('bonus_download', { book: BONUS.slug })}
                     >
-                        Download the bonus case
+                        {BONUS.cta ?? 'Download the bonus case'}
                     </a>
                     <p className="oc-meta">
                         Free PDF, {BONUS.pages} pages, {BONUS.size}. No sign-up. Read it on a phone, a tablet or a computer: nothing to print. Open it only after CASE CLOSED.
@@ -103,14 +106,35 @@ export function OneClueLanding({ bonus: BONUS }: { bonus: OneClueBonus }) {
 
                 <section className="oc-series">
                     <h2 className={`oc-h2 ${display.className}`}>The One Clue Is a Lie saga</h2>
-                    <div className="oc-book">
-                        <span className={`oc-level ${display.className}`}>Case {BONUS.caseNumber}</span>
-                        <span className="oc-book-text">
-                            <span className="oc-book-name">{BONUS.bookTitle}</span>
-                            <span className="oc-book-note">You need your copy: this case is played on its Key Card Register</span>
-                        </span>
-                    </div>
+                    {(BONUS.books ?? [{
+                        caseNumber: BONUS.caseNumber,
+                        title: BONUS.bookTitle,
+                        note: 'You need your copy: this case is played on its Key Card Register',
+                    }]).map((b) => (
+                        <div className="oc-book" key={b.caseNumber}>
+                            <span className={`oc-level ${display.className}`}>Case {b.caseNumber}</span>
+                            <span className="oc-book-text">
+                                <span className="oc-book-name">{b.title}</span>
+                                <span className="oc-book-note">{b.note}</span>
+                            </span>
+                        </div>
+                    ))}
                 </section>
+
+                {BONUS.review && (
+                    <section className="oc-review" aria-label="Reviews">
+                        <p>{BONUS.review.text}</p>
+                        {BONUS.review.asin && (
+                            <a
+                                className="oc-review-link"
+                                href={`https://www.amazon.com/review/create-review?asin=${BONUS.review.asin}`}
+                                rel="noopener"
+                            >
+                                Write a review on Amazon
+                            </a>
+                        )}
+                    </section>
+                )}
 
                 <footer className="oc-foot">
                     <p className={typewriter.className}>Happy sleuthing.</p>
@@ -138,6 +162,7 @@ box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 4px var(--sea);animation:oc-
 @keyframes oc-stamp{0%{transform:rotate(-3deg) scale(1.9);opacity:0}100%{transform:rotate(-3deg) scale(1);opacity:1}}
 .oc-found{margin:0 0 6px;font-size:18px;color:var(--muted)}
 .oc-title{margin:0;font-size:clamp(52px,15vw,88px);line-height:.92;letter-spacing:.01em;text-transform:uppercase}
+.oc-kicker{display:block;margin:0 0 4px;font-size:clamp(28px,7.5vw,42px);color:var(--sea);letter-spacing:.04em}
 .oc .oc-case{margin:8px 0 0;font-size:21px;font-weight:700;color:var(--sea)}
 .oc .oc-lede{margin:16px auto 0;max-width:33em;font-size:18px;line-height:1.6;color:#262C35}
 
@@ -177,6 +202,11 @@ display:flex;align-items:center;justify-content:center;font-size:20px;line-heigh
 .oc-book-text{display:flex;flex-direction:column}
 .oc-book-name{font-size:17px;font-weight:700;line-height:1.3}
 .oc-book-note{font-size:15px;color:var(--muted)}
+
+.oc-review{margin:40px 0 0;padding:18px 20px;border:1.5px dashed var(--rule);border-radius:12px;text-align:center}
+.oc .oc-review p{margin:0;font-size:16px;line-height:1.55;color:var(--muted)}
+.oc-review-link{display:inline-block;margin-top:10px;color:var(--sea);font-weight:700;text-underline-offset:3px}
+.oc-review-link:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
 
 .oc-foot{margin:54px 0 0;padding-top:22px;border-top:2px solid var(--ink)}
 .oc-foot p{margin:0;font-size:18px}
