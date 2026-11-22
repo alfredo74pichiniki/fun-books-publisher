@@ -350,6 +350,9 @@ export const BOOKS: Book[] = [
     reviewCount: 0,
     keywords: ["christmas", "santa claus", "holiday", "coloring book"],
     sortOrder: 8,
+    // CRITICAL once the renewed interior (nov 2026) is on sale: printed as a QR on page 107 of the book.
+    // The old printing points to a Google Drive file, which stays as it is for those buyers.
+    bonusPdf: "/downloads/christmas-santa-coloring-book-bonus-pack-ec98251f09957a7a.pdf",
   },
 
   // ============ PUZZLES & ACTIVITY (2) ============
