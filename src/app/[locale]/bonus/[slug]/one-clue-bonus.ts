@@ -82,6 +82,50 @@ export const ONE_CLUE_BONUSES: Record<string, OneClueBonus> = {
             text: 'Closed the file? If you have a minute, an honest review of the book on Amazon, whatever you thought of it, helps other detectives decide.',
         },
     },
+    // Printed as a QR on the gift page of Case 3 (after the epilogue and the ledger). Approved gift: "The Paymaster's
+    // Ledger: The Back Pages" (23 nov 2026), an audit of payments played on the Ferry Manifest and the plan of Case 3.
+    // No spoilers here: no killer, no liar, no solution of the file.
+    'one-clue-is-a-lie-3': {
+        slug: 'one-clue-is-a-lie-3',
+        caseNumber: 3,
+        bookTitle: 'Murder on the Last Night in New York',
+        name: "The Paymaster's Ledger: The Back Pages",
+        caseTitle: "New York, one week after New Year's Eve",
+        pdf: '/downloads/one-clue-is-a-lie-3-the-back-pages-169cd2a8cf545424.pdf',
+        cover: '/covers/one-clue/the-back-pages.jpg',
+        pages: 32,
+        size: '0.6 MB',
+        lede: "A week after New Year's Eve, a padded envelope reaches Chief Penhallow. Ambrose Tull mailed it on the morning of December 31, in case he did not make it to a quarter past midnight. Inside are the back pages of his ledger, and a secret he kept from the Paymaster for eleven years. You audit them with the pages of your own copy of Case 3.",
+        inside: [
+            'Nothing to print: you play it with your copy of Case 3, on its Ferry Manifest and its Plan of Governors Island, with a pencil and a notepad',
+            'Three locks, each one opening the next: the Ghosts (six of the thirty people paid do not exist), Tull\'s Walk (one envelope was never collected) and the Combination, checked in an Audit Table',
+            'A page for Case 1 detectives and a page for Case 2 detectives, hints in three levels, from a nudge to the full answer, and what Tull left where his walk ended',
+        ],
+        kicker: 'One More File:',
+        kind: 'An extra file',
+        stamp: 'Extra file · Case 3',
+        cta: 'Download the extra file',
+        books: [
+            {
+                caseNumber: 3,
+                title: 'Murder on the Last Night in New York',
+                note: 'You need your copy: this file is played on its Ferry Manifest and its Plan of Governors Island',
+            },
+            {
+                caseNumber: 2,
+                title: 'Murder on the Last Night in Edinburgh',
+                note: 'Keep it nearby if you played it: the page for Case 2 detectives is read on its Ticket Register',
+            },
+            {
+                caseNumber: 1,
+                title: 'Murder on the Last Night at Sea',
+                note: 'Keep it nearby if you played it: the page for Case 1 detectives is read on its Key Card Register',
+            },
+        ],
+        review: {
+            text: 'Closed the file? If you have a minute, an honest review of the book on Amazon, whatever you thought of it, helps other detectives decide.',
+        },
+    },
 };
 
 export const ONE_CLUE_SLUGS = Object.keys(ONE_CLUE_BONUSES);
