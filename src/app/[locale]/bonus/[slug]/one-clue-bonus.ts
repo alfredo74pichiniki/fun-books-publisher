@@ -91,7 +91,7 @@ export const ONE_CLUE_BONUSES: Record<string, OneClueBonus> = {
         bookTitle: 'Murder on the Last Night in New York',
         name: "The Paymaster's Ledger: The Back Pages",
         caseTitle: "New York, one week after New Year's Eve",
-        pdf: '/downloads/one-clue-is-a-lie-3-the-back-pages-19b14c49906463bf.pdf',
+        pdf: '/downloads/one-clue-is-a-lie-3-the-back-pages-9cb5ea04dbd6ba02.pdf',
         cover: '/covers/one-clue/the-back-pages.jpg',
         pages: 34,
         size: '0.6 MB',
