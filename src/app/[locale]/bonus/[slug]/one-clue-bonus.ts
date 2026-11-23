@@ -91,9 +91,9 @@ export const ONE_CLUE_BONUSES: Record<string, OneClueBonus> = {
         bookTitle: 'Murder on the Last Night in New York',
         name: "The Paymaster's Ledger: The Back Pages",
         caseTitle: "New York, one week after New Year's Eve",
-        pdf: '/downloads/one-clue-is-a-lie-3-the-back-pages-8323915c538bf37f.pdf',
+        pdf: '/downloads/one-clue-is-a-lie-3-the-back-pages-19b14c49906463bf.pdf',
         cover: '/covers/one-clue/the-back-pages.jpg',
-        pages: 33,
+        pages: 34,
         size: '0.6 MB',
         lede: "A week after New Year's Eve, a padded envelope reaches Chief Penhallow. Ambrose Tull mailed it on the morning of December 31, in case he did not make it to a quarter past midnight. Inside are the back pages of his ledger, and a secret he kept from the Paymaster for eleven years. You audit them with the pages of your own copy of Case 3.",
         inside: [
