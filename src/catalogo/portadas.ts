@@ -12,7 +12,7 @@ export const PORTADAS_NITIDAS: Record<string, [number, number]> = {
     B0D95Q7D9Y: [900, 1165],
     B0DBJ3YJJS: [900, 1164],
     B0DH3Q9XN6: [760, 984],
-    B0DKSC5QTL: [900, 1165],
+    B0DKSC5QTL: [900, 1165], // 23 nov 2026: new cover (sleigh over the town), from the print PDF sent to KDP on 22 nov
     B0DTQ2K31D: [900, 1372],
     B0DZVMRMT6: [900, 1349],
     B0FKHCJSDY: [900, 1164],
