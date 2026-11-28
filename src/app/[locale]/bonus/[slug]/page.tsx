@@ -32,6 +32,9 @@ import { SecretScienceLanding } from './SecretScienceLanding';
 // CRITICAL once on sale: printed as a QR on the gift page of "One Clue Is a Lie", Case 1 and Case 2 (6 x 9 saga)
 import { ONE_CLUE_BONUSES, ONE_CLUE_SLUGS } from './one-clue-bonus';
 import { OneClueLanding } from './OneClueLanding';
+// CRITICAL once on sale: printed (address and QR) on the gift page of "Logic Grid Puzzles for Adults"
+import { LOGIC_GRID_BONUSES, LOGIC_GRID_SLUGS } from './logic-grid-bonus';
+import { LogicGridLanding } from './LogicGridLanding';
 
 type Props = {
     params: Promise<{ locale: string; slug: string }>;
@@ -91,6 +94,10 @@ export function generateStaticParams() {
     }
 
     for (const slug of ONE_CLUE_SLUGS) {
+        params.push({ slug });
+    }
+
+    for (const slug of LOGIC_GRID_SLUGS) {
         params.push({ slug });
     }
 
@@ -236,6 +243,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
+    const lg = LOGIC_GRID_BONUSES[slug];
+    if (lg) {
+        const lede = `${lg.name}: ${lg.subtitle.toLowerCase()}, a free bonus for readers of ${lg.book}.`;
+        return {
+            title: `${lg.name} | ${lg.book} | Fun Books Publisher`,
+            description: lede,
+            openGraph: {
+                title: lg.name,
+                description: lede,
+                images: [lg.cover],
+                type: 'website',
+            },
+            robots: { index: false, follow: false },
+        };
+    }
+
     const oc = ONE_CLUE_BONUSES[slug];
     if (oc) {
         const lede = `${oc.kind ?? 'A bonus case'}, "${oc.name}: ${oc.caseTitle}", for readers of One Clue Is a Lie, Case ${oc.caseNumber}: ${oc.bookTitle}.`;
@@ -320,6 +343,11 @@ export default async function BonusPage({ params }: Props) {
     const ssBonus = SECRET_SCIENCE_BONUSES[slug];
     if (ssBonus) {
         return <SecretScienceLanding bonus={ssBonus} />;
+    }
+
+    const lgBonus = LOGIC_GRID_BONUSES[slug];
+    if (lgBonus) {
+        return <LogicGridLanding bonus={lgBonus} />;
     }
 
     const ocBonus = ONE_CLUE_BONUSES[slug];
